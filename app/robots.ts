@@ -1,27 +1,21 @@
 import type { MetadataRoute } from "next";
+import { siteService } from "@/services/site.service";
 
-export default function robots(): MetadataRoute.Robots {
-  const siteUrl = "https://nflhub.store";
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const siteOrigin = await siteService.getRequestOrigin()
 
   return {
     rules: [
       {
         userAgent: "*",
         allow: "/",
-      },
-
-      // Ví dụ block admin
-      {
-        userAgent: "*",
         disallow: [
           "/admin",
-          "/api",
-          "/private",
         ],
       },
     ],
 
-    sitemap: `${siteUrl}/sitemap.xml`,
-    host: siteUrl,
+    sitemap: `${siteOrigin.url}/sitemap.xml`,
+    host: siteOrigin.url,
   };
 }
