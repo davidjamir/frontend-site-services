@@ -2,8 +2,6 @@ import type { Site } from "@/core/domain/site"
 import { cacheLife } from "next/cache"
 import { headers } from "next/headers"
 
-
-
 async function fetchSite(sitename: string, protocol: string) {
     // "use cache: private"
 

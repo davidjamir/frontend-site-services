@@ -19,7 +19,7 @@ export async function GET(request: Request) {
             canonicalUrl: `https://${sitename}`,
         },
         ads: {
-            adsTxt: "google.com, pub-1234567890, DIRECT, f08c47fec0942fa0",
+            adsTxt: "google.com, pub-1234567890, DIRECT, f08c47fec0942fa0 \ngoogle.com, pub-1234567890, DIRECT, f08c47fec0942fa0",
         },
     }
 
