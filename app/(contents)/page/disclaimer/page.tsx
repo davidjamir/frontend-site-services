@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
-import { useSite } from "@/hooks/use-site"
+import { siteService } from "@/services/site.service"
 
 export const metadata: Metadata = {
     title: 'Disclaimer',
 }
-export default function DisclaimerPage() {
-    const { site } = useSite()
-    const domain = site.host
+export default async function DisclaimerPage() {
+    const siteOrigin = await siteService.getRequestOrigin()
+    const domain = siteOrigin.host
 
     return (
         <main className="max-w-4xl mx-auto px-4 py-12">
