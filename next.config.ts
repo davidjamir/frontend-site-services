@@ -7,15 +7,16 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/rss",
-        destination: "/rss.xml",
+        destination: "/feed",
         permanent: true,
       },
 
       {
-        source: "/feed",
-        destination: "/rss.xml",
+        source: "/rss.xml",
+        destination: "/feed",
         permanent: true,
       },
+
     ];
   },
 };

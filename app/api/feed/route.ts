@@ -18,7 +18,7 @@ export async function GET(request: Request) {
       },
     );
   }
-  const url = new URL("/api/site", ADAPTER_API_ENDPOINT);
+  const url = new URL("/api/feed", ADAPTER_API_ENDPOINT);
   url.searchParams.set("domain", domain);
 
   const response = await fetch(url.toString(), {
@@ -31,5 +31,5 @@ export async function GET(request: Request) {
 
   const data = await response.json();
 
-  return NextResponse.json(data.site);
+  return NextResponse.json(data.items);
 }

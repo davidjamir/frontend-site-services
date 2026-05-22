@@ -2,8 +2,8 @@ import { ImageResponse } from "next/og";
 import { siteService } from "@/services/site.service";
 
 export const size = {
-    width: 32,
-    height: 32,
+    width: 180,
+    height: 180,
 };
 
 export const contentType = "image/png";

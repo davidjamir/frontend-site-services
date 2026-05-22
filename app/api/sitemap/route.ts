@@ -6,20 +6,29 @@ const ADAPTER_SECRET_TOKEN = process.env.ADAPTER_SECRET_TOKEN;
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const domain = searchParams.get("domain");
+  const id = searchParams.get("id");
 
-  if (!domain) {
+  if ((!domain && !id) || (domain && id)) {
     return Response.json(
       {
         ok: false,
-        error: "Require exactly one of domain",
+        error: "Require exactly one of domain or id",
       },
       {
         status: 400,
       },
     );
   }
-  const url = new URL("/api/site", ADAPTER_API_ENDPOINT);
-  url.searchParams.set("domain", domain);
+
+  const url = new URL("/api/sitemap", ADAPTER_API_ENDPOINT);
+
+  if (domain) {
+    url.searchParams.set("domain", domain);
+  }
+
+  if (id) {
+    url.searchParams.set("id", id);
+  }
 
   const response = await fetch(url.toString(), {
     method: "GET",
@@ -31,5 +40,5 @@ export async function GET(request: Request) {
 
   const data = await response.json();
 
-  return NextResponse.json(data.site);
+  return NextResponse.json(data.items);
 }

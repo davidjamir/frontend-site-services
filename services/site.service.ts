@@ -1,51 +1,63 @@
-import type { Site } from "@/core/domain/site"
-import { cacheLife } from "next/cache"
-import { headers } from "next/headers"
+import type { Site } from "@/core/domain/site";
+import { cacheLife } from "next/cache";
+import { headers } from "next/headers";
 
-async function fetchSite(sitename: string, protocol: string) {
-    // "use cache: private"
+/** Bỏ label đầu của host (vd. `www.a.com` → `a.com`). Giữ nguyên nếu không còn dấu chấm (vd. `example.com`). */
+function hostWithoutFirstLabel(host: string): string {
+  const i = host.indexOf(".");
+  if (i === -1) return host;
+  const rest = host.slice(i + 1);
+  if (!rest.includes(".")) return host;
+  return rest;
+}
 
-    // cacheLife("days")
+async function fetchSite(baseUrl: string, domain: string) {
+  // "use cache: private"
 
-    const searchParams = new URLSearchParams({ sitename })
-    const response = await fetch(
-        `${protocol}://${sitename}/api/site?${searchParams.toString()}`
-    )
+  // cacheLife("days")
 
-    if (!response.ok) {
-        throw new Error("Failed to get current site")
-    }
+  const searchParams = new URLSearchParams({ domain });
+  const response = await fetch(
+    `${baseUrl}/api/site?${searchParams.toString()}`,
+  );
 
-    return response.json() as Promise<Site>
+  if (!response.ok) {
+    throw new Error("Failed to get current site");
+  }
+
+  return response.json() as Promise<Site>;
 }
 
 export const siteService = {
-    async getRequestOrigin() {
-        const headersList = await headers()
-        const host = headersList.get("x-forwarded-host") ?? headersList.get("host")
-        const protocol = headersList.get("x-forwarded-proto") ?? "http"
+  async getRequestOrigin() {
+    const headersList = await headers();
+    const host = headersList.get("x-forwarded-host") ?? headersList.get("host");
+    const protocol = headersList.get("x-forwarded-proto") ?? "http";
 
-        if (!host) {
-            throw new Error("Missing host")
-        }
+    if (!host) {
+      throw new Error("Missing host");
+    }
 
+    const origin = hostWithoutFirstLabel(host);
 
-        return {
-            host,
-            protocol,
-            url: `${protocol}://${host}`,
-        }
-    },
+    return {
+      host,
+      protocol,
+      url: `${protocol}://${host}`,
+      origin,
+      originUrl: `${protocol}://${origin}`,
+    };
+  },
 
-    async getHost() {
-        const { host } = await this.getRequestOrigin()
+  async getHost() {
+    const { host } = await this.getRequestOrigin();
 
-        return host
-    },
+    return host;
+  },
 
-    async getCurrentSite() {
-        const { host: sitename, protocol } = await this.getRequestOrigin()
+  async getCurrentSite() {
+    const { host: domain, url } = await this.getRequestOrigin();
 
-        return fetchSite(sitename, protocol)
-    },
-}
+    return fetchSite(url, domain);
+  },
+};
