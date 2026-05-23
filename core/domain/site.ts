@@ -23,6 +23,21 @@ export type SiteVerification = {
   };
 };
 
+export type SiteScriptItem = {
+  id: string;
+  src: string;
+  async: boolean;
+  defer: boolean;
+  crossOrigin?: "anonymous" | "use-credentials";
+  strategy?:
+    | "afterInteractive"
+    | "lazyOnload"
+    | "beforeInteractive"
+    | "worker"
+    | undefined;
+  enabled: boolean;
+};
+
 export type Site = {
   id: string;
   host: string;
@@ -33,7 +48,8 @@ export type Site = {
   siteCategory: string;
   theme: SiteTheme;
   seo: SiteSeo;
-  ads?: SiteAds;
+  ads: SiteAds;
+  script: SiteScriptItem[];
   categories?: Category[];
   pages?: Page[];
   verification: SiteVerification;

@@ -1,3 +1,4 @@
+import Script from "next/script";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -26,8 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: site.seo.description,
     title: {
       template: `%s | site.seo.title`,
-      default:
-        site.seo.title,
+      default: site.seo.title,
     },
     openGraph: {
       images: ["/default-banner.jpg"],
@@ -55,10 +55,27 @@ export async function generateMetadata(): Promise<Metadata> {
 
 async function SiteBoundary({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{ children: React.ReactNode; }>) {
   const site = await siteService.getCurrentSite();
 
-  return <ThemeProvider site={site}>{children}</ThemeProvider>;
+  return <>
+    {site.script.map((item) => {
+      if (!item.enabled) return null;
+
+      return (
+        <Script
+          key={item.id}
+          id={item.id}
+          src={item.src}
+          async={item.async}
+          defer={item.defer}
+          crossOrigin={item.crossOrigin}
+          strategy={item.strategy}
+        />
+      );
+    })}
+    <ThemeProvider site={site}>{children}</ThemeProvider>;
+  </>
 }
 
 export default function RootLayout({
@@ -73,7 +90,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <Suspense fallback={<div />}>
-          <SiteBoundary>{children}</SiteBoundary>
+          <SiteBoundary >{children}</SiteBoundary>
         </Suspense>
         <Analytics />
         <SpeedInsights />
