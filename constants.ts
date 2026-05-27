@@ -1,28 +1,35 @@
-import TeamTheme from "@/themes/team/TeamTheme";
-import MLBTheme from "@/themes/mlb/MLBTheme";
-import MusicTheme from "@/themes/music/MusicTheme";
-import NBATheme from "@/themes/nba/NBATheme";
 import NewsTheme from "@/themes/news/NewsTheme";
-import NFLTheme from "@/themes/nfl/NFLTheme";
-import NHLTheme from "@/themes/nhl/NHLTheme";
-import SportTheme from "@/themes/sport/SportTheme";
+// import TeamTheme from "@/themes/team/TeamTheme";
+// import MLBTheme from "@/themes/mlb/MLBTheme";
+// import MusicTheme from "@/themes/music/MusicTheme";
+// import NBATheme from "@/themes/nba/NBATheme";
+// import NFLTheme from "@/themes/nfl/NFLTheme";
+// import NHLTheme from "@/themes/nhl/NHLTheme";
+// import SportTheme from "@/themes/sport/SportTheme";
 
 import { NewsContent, NewsPostPage } from "@/themes/news/NewsContent";
 import { NewsHomePage } from "@/themes/news/NewsHomepage";
 
 export const THEMES_LAYOUT = {
-  team: TeamTheme,
-  sport: SportTheme,
-  music: MusicTheme,
   news: NewsTheme,
-  nba: NBATheme,
-  nfl: NFLTheme,
-  nhl: NHLTheme,
-  mlb: MLBTheme,
+  team: NewsTheme,
+  sport: NewsTheme,
+  music: NewsTheme,
+  nba: NewsTheme,
+  nfl: NewsTheme,
+  nhl: NewsTheme,
+  mlb: NewsTheme,
 };
 
 export const THEMES_CONTENT = {
   news: NewsContent,
+  team: NewsContent,
+  sport: NewsContent,
+  music: NewsContent,
+  nba: NewsContent,
+  nfl: NewsContent,
+  nhl: NewsContent,
+  mlb: NewsContent,
 };
 
 export const THEMES_HOMEPAGE = {
@@ -31,4 +38,11 @@ export const THEMES_HOMEPAGE = {
 
 export const THEMES_POSTPAGE = {
   news: NewsPostPage,
+  team: NewsPostPage,
+  sport: NewsPostPage,
+  music: NewsPostPage,
+  nba: NewsPostPage,
+  nfl: NewsPostPage,
+  nhl: NewsPostPage,
+  mlb: NewsPostPage,
 };

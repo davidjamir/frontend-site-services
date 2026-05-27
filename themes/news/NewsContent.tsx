@@ -7,7 +7,7 @@ import { Post, PostIndex } from "@/core/domain/post";
 
 export function NewsPostList({ posts }: { posts: PostIndex[] }) {
     return (
-        <div className="w-full flex flex-col gap-4 max-w-4xl mx-auto ">
+        <div className="w-full flex flex-col gap-2 md:gap-4 max-w-4xl mx-auto ">
             {posts.map((post) => (
                 <NewsCardListItem key={post.id} post={post} />
             ))}
@@ -21,10 +21,11 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
             className="
                     relative flex flex-row
                     overflow-hidden p-0
-                    border-none
-                    transition-all duration-300
+                    border-none shadơw-sm
+                    transition-all duration-300 ring-[0.3px] md:ring-1
                     hover:-translate-y-1
-                    hover:shadow-xl hover:shadow-blue-500/20 min-h-32
+                    hover:shadow-xl hover:shadow-blue-500/20 min-h-30
+                    rounded-md md:rounded-2xl
                 "
         >
             {/* MAIN ARTICLE LINK */}
@@ -35,13 +36,13 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
             />
 
             {/* IMAGE LEFT */}
-            <div className="relative z-20 w-40 md:w-65 lg:w-80 h-34 md:h-60 lg:h-60 shrink-0 overflow-hidden pointer-events-none">
+            <div className="relative z-20 w-30 md:w-65 lg:w-80 h-30 md:h-60 lg:h-60 shrink-0 overflow-hidden pointer-events-none">
                 <Image
                     src={post.featuredImage}
                     alt={post.title}
                     fill
                     loading="eager"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 768px) 40vw, (max-width: 1024px) 25vw, 20vw"
                     className="
                             object-cover
                             transition-transform duration-300 ease-out
@@ -51,11 +52,11 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
             </div>
 
             {/* CONTENT RIGHT */}
-            <div className="relative z-20 flex flex-col gap-2 justify-center p-4 flex-1 pointer-events-none">
+            <div className=" relative z-20 flex flex-col gap-1 md:gap-2 justify-center md:p-4 flex-1 pointer-events-none">
                 <h3 className="text-base md:text-lg font-semibold line-clamp-2 pointer-events-none">
                     {post.title.slice(0, 90)}...
                 </h3>
-                <div className="pointer-events-auto">
+                <div className="pointer-events-auto ">
                     <Link key={post.mainCategory} href={`/category/${post.mainCategory}`} className="relative z-30 inline-flex">
                         <Badge className="bg-blue-600 text-white hover:bg-blue-700 p-2">
                             {post.mainCategory}
@@ -63,10 +64,10 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
                     </Link>
                 </div>
 
-                <span className="hidden md:block pointer-events-none">{post.snippet.slice(0, 220)}...</span>
+                <span className="w-full min-h-0 hidden md:block pointer-events-none">{post.snippet.slice(0, 220)}...</span>
                 {
                     post.tags?.length > 0 && (
-                        <div className="flex flex-row gap-2 flex-wrap overflow-hidden pointer-events-auto">
+                        <div className="hidden md:flex flex-row gap-2 flex-wrap overflow-hidden pointer-events-auto">
                             {post.tags.map((tag) => (
                                 <Link key={tag} href={`/tag/${tag}`} className="relative z-30 inline-flex">
                                     <Badge
@@ -80,8 +81,8 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
                         </div>
                     )
                 }
-                <div className="flex flex-row gap-2 justify-beetween items-center mt-auto pointer-events-none">
-                    <Badge className="bg-blue-400/20 text-blue-700 backdrop-blur">
+                <div className="flex flex-row gap-2 justify-between items-center mt-auto pointer-events-none">
+                    <Badge className="hidden md:flex min-h-0 bg-blue-400/20 text-blue-700 backdrop-blur">
                         <UserPen data-icon="inline-start" />
                         {post.author}
                     </Badge>

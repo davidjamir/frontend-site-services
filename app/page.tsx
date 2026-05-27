@@ -3,7 +3,6 @@ import { THEMES_HOMEPAGE } from "@/constants";
 
 export default async function Home() {
   const site = await siteService.getCurrentSite();
-  console.log(site)
 
   const ThemeHomepage = THEMES_HOMEPAGE[site.theme as keyof typeof THEMES_HOMEPAGE];
   return <ThemeHomepage site={site} />;
