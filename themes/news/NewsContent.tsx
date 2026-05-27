@@ -21,8 +21,8 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
             className="
                     relative flex flex-row
                     overflow-hidden p-0
-                    border-none shadơw-sm
-                    transition-all duration-300 ring-[0.3px] md:ring-1
+                    md:border-none shadơw-sm border border-gray-300/10
+                    transition-all duration-300 ring-0 md:ring-1
                     hover:-translate-y-1
                     hover:shadow-xl hover:shadow-blue-500/20 min-h-30
                     rounded-md md:rounded-2xl
