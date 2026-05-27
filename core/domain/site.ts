@@ -1,7 +1,15 @@
 import type { Category } from "@/core/domain/category";
 import type { Page } from "@/core/domain/page";
 
-export type SiteTheme = "team" | "sport" | "music" | "news";
+export type SiteTheme =
+  | "team"
+  | "sport"
+  | "music"
+  | "news"
+  | "nba"
+  | "nfl"
+  | "nhl"
+  | "mlb";
 
 export type SiteSeo = {
   title: string;
@@ -11,7 +19,11 @@ export type SiteSeo = {
 
 export type SiteAds = {
   adsTxt?: string;
-  publisherId?: string;
+  adsScript: {
+    adsHeader: string;
+    adsBody: string;
+    adsFooter: string;
+  };
 };
 
 export type SiteVerification = {
@@ -41,6 +53,7 @@ export type SiteScriptItem = {
 export type Site = {
   id: string;
   host: string;
+  baseUrl: string;
   origin: string;
   name: string;
   icon: string;
@@ -53,4 +66,9 @@ export type Site = {
   categories?: Category[];
   pages?: Page[];
   verification: SiteVerification;
+  configView: {
+    category: "list" | "grid";
+    search: "list" | "grid";
+    tag: "list" | "grid";
+  };
 };

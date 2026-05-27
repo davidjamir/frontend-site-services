@@ -1,20 +1,15 @@
 import Script from "next/script";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/providers/theme.provider";
 import { siteService } from "@/services/site.service";
 import { Suspense } from "react";
+import { THEMES_LAYOUT } from "@/constants";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
   subsets: ["latin"],
 });
 
@@ -55,27 +50,32 @@ export async function generateMetadata(): Promise<Metadata> {
 
 async function SiteBoundary({
   children,
-}: Readonly<{ children: React.ReactNode; }>) {
+}: Readonly<{ children: React.ReactNode }>) {
   const site = await siteService.getCurrentSite();
+  const ThemeLayout = THEMES_LAYOUT[site.theme];
 
-  return <>
-    {site.script.map((item) => {
-      if (!item.enabled) return null;
+  return (
+    <>
+      {site.script.map((item) => {
+        if (!item.enabled) return null;
 
-      return (
-        <Script
-          key={item.id}
-          id={item.id}
-          src={item.src}
-          async={item.async}
-          defer={item.defer}
-          crossOrigin={item.crossOrigin}
-          strategy={item.strategy}
-        />
-      );
-    })}
-    <ThemeProvider site={site}>{children}</ThemeProvider>;
-  </>
+        return (
+          <Script
+            key={item.id}
+            id={item.id}
+            src={item.src}
+            async={item.async}
+            defer={item.defer}
+            crossOrigin={item.crossOrigin}
+            strategy={item.strategy}
+          />
+        );
+      })}
+      <ThemeProvider site={site}>
+        <ThemeLayout>{children}</ThemeLayout>
+      </ThemeProvider>
+    </>
+  );
 }
 
 export default function RootLayout({
@@ -84,13 +84,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${inter.className} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <Suspense fallback={<div />}>
-          <SiteBoundary >{children}</SiteBoundary>
+          <SiteBoundary>{children}</SiteBoundary>
         </Suspense>
         <Analytics />
         <SpeedInsights />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { postService } from "@/services/post.service";
 import { siteService } from "@/services/site.service";
 import { notFound } from "next/navigation";
+import { THEMES_POSTPAGE } from "@/constants";
 
 type Props = {
     params: {
@@ -32,7 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             canonical: `post/${post.slug}`,
         },
         authors: [{ name: post.author }],
-        category: post.mainCategory
+        category: post.mainCategory,
+        keywords: post.tags,
     };
 }
 
@@ -64,20 +66,17 @@ export default async function Page({ params }: Props) {
         notFound();
     }
 
-    const siteOrigin = await siteService.getRequestOrigin();
+    const site = await siteService.getCurrentSite();
     const post = await postService.getPostData(
-        siteOrigin.url,
-        siteOrigin.host,
+        site.baseUrl,
+        site.host,
         segment,
         `${year}/${month}/${slug}`,
     );
 
+    const ThemePostPage =
+        THEMES_POSTPAGE[site.theme as keyof typeof THEMES_POSTPAGE];
     return (
-        <article
-            className="prose max-w-none"
-            dangerouslySetInnerHTML={{
-                __html: post.content,
-            }}
-        />
-    );
+        <ThemePostPage post={post} />
+    )
 }

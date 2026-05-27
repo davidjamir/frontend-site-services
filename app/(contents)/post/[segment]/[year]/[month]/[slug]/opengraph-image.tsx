@@ -91,11 +91,11 @@ export default async function Image({ params }: Props) {
                     src={`${siteOrigin.url}/${site.logo}`}
                     alt="logo"
                     style={{
-                        width: 72,
-                        height: 72,
+                        width: 100,
+                        height: 100,
                         objectFit: "contain",
-                        marginBottom: 16,
-                        opacity: 0.95,
+                        marginBottom: 20,
+                        opacity: 0.9,
                     }}
                 />
 

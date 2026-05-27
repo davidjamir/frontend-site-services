@@ -16,8 +16,15 @@ const nextConfig: NextConfig = {
         destination: "/feed",
         permanent: true,
       },
-
     ];
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
   },
 };
 

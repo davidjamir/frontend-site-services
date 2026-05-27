@@ -9,7 +9,7 @@ export default async function DisclaimerPage() {
     const domain = siteOrigin.host
 
     return (
-        <main className="max-w-4xl mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto px-4 py-12 border border-gray-200/5 shadow-sm rounded-md">
             <article className="prose prose-neutral max-w-none">
                 <h1>Disclaimer</h1>
 
@@ -202,6 +202,6 @@ export default async function DisclaimerPage() {
                     </li>
                 </ul>
             </article>
-        </main>
+        </div>
     );
 }

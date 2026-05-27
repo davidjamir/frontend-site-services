@@ -31,9 +31,35 @@ export const postService = {
       `${baseUrl}/api/category?${searchParams.toString()}`,
     );
     if (!response.ok) {
-      throw new Error("Failed to get current site");
+      throw new Error("Failed to get post by category");
     }
 
-    return response.json() as Promise<PostIndex>;
+    return response.json() as Promise<PostIndex[]>;
+  },
+
+  async getPostIndexByTag(baseUrl: string, domain: string, tag: string) {
+    const searchParams = new URLSearchParams({ domain, tag });
+
+    const response = await fetch(
+      `${baseUrl}/api/tag?${searchParams.toString()}`,
+    );
+    if (!response.ok) {
+      throw new Error("Failed to get post by tag");
+    }
+
+    return response.json() as Promise<PostIndex[]>;
+  },
+
+  async getPostIndexLatest(baseUrl: string, domain: string) {
+    const searchParams = new URLSearchParams({ domain });
+
+    const response = await fetch(
+      `${baseUrl}/api/latest?${searchParams.toString()}`,
+    );
+    if (!response.ok) {
+      throw new Error("Failed to get post latest");
+    }
+
+    return response.json() as Promise<PostIndex[]>;
   },
 };

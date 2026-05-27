@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params;
     return {
         title: slug,
-        category: slug,
+        keywords: [slug],
     };
 }
 
@@ -26,7 +26,7 @@ export default async function Page({ params }: Props) {
     }
 
     const site = await siteService.getCurrentSite();
-    const posts = await postService.getPostIndexByCategory(
+    const posts = await postService.getPostIndexByTag(
         site.baseUrl,
         site.host,
         slug,
@@ -36,7 +36,7 @@ export default async function Page({ params }: Props) {
         THEMES_CONTENT[site.theme as keyof typeof THEMES_CONTENT];
 
     return posts.length > 0 ? (
-        <ThemeContent mode={site.configView.category} posts={posts} />
+        <ThemeContent mode={site.configView.tag} posts={posts} />
     ) : (
         <></>
     );
