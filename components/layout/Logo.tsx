@@ -14,7 +14,7 @@ const sizes = {
 
 export default function Logo({ logo, size }: Props) {
     return (
-        <Link href="/">
+        <Link href="/" className="block relative border-none">
             <div className={`relative ${sizes[size]}`}>
                 <Image
                     src={logo}
