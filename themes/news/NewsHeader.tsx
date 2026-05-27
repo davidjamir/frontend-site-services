@@ -24,7 +24,7 @@ type Props = {
 
 export default function NewsHeader({ site }: Props) {
   return (
-    <div className="w-full max-w-300 mx-auto flex items-center justify-between">
+    <div className="relative z-50 w-full max-w-300 mx-auto flex items-center justify-between">
       {/* LEFT */}
       <div className="flex-1 flex justify-start">
         <Logo logo={site.logo} size="medium" />
@@ -44,7 +44,7 @@ export default function NewsHeader({ site }: Props) {
       <div className="md:hidden flex flex-1 justify-end min-w-0 cursor-pointer">
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" aria-label="Open menu">
+            <Button variant="outline" size="icon" aria-label="Open menu">
               <MenuIcon />
             </Button>
           </SheetTrigger>
