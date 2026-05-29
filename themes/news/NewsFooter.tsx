@@ -127,7 +127,7 @@ export default function NewFooter() {
             </div>
 
             {/* Bottom */}
-            <div className="mt-2 flex flex-col  gap-4 border-t border-white/10 pt-4 md:flex-row md:items-center md:justify-between">
+            <div className="mt-2 flex flex-col items-center gap-4 border-t border-white/10 pt-4 md:flex-row  md:justify-between">
 
                 <p className="text-xs leading-6 text-white/40 md:text-sm ">
                     © {new Date().getFullYear()} 7 Forge Inc. All rights reserved.
