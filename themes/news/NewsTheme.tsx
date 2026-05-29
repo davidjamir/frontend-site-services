@@ -14,7 +14,7 @@ export default function NewsTheme({ children }: { children: React.ReactNode }) {
             <div className="w-full p-4 lg:px-4">
                 <NewHeader site={site} />
             </div>
-            <Separator className="hidden md:block"/>
+            <Separator className="hidden md:block" />
             {/* BODY LAYOUT */}
             <div className="flex-1 flex justify-center p-4 lg:px-4">
                 {/* MAIN FULL WIDTH */}
@@ -22,7 +22,7 @@ export default function NewsTheme({ children }: { children: React.ReactNode }) {
             </div>
 
             {/* FOOTER */}
-            <div className="w-full p-4 lg:px-4 bg-black text-white">
+            <div className="w-full flex justify-center px-4 pt-4 bg-black text-white">
                 <NewsFooter />
             </div>
         </div>
