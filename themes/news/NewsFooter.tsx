@@ -1,4 +1,6 @@
+import { Badge } from "@/components/ui/badge";
 import Link from "next/dist/client/link";
+import { FaFacebookF, FaInstagram, FaYoutube, FaTwitter } from "react-icons/fa";
 
 export default function NewFooter() {
 
@@ -35,15 +37,18 @@ export default function NewFooter() {
                     </p>
 
                     {/* Social */}
-                    <div className="mt-6 flex flex-wrap items-center gap-3">
-                        {["X", "Instagram", "Facebook", "YouTube"].map((item) => (
-                            <a
-                                key={item}
+                    <div className="mt-6 flex flex-wrap items-center gap-1">
+                        {[{ title: "X", icon: <FaTwitter /> }, { title: "Instagram", icon: <FaInstagram /> }, { title: "Facebook", icon: <FaFacebookF /> }, { title: "YouTube", icon: <FaYoutube /> }].map((item) => (
+                            <Link
+                                key={item.title}
                                 href="#"
-                                className="rounded-full border border-white/10 px-4 py-2 text-xs text-white/65 transition hover:border-white/25 hover:text-white"
+                                className="rounded-full border border-white/10 p-1 md:p-2 text-xs text-white/65 transition hover:border-white/25 hover:text-white"
                             >
-                                {item}
-                            </a>
+                                <Badge className="bg-transparent">
+                                    {item.icon}
+                                    {item.title}
+                                </Badge>
+                            </Link>
                         ))}
                     </div>
                 </div>
