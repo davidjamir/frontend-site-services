@@ -6,7 +6,10 @@ export const sitemapService = {
   async getSitemapIndexByDomain(baseUrl: string, domain: string) {
     const searchParams = new URLSearchParams({ domain });
 
-    const response = await fetch(`${baseUrl}/api/sitemap?${searchParams.toString()}`);
+    const response = await fetch(
+      `${baseUrl}/api/sitemap?${searchParams.toString()}`,
+      { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
+    );
     if (!response.ok) {
       throw new Error("Failed to get current site");
     }
@@ -17,7 +20,10 @@ export const sitemapService = {
   async getSitemapEntriesById(baseUrl: string, id: string) {
     const searchParams = new URLSearchParams({ id });
 
-    const response = await fetch(`${baseUrl}/api/sitemap?${searchParams.toString()}`);
+    const response = await fetch(
+      `${baseUrl}/api/sitemap?${searchParams.toString()}`,
+      { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
+    );
     if (!response.ok) {
       throw new Error("Failed to get current site");
     }

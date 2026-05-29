@@ -19,6 +19,7 @@ async function fetchSite(baseUrl: string, domain: string) {
   const searchParams = new URLSearchParams({ domain });
   const response = await fetch(
     `${baseUrl}/api/site?${searchParams.toString()}`,
+    { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
   );
 
   if (!response.ok) {

@@ -6,6 +6,7 @@ export const searchService = {
 
     const response = await fetch(
       `${baseUrl}/api/search?${searchParams.toString()}`,
+      { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
     );
     if (!response.ok) {
       throw new Error("Failed to search posts");

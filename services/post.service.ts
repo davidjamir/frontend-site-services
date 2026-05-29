@@ -13,9 +13,9 @@ export const postService = {
 
     const response = await fetch(
       `${baseUrl}/api/post?${searchParams.toString()}`,
+      { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
     );
 
-    console.log(response)
     if (!response.ok) {
       throw new Error("Failed to get current site");
     }
@@ -31,6 +31,7 @@ export const postService = {
 
     const response = await fetch(
       `${baseUrl}/api/category?${searchParams.toString()}`,
+      { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
     );
     if (!response.ok) {
       throw new Error("Failed to get post by category");
@@ -44,6 +45,7 @@ export const postService = {
 
     const response = await fetch(
       `${baseUrl}/api/tag?${searchParams.toString()}`,
+      { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
     );
     if (!response.ok) {
       throw new Error("Failed to get post by tag");
@@ -57,6 +59,7 @@ export const postService = {
 
     const response = await fetch(
       `${baseUrl}/api/latest?${searchParams.toString()}`,
+      { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
     );
     if (!response.ok) {
       throw new Error("Failed to get post latest");
