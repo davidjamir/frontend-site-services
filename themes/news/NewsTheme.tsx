@@ -11,15 +11,22 @@ export default function NewsTheme({ children }: { children: React.ReactNode }) {
     return (
         <div className="min-h-screen flex flex-col overflow-hidden">
             {/* HEADER */}
-            <div className="w-full p-4 lg:px-4">
+            <div className="w-full p-4">
                 <NewHeader site={site} />
             </div>
             <Separator className="hidden md:block" />
+
+            {/* SCRIPTS ADS HEADER */}
+            <div className=" w-full min-h-1"></div>
+
             {/* BODY LAYOUT */}
-            <div className="flex-1 flex justify-center p-4 lg:px-4">
+            <div className="flex-1 flex justify-center p-4">
                 {/* MAIN FULL WIDTH */}
                 <main className="min-w-0 w-full max-w-300">{children}</main>
             </div>
+
+            {/* SCRIPTS ADS FOOTER */}
+            <div className=" w-full min-h-1"></div>
 
             {/* FOOTER */}
             <div className="w-full flex justify-center px-4 pt-4 bg-black text-white">

@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/dist/client/link";
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/ui/badge";
 import { UserPen, CalendarCheck2, Tag } from "lucide-react";
 import { Post, PostIndex } from "@/core/domain/post";
+import { Button } from "@/components/ui/button";
 
 export function NewsPostList({ posts }: { posts: PostIndex[] }) {
     return (
@@ -57,42 +58,47 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
                     {post.title.slice(0, 90)}...
                 </h3>
                 <div className="pointer-events-auto ">
-                    <Link key={post.mainCategory} href={`/category/${post.mainCategory}`} className="relative z-30 inline-flex">
+                    <Link
+                        key={post.mainCategory}
+                        href={`/category/${post.mainCategory}`}
+                        className="relative z-30 inline-flex"
+                    >
                         <Badge className="bg-blue-600 text-white hover:bg-blue-700 p-2">
                             {post.mainCategory}
                         </Badge>
                     </Link>
                 </div>
 
-                <span className="w-full min-h-0 hidden md:block pointer-events-none">{post.snippet.slice(0, 220)}...</span>
-                {
-                    post.tags?.length > 0 && (
-                        <div className="hidden md:flex flex-row gap-2 flex-wrap overflow-hidden pointer-events-auto">
-                            {post.tags.map((tag) => (
-                                <Link key={tag} href={`/tag/${tag}`} className="relative z-30 inline-flex">
-                                    <Badge
-                                        className="bg-green-400/20 text-green-700 backdrop-blur hover:bg-green-400/30 hover:text-green-800 transition-colors"
-                                    >
-                                        <Tag data-icon="inline-start" />
-                                        {tag}
-                                    </Badge>
-                                </Link>
-                            ))}
-                        </div>
-                    )
-                }
+                <span className="w-full min-h-0 hidden md:block pointer-events-none">
+                    {post.snippet.slice(0, 220)}...
+                </span>
+                {post.tags?.length > 0 && (
+                    <div className="hidden md:flex flex-row gap-2 flex-wrap overflow-hidden pointer-events-auto">
+                        {post.tags.map((tag) => (
+                            <Link
+                                key={tag}
+                                href={`/tag/${tag}`}
+                                className="relative z-30 inline-flex"
+                            >
+                                <Badge className="bg-green-400/20 text-green-700 backdrop-blur hover:bg-green-400/30 hover:text-green-800 transition-colors">
+                                    <Tag data-icon="inline-start" />
+                                    {tag}
+                                </Badge>
+                            </Link>
+                        ))}
+                    </div>
+                )}
                 <div className="flex flex-row gap-2 justify-between items-center mt-auto pointer-events-none">
                     <Badge className="hidden md:flex min-h-0 bg-blue-400/20 text-blue-700 backdrop-blur">
                         <UserPen data-icon="inline-start" />
                         {post.author}
                     </Badge>
                     <Badge className="bg-blue-400/20 text-blue-700 backdrop-blur">
-                        <CalendarCheck2 data-icon="inline-end" /> {new Date(post.createdAt).toDateString()}
+                        <CalendarCheck2 data-icon="inline-end" />{" "}
+                        {new Date(post.createdAt).toDateString()}
                     </Badge>
                 </div>
-
             </div>
-
         </Card>
     );
 }
@@ -181,12 +187,44 @@ export function NewsContent({
 }
 
 export function NewsPostPage({ post }: { post: Post }) {
+    return (
+        <div className="w-full grid grid-cols-1 md:grid-cols-[180px_1fr_180px] lg:grid-cols-[200px_1fr_200px] gap-4">
+            {/* SIDERBAR LEFT */}
+            <aside className="hidden md:block"></aside>
 
-    return <><article
-        className="prose max-w-none"
-        dangerouslySetInnerHTML={{
-            __html: post.content,
-        }}
-    />
-    </>
+            {/* MAIN ARTICLE */}
+            <div className="w-full px-2 border border-gray-200/5 shadow-sm rounded-md">
+                <article className="prose prose-neutral max-w-none text-black">
+                    {/* TITLE */}
+                    <h1 className="text-2xl font-bold leading-tight tracking-tight lg:text-4xl">
+                        {post.title}
+                    </h1>
+                    <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-black/65 md:text-md">
+                        <span>{post.author}</span> <span>•</span>
+                        <time>{post.createdAt}</time> <span>•</span>
+                        <Link
+                            key={post.mainCategory}
+                            href={`/category/${post.mainCategory}`}
+                            className="relative z-30 inline-flex"
+                        >
+                            <Badge className="bg-blue-600 text-white hover:bg-blue-700 p-2 md:p-3 transition-colors">
+                                {post.mainCategory}
+                            </Badge>
+                        </Link>
+                    </div>
+                    {/* CONTENT */}
+                    <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                </article>
+
+                {/* RELATED POSTS */}
+                <div className="w-full mt-10"></div>
+
+                {/* UNDER POST ADS */}
+                <div className="w-full min-h-5"></div>
+            </div>
+
+            {/* SIDERBAR RIGHT */}
+            <aside className="hidden md:block"></aside>
+        </div>
+    );
 }

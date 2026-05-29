@@ -8,11 +8,14 @@ export default function NewsTheme({ children }: { children: React.ReactNode }) {
     const { site } = useSite();
 
     return (
-        <div className="min-h-screen flex flex-col bg-gray-50">
+        <div className="min-h-screen flex flex-col bg-gray-700">
             {/* HEADER */}
             <div className="w-full py-4 px-2 lg:px-6">
                 <NewHeader site={site} />
             </div>
+
+            {/* SCRIPTS ADS HEADER */}
+            <div className="bg-amber-300 w-full min-h-1"></div>
 
             {/* MID BLOCK (NEW) */}
             {
@@ -40,6 +43,9 @@ export default function NewsTheme({ children }: { children: React.ReactNode }) {
                     <aside className="hidden lg:block"></aside>
                 </div>
             </div>
+
+            {/* SCRIPTS ADS FOOTER */}
+            <div className="bg-amber-300 w-full min-h-10"></div>
 
             {/* FOOTER */}
             <div className="bg-black text-white">

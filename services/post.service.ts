@@ -14,6 +14,8 @@ export const postService = {
     const response = await fetch(
       `${baseUrl}/api/post?${searchParams.toString()}`,
     );
+
+    console.log(response)
     if (!response.ok) {
       throw new Error("Failed to get current site");
     }
