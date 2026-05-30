@@ -10,7 +10,7 @@ function AdBlock({ code }: { code: string }) {
             dangerouslySetInnerHTML={{
                 __html: code,
             }}
-            className="w-full"
+            className="w-full ads-block"
         />
     );
 }
