@@ -67,4 +67,27 @@ export const postService = {
 
     return response.json() as Promise<PostIndex[]>;
   },
+
+  async getPostIndexRelated(
+    baseUrl: string,
+    domain: string,
+    slug: string,
+    categories: string[],
+  ) {
+    const searchParams = new URLSearchParams({
+      domain,
+      slug,
+      categories: categories.join(","),
+    });
+
+    const response = await fetch(
+      `${baseUrl}/api/related?${searchParams.toString()}`,
+      { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
+    );
+    if (!response.ok) {
+      throw new Error("Failed to get post related");
+    }
+
+    return response.json() as Promise<PostIndex[]>;
+  },
 };

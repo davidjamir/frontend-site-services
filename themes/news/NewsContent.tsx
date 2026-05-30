@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { UserPen, CalendarCheck2, Tag } from "lucide-react";
 import { Post, PostIndex } from "@/core/domain/post";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 
 export function NewsPostList({ posts }: { posts: PostIndex[] }) {
     return (
@@ -186,7 +187,7 @@ export function NewsContent({
     );
 }
 
-export function NewsPostPage({ post }: { post: Post }) {
+export function NewsPostPage({ post, related }: { post: Post; related: PostIndex[] }) {
     return (
         <div className="w-full grid grid-cols-1 md:grid-cols-[180px_1fr_180px] lg:grid-cols-[200px_1fr_200px] gap-4">
             {/* SIDERBAR LEFT */}
@@ -216,8 +217,12 @@ export function NewsPostPage({ post }: { post: Post }) {
                     <div dangerouslySetInnerHTML={{ __html: post.content }} />
                 </article>
 
+                <Separator className="my-4" />
                 {/* RELATED POSTS */}
-                <div className="w-full mt-10"></div>
+                <div className="w-full ">
+                    <h2 className="text-xl font-bold mb-4">Related Posts</h2>
+                    <NewsPostGrid posts={related} />
+                </div>
 
                 {/* UNDER POST ADS */}
                 <div className="w-full min-h-5"></div>

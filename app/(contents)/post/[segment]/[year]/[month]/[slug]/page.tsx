@@ -73,10 +73,16 @@ export default async function Page({ params }: Props) {
         segment,
         `${year}/${month}/${slug}`,
     );
+    const related = await postService.getPostIndexRelated(
+        site.baseUrl,
+        site.host,
+        post.slug,
+        post.categories,
+    );
 
     const ThemePostPage =
         THEMES_POSTPAGE[site.theme as keyof typeof THEMES_POSTPAGE];
     return (
-        <ThemePostPage post={post} />
+        <ThemePostPage post={post} related={related} />
     )
 }
