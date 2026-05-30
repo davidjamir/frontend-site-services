@@ -9,7 +9,6 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Icon() {
-    const siteOrigin = await siteService.getRequestOrigin();
     const site = await siteService.getCurrentSite();
 
     return new ImageResponse(
@@ -21,7 +20,7 @@ export default async function Icon() {
             }}
         >
             <img
-                src={`${siteOrigin.url}/${site.icon}`}
+                src={`${site.baseUrl}/${site.icon}`}
                 alt={site.name}
                 width={size.width}
                 height={size.height}

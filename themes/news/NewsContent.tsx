@@ -200,7 +200,9 @@ export function NewsPostPage({ post, related }: { post: Post; related: PostIndex
                 {
                     site.ads.adsScript.adsLeftSidebar.length > 0 && (
                         site.ads.adsScript.adsLeftSidebar.map((ad) => (
-                            <AdBlock key={ad.id} code={ad.content} />
+                            <div key={ad.id} className="w-full pb-2">
+                                <AdBlock code={ad.content} />
+                            </div>
                         ))
                     )
                 }
@@ -211,7 +213,7 @@ export function NewsPostPage({ post, related }: { post: Post; related: PostIndex
 
                 {/* BEFORE POST ADS */}
                 {
-                    site.ads.adsScript.adsBody?.beforePost && (
+                    site.ads.adsScript.adsBody?.beforePost?.content && (
                         <div className="w-full min-h-5">
                             <AdBlock key={site.ads.adsScript.adsBody?.beforePost.id} code={site.ads.adsScript.adsBody?.beforePost.content} />
                         </div>
@@ -249,7 +251,7 @@ export function NewsPostPage({ post, related }: { post: Post; related: PostIndex
 
                 {/* UNDER POST ADS */}
                 {
-                    site.ads.adsScript.adsBody?.afterPost && (
+                    site.ads.adsScript.adsBody?.afterPost?.content && (
                         <div className="w-full min-h-5">
                             <AdBlock key={site.ads.adsScript.adsBody?.afterPost.id} code={site.ads.adsScript.adsBody?.afterPost.content} />
                         </div>
@@ -262,7 +264,9 @@ export function NewsPostPage({ post, related }: { post: Post; related: PostIndex
                 {
                     site.ads.adsScript.adsRightSidebar.length > 0 && (
                         site.ads.adsScript.adsRightSidebar.map((ad) => (
-                            <AdBlock key={ad.id} code={ad.content} />
+                            <div key={ad.id} className="w-full pb-2">
+                                <AdBlock code={ad.content} />
+                            </div>
                         ))
                     )
                 }
