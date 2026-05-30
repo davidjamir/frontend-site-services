@@ -10,6 +10,7 @@ function AdBlock({ code }: { code: string }) {
             dangerouslySetInnerHTML={{
                 __html: code,
             }}
+            className="w-full"
         />
     );
 }

@@ -17,12 +17,20 @@ export type SiteSeo = {
   canonicalUrl?: string;
 };
 
+export type AdsItem = {
+  id: string;
+  source: string;
+  content: string;
+};
+
 export type SiteAds = {
   adsTxt?: string;
   adsScript: {
-    adsHeader: string;
-    adsBody: string;
-    adsFooter: string;
+    adsHeader: AdsItem[];
+    adsBody: { afterPost: AdsItem; beforePost: AdsItem; inPost: AdsItem[] };
+    adsFooter: AdsItem[];
+    adsLeftSidebar: AdsItem[];
+    adsRightSidebar: AdsItem[];
   };
 };
 
