@@ -31,6 +31,7 @@ export type SiteAds = {
     adsFooter: AdsItem[];
     adsLeftSidebar: AdsItem[];
     adsRightSidebar: AdsItem[];
+    adsVideoHeader: AdsItem;
   };
 };
 

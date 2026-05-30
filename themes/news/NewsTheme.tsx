@@ -11,6 +11,16 @@ export default function NewsTheme({ children }: { children: React.ReactNode }) {
 
     return (
         <div className="min-h-screen flex flex-col overflow-hidden">
+
+            {/* ADS VIDEO HEADER*/}
+            {
+                site.ads.adsScript.adsVideoHeader.content && (
+                    <div key={site.ads.adsScript.adsVideoHeader.id} className="w-full min-h-30 md:min-h-80">
+                        <AdBlock code={site.ads.adsScript.adsVideoHeader.content} />
+                    </div>
+                )
+            }
+
             {/* HEADER */}
             <div className="w-full p-4">
                 <NewHeader site={site} />
