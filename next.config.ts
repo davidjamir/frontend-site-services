@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
+    minimumCacheTTL: 60 * 60 * 24 * 365, // 1 năm
     remotePatterns: [
       {
         protocol: "https",
