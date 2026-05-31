@@ -60,6 +60,10 @@ async function SiteBoundary({
       {site.script.map((item) => {
         if (!item.enabled) return null;
 
+        const attrs = Object.fromEntries(
+          item.attributes?.map(attr => [attr.key, attr.value]) ?? []
+        );
+
         return (
           <Script
             key={item.id}
@@ -69,6 +73,7 @@ async function SiteBoundary({
             defer={item.defer}
             crossOrigin={item.crossOrigin}
             strategy={item.strategy}
+            {...attrs}
           />
         );
       })}

@@ -44,6 +44,10 @@ export type SiteVerification = {
     me: string[];
   };
 };
+export type ScriptAttributeItem = {
+  key: string;
+  value: string;
+};
 
 export type SiteScriptItem = {
   id: string;
@@ -57,6 +61,7 @@ export type SiteScriptItem = {
     | "beforeInteractive"
     | "worker"
     | undefined;
+  attributes?: ScriptAttributeItem[];
   enabled: boolean;
 };
 
