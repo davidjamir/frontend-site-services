@@ -40,6 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
       yahoo: site.verification?.yahoo,
       other: {
         me: site.verification?.other.me,
+        monetag: site.verification?.other.monetag,
       },
     },
     pinterest: {

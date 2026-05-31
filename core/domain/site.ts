@@ -40,6 +40,7 @@ export type SiteVerification = {
   yandex: string;
   yahoo: string;
   other: {
+    monetag: string;
     me: string[];
   };
 };
