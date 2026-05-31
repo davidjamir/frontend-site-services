@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(siteOrigin.url),
     description: site.seo.description,
     title: {
-      template: `%s | site.seo.title`,
+      template: `%s | ${site.seo.title}`,
       default: site.seo.title,
     },
     openGraph: {

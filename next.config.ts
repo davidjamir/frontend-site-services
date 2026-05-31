@@ -34,7 +34,7 @@ const nextConfig: NextConfig = {
           {
             key: "Cache-Control",
             value:
-              "public, max-age=100, s-maxage=300, stale-while-revalidate=86400",
+              "public, max-age=86400, s-maxage=2592000, stale-while-revalidate=2592000, stale-if-error=2592000",
           },
         ],
       },
@@ -44,7 +44,7 @@ const nextConfig: NextConfig = {
           {
             key: "Cache-Control",
             value:
-              "public, max-age=100, s-maxage=300, stale-while-revalidate=86400",
+              "public, max-age=86400, s-maxage=2592000, stale-while-revalidate=2592000, stale-if-error=2592000",
           },
         ],
       },
@@ -54,7 +54,7 @@ const nextConfig: NextConfig = {
           {
             key: "Cache-Control",
             value:
-              "public, max-age=100, s-maxage=300, stale-while-revalidate=86400",
+              "public, max-age=86400, s-maxage=2592000, stale-while-revalidate=2592000, stale-if-error=2592000",
           },
         ],
       },
@@ -64,7 +64,7 @@ const nextConfig: NextConfig = {
           {
             key: "Cache-Control",
             value:
-              "public, max-age=100, s-maxage=300, stale-while-revalidate=86400",
+              "public, max-age=86400, s-maxage=2592000, stale-while-revalidate=2592000, stale-if-error=2592000",
           },
         ],
       },
