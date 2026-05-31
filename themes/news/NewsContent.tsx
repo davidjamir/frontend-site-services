@@ -242,12 +242,16 @@ export function NewsPostPage({ post, related }: { post: Post; related: PostIndex
                     <div dangerouslySetInnerHTML={{ __html: post.content }} />
                 </article>
 
-                <Separator className="my-4" />
                 {/* RELATED POSTS */}
-                <div className="w-full ">
-                    <h2 className="text-xl font-bold mb-4">Related Posts</h2>
-                    <NewsPostGrid posts={related} />
-                </div>
+                {related.length > 0 && (
+                    <>
+                        <Separator className="my-4" />
+                        <div className="w-full ">
+                            <h2 className="text-xl font-bold mb-4">Related Posts</h2>
+                            <NewsPostGrid posts={related} />
+                        </div>
+                    </>
+                )}
 
                 {/* UNDER POST ADS */}
                 {
