@@ -26,6 +26,50 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        source: "/page/contact-us",
+        headers: [
+          {
+            key: "Cache-Control",
+            value:
+              "public, max-age=100, s-maxage=300, stale-while-revalidate=86400",
+          },
+        ],
+      },
+      {
+        source: "/page/disclaimer",
+        headers: [
+          {
+            key: "Cache-Control",
+            value:
+              "public, max-age=100, s-maxage=300, stale-while-revalidate=86400",
+          },
+        ],
+      },
+      {
+        source: "/page/privacy-policy",
+        headers: [
+          {
+            key: "Cache-Control",
+            value:
+              "public, max-age=100, s-maxage=300, stale-while-revalidate=86400",
+          },
+        ],
+      },
+      {
+        source: "/page/term-and-conditions",
+        headers: [
+          {
+            key: "Cache-Control",
+            value:
+              "public, max-age=100, s-maxage=300, stale-while-revalidate=86400",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
