@@ -8,7 +8,7 @@ export async function GET(request: Request) {
   if (auth !== `Bearer ${process.env.INTERNAL_SECRET}`) {
     return NextResponse.json({ ok: false }, { status: 403 });
   }
-  
+
   const { searchParams } = new URL(request.url);
   const domain = searchParams.get("domain");
   const id = searchParams.get("id");
@@ -37,7 +37,7 @@ export async function GET(request: Request) {
 
   const response = await fetch(url.toString(), {
     method: "GET",
-    cache: "no-store",
+    next: { revalidate: 3600 },
     headers: {
       Authorization: `Bearer ${ADAPTER_SECRET_TOKEN}`,
     },
@@ -45,5 +45,9 @@ export async function GET(request: Request) {
 
   const data = await response.json();
 
-  return NextResponse.json(data.items);
+  return NextResponse.json(data.items, {
+    headers: {
+      "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=1200",
+    },
+  });
 }

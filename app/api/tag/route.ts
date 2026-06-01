@@ -32,7 +32,7 @@ export async function GET(request: Request) {
 
   const response = await fetch(url.toString(), {
     method: "GET",
-    cache: "no-store",
+    next: { revalidate: 1200 },
     headers: {
       Authorization: `Bearer ${ADAPTER_SECRET_TOKEN}`,
     },
@@ -40,5 +40,9 @@ export async function GET(request: Request) {
 
   const data = await response.json();
 
-  return NextResponse.json(data.items);
+  return NextResponse.json(data.items, {
+    headers: {
+      "Cache-Control": "public, s-maxage=1200, stale-while-revalidate=1200",
+    },
+  });
 }
