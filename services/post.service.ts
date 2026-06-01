@@ -1,6 +1,5 @@
 import type { Post, PostIndex } from "@/core/domain/post";
 import { cacheLife } from "next/cache";
-import { headers } from "next/headers";
 
 export const postService = {
   async getPostData(
@@ -9,6 +8,9 @@ export const postService = {
     segment: string,
     slug: string,
   ) {
+    "use cache";
+    cacheLife("max");
+
     const searchParams = new URLSearchParams({ domain, segment, slug });
 
     const response = await fetch(
@@ -17,7 +19,7 @@ export const postService = {
     );
 
     if (!response.ok) {
-      throw new Error("Failed to get current site");
+      throw new Error("Failed to get post data");
     }
 
     return response.json() as Promise<Post>;
@@ -27,6 +29,9 @@ export const postService = {
     domain: string,
     category: string,
   ) {
+    "use cache";
+    cacheLife("hours");
+
     const searchParams = new URLSearchParams({ domain, category });
 
     const response = await fetch(
@@ -41,6 +46,9 @@ export const postService = {
   },
 
   async getPostIndexByTag(baseUrl: string, domain: string, tag: string) {
+    "use cache";
+    cacheLife("hours");
+
     const searchParams = new URLSearchParams({ domain, tag });
 
     const response = await fetch(
@@ -55,6 +63,9 @@ export const postService = {
   },
 
   async getPostIndexLatest(baseUrl: string, domain: string) {
+    "use cache";
+    cacheLife("hours");
+
     const searchParams = new URLSearchParams({ domain });
 
     const response = await fetch(
@@ -74,6 +85,9 @@ export const postService = {
     slug: string,
     categories: string[],
   ) {
+    "use cache";
+    cacheLife("hours");
+
     const searchParams = new URLSearchParams({
       domain,
       slug,

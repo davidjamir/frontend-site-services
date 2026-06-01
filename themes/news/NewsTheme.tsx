@@ -1,5 +1,4 @@
 "use client";
-
 import { useSite } from "@/hooks/use-site";
 import NewHeader from "./NewsHeader";
 import NewsFooter from "./NewsFooter";

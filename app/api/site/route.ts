@@ -5,9 +5,9 @@ const ADAPTER_SECRET_TOKEN = process.env.ADAPTER_SECRET_TOKEN;
 
 export async function GET(request: Request) {
   const auth = request.headers.get("authorization");
-  // if (auth !== `Bearer ${process.env.INTERNAL_SECRET}`) {
-  //   return NextResponse.json({ ok: false }, { status: 403 });
-  // }
+  if (auth !== `Bearer ${process.env.INTERNAL_SECRET}`) {
+    return NextResponse.json({ ok: false }, { status: 403 });
+  }
 
   const { searchParams } = new URL(request.url);
   const domain = searchParams.get("domain");

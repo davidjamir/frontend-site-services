@@ -8,7 +8,7 @@ export async function GET(request: Request) {
   if (auth !== `Bearer ${process.env.INTERNAL_SECRET}`) {
     return NextResponse.json({ ok: false }, { status: 403 });
   }
-  
+
   const { searchParams } = new URL(request.url);
   const domain = searchParams.get("domain");
   const q = searchParams.get("q");

@@ -3,9 +3,12 @@ import { siteService } from "@/services/site.service";
 import { sitemapService } from "@/services/sitemap.service";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const siteOrigin = await siteService.getRequestOrigin()
-  const siteUrl = siteOrigin.url
-  const postSitemaps = await sitemapService.getSitemapIndexByDomain(siteUrl, siteOrigin.host)
+  const siteOrigin = await siteService.getRequestOrigin();
+  const siteUrl = siteOrigin.url;
+  const postSitemaps = await sitemapService.getSitemapIndexByDomain(
+    siteUrl,
+    siteOrigin.host,
+  );
 
   const postUrls = postSitemaps.map((item) => ({
     url: `${siteUrl}/sitemap-post/${item.sitemapId}.xml`,

@@ -1,9 +1,9 @@
 import type { FeedItem } from "@/core/domain/feed";
-import { cacheLife } from "next/cache";
-import { headers } from "next/headers";
 
 export const feedService = {
   async getFeedItems(baseUrl: string, domain: string) {
+    "use cache";
+
     const searchParams = new URLSearchParams({ domain });
 
     const response = await fetch(

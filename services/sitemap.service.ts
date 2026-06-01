@@ -1,9 +1,11 @@
 import type { Sitemap, SitemapItem } from "@/core/domain/sitemap";
 import { cacheLife } from "next/cache";
-import { headers } from "next/headers";
 
 export const sitemapService = {
   async getSitemapIndexByDomain(baseUrl: string, domain: string) {
+    "use cache";
+    cacheLife("hours");
+
     const searchParams = new URLSearchParams({ domain });
 
     const response = await fetch(
@@ -18,6 +20,9 @@ export const sitemapService = {
   },
 
   async getSitemapEntriesById(baseUrl: string, id: string) {
+    "use cache";
+    cacheLife("hours");
+
     const searchParams = new URLSearchParams({ id });
 
     const response = await fetch(
