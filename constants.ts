@@ -34,6 +34,13 @@ export const THEMES_CONTENT = {
 
 export const THEMES_HOMEPAGE = {
   news: NewsHomePage,
+  team: NewsHomePage,
+  sport: NewsHomePage,
+  music: NewsHomePage,
+  nba: NewsHomePage,
+  nfl: NewsHomePage,
+  nhl: NewsHomePage,
+  mlb: NewsHomePage,
 };
 
 export const THEMES_POSTPAGE = {
