@@ -28,7 +28,7 @@ export async function GET(request: Request) {
 
   const response = await fetch(url.toString(), {
     method: "GET",
-    next: { revalidate: 300 },
+    next: { revalidate: 86400 },
     headers: {
       Authorization: `Bearer ${ADAPTER_SECRET_TOKEN}`,
     },
@@ -38,7 +38,7 @@ export async function GET(request: Request) {
 
   return NextResponse.json(data.site, {
     headers: {
-      "Cache-Control": "public, s-maxage=30, stale-while-revalidate=1200",
+      "Cache-Control": "public, s-maxage=86400, stale-while-revalidate=1200",
     },
   });
 }
