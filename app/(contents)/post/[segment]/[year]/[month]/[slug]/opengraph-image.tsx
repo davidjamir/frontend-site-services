@@ -11,13 +11,9 @@ type Props = {
     };
 };
 
-// export const size = {
-//     width: 1080,
-//     height: 1350,
-// };
 export const size = {
-    width: 1920,
-    height: 1080,
+    width: 1600,
+    height: 1200,
 };
 
 export const contentType = "image/png";
@@ -78,7 +74,7 @@ export default async function Image({ params }: Props) {
                     bottom: 0,
                     left: 0,
                     width: "100%",
-                    height: "40%",
+                    height: "50%",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
@@ -108,11 +104,11 @@ export default async function Image({ params }: Props) {
                 <div
                     style={{
                         color: "white",
-                        fontSize: title.length > 120 ? 30 : title.length > 80 ? 34 : 40,
+                        fontSize: title.length > 120 ? 40 : title.length > 80 ? 46 : 50,
                         fontWeight: 800,
                         textAlign: "center",
                         lineHeight: 1.2,
-                        maxWidth: 900,
+                        maxWidth: 1000,
                         textShadow: "0 10px 30px rgba(0,0,0,0.7)",
                     }}
                 >
@@ -125,7 +121,7 @@ export default async function Image({ params }: Props) {
                         marginTop: 24,
                         padding: "6px 14px",
                         color: "rgba(255,255,255,0.8)",
-                        fontSize: 18,
+                        fontSize: 30,
                         fontWeight: 500,
                         letterSpacing: 0.8,
                         textAlign: "center",
