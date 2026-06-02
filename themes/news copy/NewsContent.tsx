@@ -40,6 +40,7 @@ export function NewsCardGridItem({ post }: { post: PostIndex }) {
                             transition-transform duration-300 ease-out
                             group-hover:scale-105
                         "
+                    unoptimized
                 />
 
                 {/* OVERLAY CONTENT */}

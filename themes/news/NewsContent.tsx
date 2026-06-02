@@ -54,6 +54,7 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
                             transition-transform duration-300 ease-out
                             group-hover:scale-110
                         "
+                    unoptimized
                 />
             </div>
 
@@ -142,6 +143,7 @@ function NewsCardGridItem({ post }: { post: PostIndex }) {
                             transition-transform duration-300 ease-out
                             group-hover:scale-110
                         "
+                    unoptimized
                 />
 
                 {/* OVERLAY CONTENT */}
