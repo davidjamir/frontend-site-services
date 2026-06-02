@@ -12,9 +12,23 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params;
+    const site = await siteService.getCurrentSite();
+
     return {
+        metadataBase: new URL(site.baseUrl),
         title: slug,
         category: slug,
+        openGraph: {
+            siteName: site.seo.title,
+            locale: "en_US",
+            type: "website",
+            url: `${site.baseUrl}/category/${slug}`,
+            title: `${slug} | ${site.seo.title}`,
+            description: site.seo.description,
+        },
+        alternates: {
+            canonical: `category/${slug}`,
+        }
     };
 }
 
