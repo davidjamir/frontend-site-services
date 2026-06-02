@@ -25,6 +25,10 @@ export async function generateMetadata(): Promise<Metadata> {
       default: site.seo.title,
     },
     openGraph: {
+      type: "website",
+      url: site.baseUrl,
+      title: site.seo.title,
+      description: site.seo.description,
       images: ["/default-banner.jpg"],
     },
     alternates: {
