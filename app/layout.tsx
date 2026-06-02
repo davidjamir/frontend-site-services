@@ -39,6 +39,10 @@ export async function generateMetadata(): Promise<Metadata> {
         "application/rss+xml": "/feed",
       },
     },
+    robots: {
+      index: true,
+      follow: true,
+    },
     category: site.siteCategory,
     verification: {
       google: site.verification?.google,
