@@ -29,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
       url: site.baseUrl,
       title: site.seo.title,
       description: site.seo.description,
-      images: ["/default-banner.jpg"],
+      images: ["/images/default-banner.jpg"],
     },
     alternates: {
       canonical: "/",
