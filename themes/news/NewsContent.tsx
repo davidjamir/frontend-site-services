@@ -47,6 +47,7 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
                     alt={post.title}
                     fill
                     loading="eager"
+                    fetchPriority="high"
                     sizes="(max-width: 768px) 40vw, (max-width: 1024px) 25vw, 20vw"
                     className="
                             object-cover
@@ -134,6 +135,7 @@ function NewsCardGridItem({ post }: { post: PostIndex }) {
                     alt={post.title}
                     fill
                     loading="eager"
+                    fetchPriority="high"
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="
                             object-cover
