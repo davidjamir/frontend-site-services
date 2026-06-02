@@ -16,19 +16,27 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // read route params
     const { segment, year, month, slug } = await params;
-    const siteOrigin = await siteService.getRequestOrigin();
+    const site = await siteService.getCurrentSite();
     const post = await postService.getPostData(
-        siteOrigin.url,
-        siteOrigin.host,
+        site.baseUrl,
+        site.host,
         segment,
         `${year}/${month}/${slug}`,
     );
 
     return {
+        metadataBase: new URL(site.baseUrl),
         title: {
             absolute: post.title,
         },
         description: post.snippet,
+        openGraph: {
+            type: "article",
+            url: `${site.baseUrl}/post/${post.segment}/${post.slug}`,
+            title: post.title,
+            description: post.snippet,
+            // images: [{ url: "/images/default-banner.png", alt: site.seo.title }],
+        },
         alternates: {
             canonical: `post/${post.segment}/${post.slug}`,
         },
