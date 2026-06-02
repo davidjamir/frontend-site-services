@@ -29,7 +29,7 @@ export async function GET() {
             (post) => `
           <item>
             <title><![CDATA[${post.title}]]></title>
-            <link>${siteUrl}/${post.segment}/${post.slug}</link>
+            <link>${siteUrl}/post/${post.segment}/${post.slug}</link>
             <description><![CDATA[${post.snippet}]]></description>
             <pubDate>${post.createdAt}</pubDate>
             <author>${post.author}</author>
