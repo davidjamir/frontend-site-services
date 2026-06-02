@@ -25,7 +25,7 @@ export default function NewFooter() {
                                 7 Forge News
                             </div>
 
-                            <div className="text-xs text-white/45 sm:text-sm">
+                            <div className="text-xs text-white/60 sm:text-sm">
                                 Modern digital media by 7 Forge Inc.
                             </div>
                         </div>
@@ -44,7 +44,7 @@ export default function NewFooter() {
                                 href="#"
                                 className="rounded-full border border-white/10 p-1 md:p-2 text-xs text-white/65 transition hover:border-white/25 hover:text-white"
                             >
-                                <Badge className="bg-transparent">
+                                <Badge className="bg-transparent text-white/85 hover:text-white">
                                     {item.icon}
                                     {item.title}
                                 </Badge>
@@ -57,7 +57,7 @@ export default function NewFooter() {
                 <div className="hidden md:grid gap-8 md:grid-cols-3 lg:col-span-7">
 
                     <div>
-                        <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/35">
+                        <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
                             Navigation
                         </h3>
 
@@ -82,7 +82,7 @@ export default function NewFooter() {
                     </div>
 
                     <div>
-                        <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/35">
+                        <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
                             Company
                         </h3>
 
@@ -106,7 +106,7 @@ export default function NewFooter() {
                     </div>
 
                     <div className="col-span-2 sm:col-span-1">
-                        <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/35">
+                        <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
                             Legal
                         </h3>
 
@@ -134,7 +134,7 @@ export default function NewFooter() {
             {/* Bottom */}
             <div className="mt-2 flex flex-col items-center gap-4 border-t border-white/10 pt-4 md:flex-row  md:justify-between">
 
-                <p className="text-xs leading-6 text-white/40 md:text-sm ">
+                <p className="text-xs leading-6 text-white/60 md:text-sm ">
                     © {new Date().getFullYear()} 7 Forge Inc. All rights reserved.
                 </p>
 
@@ -147,7 +147,7 @@ export default function NewFooter() {
                         <a
                             key={item}
                             href="#"
-                            className="text-xs text-white/40 transition hover:text-white/70 sm:text-sm"
+                            className="text-xs text-white/60 transition hover:text-white/80 sm:text-sm"
                         >
                             {item}
                         </a>
@@ -156,5 +156,4 @@ export default function NewFooter() {
             </div>
         </footer>
     )
-
 }
