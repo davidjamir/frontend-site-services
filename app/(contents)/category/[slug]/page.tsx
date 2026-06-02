@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         metadataBase: new URL(site.baseUrl),
         title: slug,
         category: slug,
+        publisher: site.seo.title,
         openGraph: {
             siteName: site.seo.title,
             locale: "en_US",

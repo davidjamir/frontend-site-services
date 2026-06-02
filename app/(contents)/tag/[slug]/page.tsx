@@ -17,6 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
         title: slug,
         keywords: [slug],
+        publisher: site.seo.title,
         openGraph: {
             siteName: site.seo.title,
             locale: "en_US",

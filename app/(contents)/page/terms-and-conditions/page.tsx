@@ -8,6 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
         metadataBase: new URL(site.baseUrl),
         title: 'Terms and Conditions',
         category: 'Terms and Conditions',
+        publisher: site.seo.title,
         openGraph: {
             siteName: site.seo.title,
             locale: "en_US",
