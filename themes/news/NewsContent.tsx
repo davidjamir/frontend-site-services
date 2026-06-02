@@ -58,7 +58,7 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
             </div>
 
             {/* CONTENT RIGHT */}
-            <div className=" relative z-20 flex flex-col gap-1 md:gap-2 justify-center md:p-4 flex-1 pointer-events-none">
+            <div className=" relative z-20 flex flex-col gap-2 md:gap-2 justify-center md:p-4 flex-1 pointer-events-none">
                 <h3 className="text-base md:text-lg font-semibold line-clamp-2 pointer-events-none">
                     {post.title.slice(0, 90)}...
                 </h3>
@@ -66,9 +66,9 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
                     <Link
                         key={post.mainCategory}
                         href={`/category/${post.mainCategory}`}
-                        className="relative z-30 inline-flex"
+                        className="relative z-30 inline-flex items-center py-1"
                     >
-                        <Badge className="bg-blue-600 text-white hover:bg-blue-700 p-2">
+                        <Badge className="bg-blue-600 text-white hover:bg-blue-700">
                             {post.mainCategory}
                         </Badge>
                     </Link>
