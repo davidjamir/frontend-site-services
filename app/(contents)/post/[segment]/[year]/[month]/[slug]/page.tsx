@@ -31,6 +31,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
         description: post.snippet,
         openGraph: {
+            siteName: site.seo.title,
+            locale: "en_US",
             type: "article",
             url: `${site.baseUrl}/post/${post.segment}/${post.slug}`,
             title: post.title,
@@ -41,6 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             canonical: `post/${post.segment}/${post.slug}`,
         },
         authors: [{ name: post.author }],
+        publisher: site.seo.title,
         category: post.mainCategory,
         keywords: post.tags,
     };
