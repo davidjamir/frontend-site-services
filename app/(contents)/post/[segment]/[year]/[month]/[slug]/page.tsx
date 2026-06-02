@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
         description: post.snippet,
         alternates: {
-            canonical: `post/${post.slug}`,
+            canonical: `post/${post.segment}/${post.slug}`,
         },
         authors: [{ name: post.author }],
         category: post.mainCategory,
