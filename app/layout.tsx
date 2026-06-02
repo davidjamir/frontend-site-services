@@ -44,6 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
       follow: true,
     },
     category: site.siteCategory,
+    publisher: site.seo.title,
     verification: {
       google: site.verification?.google,
       yandex: site.verification?.yandex,
