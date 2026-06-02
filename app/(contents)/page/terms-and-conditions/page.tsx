@@ -1,8 +1,26 @@
 import type { Metadata } from 'next'
 import { siteService } from "@/services/site.service"
 
-export const metadata: Metadata = {
-    title: 'Terms and Conditions',
+export async function generateMetadata(): Promise<Metadata> {
+    const site = await siteService.getCurrentSite();
+
+    return {
+        metadataBase: new URL(site.baseUrl),
+        title: 'Terms and Conditions',
+        category: 'Terms and Conditions',
+        openGraph: {
+            siteName: site.seo.title,
+            locale: "en_US",
+            type: "website",
+            url: `${site.baseUrl}/page/terms-and-conditions`,
+            title: `Terms and Conditions | ${site.seo.title}`,
+            description: site.seo.description,
+            images: [{ url: "/images/default-banner.png", alt: site.seo.title }],
+        },
+        alternates: {
+            canonical: `page/terms-and-conditions`,
+        }
+    };
 }
 
 export default async function TermsPage() {

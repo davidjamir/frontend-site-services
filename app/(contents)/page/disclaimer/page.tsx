@@ -1,9 +1,28 @@
 import type { Metadata } from 'next'
 import { siteService } from "@/services/site.service"
 
-export const metadata: Metadata = {
-    title: 'Disclaimer',
+export async function generateMetadata(): Promise<Metadata> {
+    const site = await siteService.getCurrentSite();
+
+    return {
+        metadataBase: new URL(site.baseUrl),
+        title: 'Disclaimer',
+        category: 'Disclaimer',
+        openGraph: {
+            siteName: site.seo.title,
+            locale: "en_US",
+            type: "website",
+            url: `${site.baseUrl}/page/disclaimer`,
+            title: `Disclaimer | ${site.seo.title}`,
+            description: site.seo.description,
+            images: [{ url: "/images/default-banner.png", alt: site.seo.title }],
+        },
+        alternates: {
+            canonical: `page/disclaimer`,
+        }
+    };
 }
+
 export default async function DisclaimerPage() {
     const siteOrigin = await siteService.getRequestOrigin()
     const domain = siteOrigin.host

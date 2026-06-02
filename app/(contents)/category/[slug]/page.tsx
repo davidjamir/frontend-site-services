@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             url: `${site.baseUrl}/category/${slug}`,
             title: `${slug} | ${site.seo.title}`,
             description: site.seo.description,
+            images: [{ url: "/images/default-banner.png", alt: site.seo.title }],
         },
         alternates: {
             canonical: `category/${slug}`,

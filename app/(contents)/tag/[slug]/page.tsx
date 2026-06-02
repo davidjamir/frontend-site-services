@@ -12,9 +12,23 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params;
+    const site = await siteService.getCurrentSite();
+
     return {
         title: slug,
         keywords: [slug],
+        openGraph: {
+            siteName: site.seo.title,
+            locale: "en_US",
+            type: "website",
+            url: `${site.baseUrl}/tag/${slug}`,
+            title: `${slug} | ${site.seo.title}`,
+            description: site.seo.description,
+            images: [{ url: "/images/default-banner.png", alt: site.seo.title }],
+        },
+        alternates: {
+            canonical: `tag/${slug}`,
+        }
     };
 }
 

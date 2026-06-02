@@ -1,8 +1,26 @@
 import type { Metadata } from 'next'
 import { siteService } from "@/services/site.service"
 
-export const metadata: Metadata = {
-    title: 'Privacy Policy',
+export async function generateMetadata(): Promise<Metadata> {
+    const site = await siteService.getCurrentSite();
+
+    return {
+        metadataBase: new URL(site.baseUrl),
+        title: 'Privacy Policy',
+        category: 'Privacy Policy',
+        openGraph: {
+            siteName: site.seo.title,
+            locale: "en_US",
+            type: "website",
+            url: `${site.baseUrl}/page/privacy-policy`,
+            title: `Privacy Policy | ${site.seo.title}`,
+            description: site.seo.description,
+            images: [{ url: "/images/default-banner.png", alt: site.seo.title }],
+        },
+        alternates: {
+            canonical: `page/privacy-policy`,
+        }
+    };
 }
 
 export default async function PrivacyPolicyPage() {
