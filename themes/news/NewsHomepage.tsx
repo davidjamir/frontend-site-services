@@ -7,8 +7,8 @@ import { Site } from "@/core/domain/site";
 export async function NewsHomePage({ site }: { site: Site }) {
     "use cache";
     cacheLife("hours");
-    
-    const latest = await postService.getPostIndexLatest(site.baseUrl, site.host);
+
+    const latest = await postService.getPostIndexLatest(site.baseUrl);
 
     return <NewsPostList posts={latest} />
 }
