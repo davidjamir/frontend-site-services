@@ -1,5 +1,6 @@
 import type { Post, PostIndex } from "@/core/domain/post";
 import { cacheLife } from "next/cache";
+import { NUMBER_POSTS_LATEST } from "@/constants";
 
 export const postService = {
   async getPostData(
@@ -63,8 +64,8 @@ export const postService = {
   },
 
   async getPostIndexLatest(baseUrl: string) {
-    // "use cache";
-    // cacheLife("hours");
+    "use cache";
+    cacheLife("hours");
 
     const response = await fetch(`${baseUrl}/api/latest`, {
       headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` },
@@ -80,7 +81,7 @@ export const postService = {
       items: PostIndex[];
     };
 
-    return data.items;
+    return data.items.slice(0, NUMBER_POSTS_LATEST);
   },
 
   async getPostIndexRelated(

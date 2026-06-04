@@ -10,6 +10,8 @@ import NewsTheme from "@/themes/news/NewsTheme";
 import { NewsContent, NewsPostPage } from "@/themes/news/NewsContent";
 import { NewsHomePage } from "@/themes/news/NewsHomepage";
 
+export const NUMBER_POSTS_LATEST = 15;
+
 export const THEMES_LAYOUT = {
   news: NewsTheme,
   team: NewsTheme,
