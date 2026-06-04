@@ -73,7 +73,14 @@ export const postService = {
       throw new Error("Failed to get post latest");
     }
 
-    return response.json() as Promise<PostIndex[]>;
+    //Specific for R2 response structure
+    const data = (await response.json()) as {
+      ok: boolean;
+      count: number;
+      items: PostIndex[];
+    };
+
+    return data.items;
   },
 
   async getPostIndexRelated(
