@@ -62,16 +62,13 @@ export const postService = {
     return response.json() as Promise<PostIndex[]>;
   },
 
-  async getPostIndexLatest(baseUrl: string, domain: string) {
+  async getPostIndexLatest(baseUrl: string) {
     "use cache";
     cacheLife("hours");
 
-    const searchParams = new URLSearchParams({ domain });
-
-    const response = await fetch(
-      `${baseUrl}/api/latest?${searchParams.toString()}`,
-      { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
-    );
+    const response = await fetch(`${baseUrl}/api/latest}`, {
+      headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` },
+    });
     if (!response.ok) {
       throw new Error("Failed to get post latest");
     }
