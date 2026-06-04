@@ -63,10 +63,10 @@ export const postService = {
   },
 
   async getPostIndexLatest(baseUrl: string) {
-    "use cache";
-    cacheLife("hours");
+    // "use cache";
+    // cacheLife("hours");
 
-    const response = await fetch(`${baseUrl}/api/latest}`, {
+    const response = await fetch(`${baseUrl}/api/latest`, {
       headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` },
     });
     if (!response.ok) {
