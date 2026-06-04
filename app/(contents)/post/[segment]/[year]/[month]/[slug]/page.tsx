@@ -3,6 +3,7 @@ import { postService } from "@/services/post.service";
 import { siteService } from "@/services/site.service";
 import { notFound } from "next/navigation";
 import { THEMES_POSTPAGE } from "@/constants";
+import { redirect } from "next/navigation";
 
 type Props = {
     params: {
@@ -75,6 +76,11 @@ export default async function Page({ params }: Props) {
 
     if (!slug || slug.length < 3) {
         notFound();
+    }
+
+    //Xử lý tạm thời
+    if (!slug.startsWith("/2026/06")) {
+        redirect("/");
     }
 
     const site = await siteService.getCurrentSite();
