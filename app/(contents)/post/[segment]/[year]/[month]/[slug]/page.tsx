@@ -74,13 +74,13 @@ export default async function Page({ params }: Props) {
         notFound();
     }
 
-    if (!slug || slug.length < 3) {
-        notFound();
+    //Xử lý tạm thời
+    if (yearNumber < 2026 || (yearNumber === 2026 && monthNumber < 6)) {
+        redirect("/");
     }
 
-    //Xử lý tạm thời
-    if (!slug.startsWith("/2026/06")) {
-        redirect("/");
+    if (!slug || slug.length < 3) {
+        notFound();
     }
 
     const site = await siteService.getCurrentSite();
