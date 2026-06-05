@@ -21,6 +21,8 @@ async function fetchSite(baseUrl: string, domain: string) {
     { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
   );
 
+  console.log("FetchSite: ", response)
+
   if (!response.ok) {
     throw new Error("Failed to get current site");
   }
