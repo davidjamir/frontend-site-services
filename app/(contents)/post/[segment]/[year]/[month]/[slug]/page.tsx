@@ -3,7 +3,6 @@ import { postService } from "@/services/post.service";
 import { siteService } from "@/services/site.service";
 import { notFound } from "next/navigation";
 import { THEMES_POSTPAGE } from "@/constants";
-import { redirect } from "next/navigation";
 
 type Props = {
     params: {
@@ -72,11 +71,6 @@ export default async function Page({ params }: Props) {
         monthNumber > 12
     ) {
         notFound();
-    }
-
-    //Xử lý tạm thời
-    if (yearNumber < 2026 || (yearNumber === 2026 && monthNumber < 6)) {
-        redirect("/");
     }
 
     if (!slug || slug.length < 3) {
