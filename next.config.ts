@@ -26,26 +26,6 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: "/robots.txt",
-        headers: [
-          {
-            key: "Cache-Control",
-            value:
-              "public, max-age=864000, s-maxage=8640000, stale-while-revalidate=12000, stale-if-error=2592000",
-          },
-        ],
-      },
-      {
-        source: "/sitemap.xml",
-        headers: [
-          {
-            key: "Cache-Control",
-            value:
-              "public, max-age=3600, s-maxage=86400, stale-while-revalidate=1200, stale-if-error=864000",
-          },
-        ],
-      },
-      {
         source: "/sitemap-category/sitemap.xml",
         headers: [
           {

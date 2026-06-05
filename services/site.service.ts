@@ -11,15 +11,13 @@ function hostWithoutFirstLabel(host: string): string {
   return rest;
 }
 
-async function fetchSite(baseUrl: string, domain: string) {
+async function fetchSite(baseUrl: string) {
   "use cache";
   cacheLife("days");
 
-  const searchParams = new URLSearchParams({ domain });
-  const response = await fetch(
-    `${baseUrl}/api/site?${searchParams.toString()}`,
-    { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
-  );
+  const response = await fetch(`${baseUrl}/api/site`, {
+    headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` },
+  });
 
   if (!response.ok) {
     throw new Error("Failed to get current site");
@@ -56,8 +54,8 @@ export const siteService = {
   },
 
   async getCurrentSite() {
-    const { host: domain, url } = await this.getRequestOrigin();
+    const { url } = await this.getRequestOrigin();
 
-    return fetchSite(url, domain);
+    return fetchSite(url);
   },
 };
