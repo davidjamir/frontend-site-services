@@ -3,6 +3,11 @@ import { NextResponse } from "next/server";
 const ADAPTER_API_ENDPOINT = process.env.ADAPTER_API_ENDPOINT!;
 const ADAPTER_SECRET_TOKEN = process.env.ADAPTER_SECRET_TOKEN;
 
+const MAX_AGE = 0;
+const S_MAX_AGE = 60 * 60 * 24 * 1; // 1 day
+const STALE_WHILE_REVALIDATE = 60 * 60; // 1 hour
+const STALE_IF_ERROR = 60 * 60 * 24 * 7; // 7 days
+
 export async function GET(request: Request) {
   const auth = request.headers.get("authorization");
   if (auth !== `Bearer ${process.env.INTERNAL_SECRET}`) {
@@ -40,7 +45,7 @@ export async function GET(request: Request) {
 
   return NextResponse.json(data.items, {
     headers: {
-      "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=1200",
+      "Cache-Control": `public, max-age=${MAX_AGE}, s-maxage=${S_MAX_AGE}, stale-while-revalidate=${STALE_WHILE_REVALIDATE}, stale-if-error=${STALE_IF_ERROR}`,
     },
   });
 }

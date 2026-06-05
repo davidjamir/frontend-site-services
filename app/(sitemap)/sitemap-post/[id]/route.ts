@@ -2,6 +2,11 @@ import { NextResponse } from "next/server";
 import { siteService } from "@/services/site.service";
 import { sitemapService } from "@/services/sitemap.service";
 
+const MAX_AGE = 60 * 60 * 12; // 12h
+const S_MAX_AGE = 60 * 60 * 24 * 1; // 1 day
+const STALE_WHILE_REVALIDATE = 60 * 60; // 1 hour
+const STALE_IF_ERROR = 60 * 60 * 24 * 7; // 7 days
+
 /** `/sitemap-post/abc.xml` → params.id = `"abc.xml"` */
 async function sitemapIdFromParam(raw: string) {
   const sitemapId = raw.endsWith(".xml") ? raw.slice(0, -4) : "";
@@ -31,7 +36,7 @@ export async function GET(
   return new NextResponse(xml, {
     headers: {
       "Content-Type": "application/xml; charset=utf-8",
-      "Cache-Control": "public, max-age=3600, s-maxage=7200, stale-while-revalidate=1200",
+      "Cache-Control": `public, max-age=${MAX_AGE}, s-maxage=${S_MAX_AGE}, stale-while-revalidate=${STALE_WHILE_REVALIDATE}, stale-if-error=${STALE_IF_ERROR}`,
     },
   });
 }
