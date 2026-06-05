@@ -12,8 +12,8 @@ function hostWithoutFirstLabel(host: string): string {
 }
 
 async function fetchSite(baseUrl: string, domain: string) {
-  // "use cache";
-  // cacheLife("days");
+  "use cache";
+  cacheLife("days");
 
   const searchParams = new URLSearchParams({ domain });
   const response = await fetch(
