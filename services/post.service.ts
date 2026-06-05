@@ -9,8 +9,8 @@ export const postService = {
     segment: string,
     slug: string,
   ) {
-    "use cache";
-    cacheLife("max");
+    // "use cache";
+    // cacheLife("max");
 
     const searchParams = new URLSearchParams({ domain, segment, slug });
 
@@ -30,8 +30,8 @@ export const postService = {
     domain: string,
     category: string,
   ) {
-    "use cache";
-    cacheLife("hours");
+    // "use cache";
+    // cacheLife("hours");
 
     const searchParams = new URLSearchParams({ domain, category });
 
@@ -47,8 +47,8 @@ export const postService = {
   },
 
   async getPostIndexByTag(baseUrl: string, domain: string, tag: string) {
-    "use cache";
-    cacheLife("hours");
+    // "use cache";
+    // cacheLife("hours");
 
     const searchParams = new URLSearchParams({ domain, tag });
 
@@ -64,8 +64,8 @@ export const postService = {
   },
 
   async getPostIndexLatest(baseUrl: string) {
-    "use cache";
-    cacheLife("hours");
+    // "use cache";
+    // cacheLife("hours");
 
     const response = await fetch(`${baseUrl}/api/latest`, {
       headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` },
@@ -90,8 +90,8 @@ export const postService = {
     slug: string,
     categories: string[],
   ) {
-    "use cache";
-    cacheLife("hours");
+    // "use cache";
+    // cacheLife("hours");
 
     const searchParams = new URLSearchParams({
       domain,

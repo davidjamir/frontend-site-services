@@ -3,8 +3,8 @@ import { cacheLife } from "next/cache";
 
 export const sitemapService = {
   async getSitemapIndexByDomain(baseUrl: string, domain: string) {
-    "use cache";
-    cacheLife("hours");
+    // "use cache";
+    // cacheLife("hours");
 
     const searchParams = new URLSearchParams({ domain });
 
@@ -20,8 +20,8 @@ export const sitemapService = {
   },
 
   async getSitemapEntriesById(baseUrl: string, id: string) {
-    "use cache";
-    cacheLife("hours");
+    // "use cache";
+    // cacheLife("hours");
 
     const searchParams = new URLSearchParams({ id });
 
