@@ -4,7 +4,7 @@ const ADAPTER_API_ENDPOINT = process.env.ADAPTER_API_ENDPOINT!;
 const ADAPTER_SECRET_TOKEN = process.env.ADAPTER_SECRET_TOKEN;
 
 const MAX_AGE = 0;
-const S_MAX_AGE = 60 * 60 * 24 * 7; // 7 days
+const S_MAX_AGE = 60 * 60 * 24 * 1; // 1 days
 const STALE_WHILE_REVALIDATE = 60 * 60; // 1 hour
 const STALE_IF_ERROR = 60 * 60 * 24 * 7; // 7 days
 
