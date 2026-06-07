@@ -24,7 +24,6 @@ export default async function Image({ params }: Props) {
     const site = await siteService.getCurrentSite();
     const post = await postService.getPostData(
         siteOrigin.url,
-        siteOrigin.host,
         segment,
         `${year}/${month}/${slug}`,
     );

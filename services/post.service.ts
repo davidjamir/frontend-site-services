@@ -3,16 +3,11 @@ import { cacheLife } from "next/cache";
 import { NUMBER_POSTS_LATEST } from "@/constants";
 
 export const postService = {
-  async getPostData(
-    baseUrl: string,
-    domain: string,
-    segment: string,
-    slug: string,
-  ) {
+  async getPostData(baseUrl: string, segment: string, slug: string) {
     "use cache";
     cacheLife("max");
 
-    const searchParams = new URLSearchParams({ domain, segment, slug });
+    const searchParams = new URLSearchParams({ segment, slug });
 
     const response = await fetch(
       `${baseUrl}/api/post?${searchParams.toString()}`,

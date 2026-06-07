@@ -19,9 +19,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const site = await siteService.getCurrentSite();
     const post = await postService.getPostData(
         site.baseUrl,
-        site.host,
         segment,
-        `${year}/${month}/${slug}`,
+        `${year}/${month}/${slug}`
     );
 
     return {
@@ -80,7 +79,6 @@ export default async function Page({ params }: Props) {
     const site = await siteService.getCurrentSite();
     const post = await postService.getPostData(
         site.baseUrl,
-        site.host,
         segment,
         `${year}/${month}/${slug}`,
     );
