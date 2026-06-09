@@ -2,8 +2,6 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/providers/theme.provider";
 import { siteService } from "@/services/site.service";
 import { Suspense } from "react";
@@ -107,8 +105,6 @@ export default function RootLayout({
         <Suspense fallback={<div />}>
           <SiteBoundary>{children}</SiteBoundary>
         </Suspense>
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );
