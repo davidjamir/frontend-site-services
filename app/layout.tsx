@@ -52,6 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
       other: {
         me: site.verification?.other.me,
         monetag: site.verification?.other.monetag,
+        verification: site.verification?.other.adsconex
       },
     },
     pinterest: {

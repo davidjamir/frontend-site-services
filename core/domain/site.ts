@@ -40,8 +40,9 @@ export type SiteVerification = {
   yandex: string;
   yahoo: string;
   other: {
-    monetag: string;
     me: string[];
+    monetag: string;
+    adsconex: string;
   };
 };
 export type ScriptAttributeItem = {
