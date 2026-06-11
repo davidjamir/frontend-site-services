@@ -8,7 +8,9 @@ import {
 import Link from "next/dist/client/link";
 
 function NewsPostList({ posts }: { posts: PostIndex[] }) {
-    return <></>;
+    return <>{posts.map((post) => (
+        <NewsCardListItem key={post.id} post={post} />
+    ))}</>;
 }
 
 function NewsCardListItem({ post }: { post: PostIndex }) {

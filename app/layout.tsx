@@ -14,11 +14,10 @@ const inter = Inter({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const siteOrigin = await siteService.getRequestOrigin();
   const site = await siteService.getCurrentSite();
 
   return {
-    metadataBase: new URL(siteOrigin.url),
+    metadataBase: new URL(site.baseUrl),
     description: site.seo.description,
     title: {
       template: `%s | ${site.seo.title}`,

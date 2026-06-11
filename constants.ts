@@ -12,6 +12,14 @@ import { NewsHomePage } from "@/themes/news/NewsHomepage";
 
 export const NUMBER_POSTS_LATEST = 15;
 
+export const ORIGIN_CONFIG_DEVELOPMENT_DEFAULT = {
+  host: "test.thetimenews.co",
+  protocol: "https",
+  url: "https://test.thetimenews.co",
+  origin: "thetimenews.co",
+  originUrl: "https://thetimenews.co",
+};
+
 export const THEMES_LAYOUT = {
   news: NewsTheme,
   team: NewsTheme,

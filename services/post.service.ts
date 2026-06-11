@@ -62,10 +62,6 @@ export const postService = {
     "use cache";
     cacheLife("hours");
 
-    // Developer Mode when run localhost
-    if (baseUrl.startsWith("http://localhost")) {
-      return [];
-    }
     const response = await fetch(`${baseUrl}/api/latest`, {
       headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` },
     });

@@ -20,10 +20,9 @@ export const contentType = "image/png";
 
 export default async function Image({ params }: Props) {
     const { segment, year, month, slug } = await params;
-    const siteOrigin = await siteService.getRequestOrigin();
     const site = await siteService.getCurrentSite();
     const post = await postService.getPostData(
-        siteOrigin.url,
+        site.baseUrl,
         segment,
         `${year}/${month}/${slug}`,
     );
@@ -88,7 +87,7 @@ export default async function Image({ params }: Props) {
             >
                 {/* Logo */}
                 <img
-                    src={`${siteOrigin.url}/${site.logo}`}
+                    src={`${site.baseUrl}/${site.logo}`}
                     alt="logo"
                     style={{
                         width: 100,
@@ -126,7 +125,7 @@ export default async function Image({ params }: Props) {
                         textAlign: "center",
                     }}
                 >
-                    {siteOrigin.host}
+                    {site.host}
                 </div>
             </div>
         </div>,

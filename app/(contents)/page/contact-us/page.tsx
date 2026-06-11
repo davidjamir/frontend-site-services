@@ -25,8 +25,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ContactPage() {
-    const siteOrigin = await siteService.getRequestOrigin()
-    const domain = siteOrigin.host
+    const site = await siteService.getCurrentSite();
+    const domain = site.host
 
     return (
         <div className="w-full max-w-4xl mx-auto px-4 py-12 border border-gray-200/5 shadow-sm rounded-md">

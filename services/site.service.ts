@@ -1,6 +1,7 @@
 import type { Site } from "@/core/domain/site";
 import { cacheLife } from "next/cache";
 import { headers } from "next/headers";
+import { ORIGIN_CONFIG_DEVELOPMENT_DEFAULT } from "@/constants";
 
 /** Bỏ label đầu của host (vd. `www.a.com` → `a.com`). Giữ nguyên nếu không còn dấu chấm (vd. `example.com`). */
 function hostWithoutFirstLabel(host: string): string {
@@ -37,6 +38,11 @@ export const siteService = {
     }
 
     const origin = hostWithoutFirstLabel(host);
+
+    // Checking environment app
+    if (process.env.NODE_ENV === "development") {
+      return ORIGIN_CONFIG_DEVELOPMENT_DEFAULT;
+    }
 
     return {
       host,
