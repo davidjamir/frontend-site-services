@@ -13,11 +13,16 @@ import { NewsHomePage } from "@/themes/news/NewsHomepage";
 export const NUMBER_POSTS_LATEST = 15;
 
 export const ORIGIN_CONFIG_DEVELOPMENT_DEFAULT = {
-  host: "news.thetimenews.co",
+  host: "www.nflhub.store",
   protocol: "https",
-  url: "https://news.thetimenews.co",
-  origin: "thetimenews.co",
-  originUrl: "https://thetimenews.co",
+  url: "https://www.nflhub.store",
+  origin: "nflhub.store",
+  originUrl: "https://nflhub.store",
+  // host: "www.thetimenews.co",
+  // protocol: "https",
+  // url: "https://www.thetimenews.co",
+  // origin: "thetimenews.co",
+  // originUrl: "https://thetimenews.co",
 };
 
 export const THEMES_LAYOUT = {

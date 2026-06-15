@@ -1,6 +1,8 @@
 import { ImageResponse } from "next/og";
 import { postService } from "@/services/post.service";
 import { siteService } from "@/services/site.service";
+import { promises as fs } from "fs";
+import path from "path";
 
 type Props = {
     params: {
@@ -30,6 +32,21 @@ export default async function Image({ params }: Props) {
         post.title.length > 150
             ? post.title.slice(0, 150).trim() + "..."
             : post.title;
+
+    const cleanPath = site.icon.startsWith("/") ? site.icon.slice(1) : site.icon;
+    const filePath = path.join(process.cwd(), "public", cleanPath);
+    const buffer = await fs.readFile(filePath);
+    const ext = path.extname(filePath).toLowerCase();
+    const mimeTypes: Record<string, string> = {
+        ".svg": "image/svg+xml",
+        ".png": "image/png",
+        ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg",
+        ".webp": "image/webp",
+        ".gif": "image/gif",
+    };
+    const mimeType = mimeTypes[ext] || "application/octet-stream";
+    const imageDataUri = `data:${mimeType};base64,${buffer.toString("base64")}`;
 
     return new ImageResponse(
         <div
@@ -87,8 +104,8 @@ export default async function Image({ params }: Props) {
             >
                 {/* Logo */}
                 <img
-                    src={`${site.baseUrl}/${site.icon}`}
-                    alt="logo"
+                    src={imageDataUri}
+                    alt={title}
                     style={{
                         width: 130,
                         height: 130,
@@ -102,7 +119,7 @@ export default async function Image({ params }: Props) {
                 <div
                     style={{
                         color: "white",
-                        fontSize: title.length > 120 ? 46 : title.length > 80 ? 50 : 52,
+                        fontSize: title.length > 120 ? 46 : title.length > 80 ? 48 : 50,
                         fontWeight: 800,
                         textAlign: "center",
                         lineHeight: 1.2,
