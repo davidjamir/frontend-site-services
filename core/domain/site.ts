@@ -87,4 +87,10 @@ export type Site = {
     search: "list" | "grid";
     tag: "list" | "grid";
   };
+  config: {
+    colorHeader: string;
+    visibledBreadcrumb: boolean;
+    customOpengraphImage: boolean;
+    enabledAds: boolean;
+  };
 };
