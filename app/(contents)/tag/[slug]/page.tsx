@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
         alternates: {
             canonical: `tag/${slug}`,
-        }
+        },
     };
 }
 
@@ -50,9 +50,13 @@ export default async function Page({ params }: Props) {
     const ThemeContent =
         THEMES_CONTENT[site.theme as keyof typeof THEMES_CONTENT];
 
-    return posts.length > 0 ? (
-        <ThemeContent mode={site.configView.tag} posts={posts} />
-    ) : (
-        <></>
+    return (
+        <ThemeContent
+            mode={site.configView.tag}
+            posts={posts}
+            component="Tag"
+            value={slug}
+            visibledBreadcrumb={true}
+        />
     );
 }

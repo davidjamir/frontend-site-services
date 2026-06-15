@@ -39,8 +39,12 @@ export default function Page() {
     }, [q, site]);
 
     return (
-        posts.length > 0 && (
-            <ThemeContent mode={site.configView.search} posts={posts} />
-        )
+        <ThemeContent
+            mode={site.configView.search}
+            posts={posts}
+            component="Search"
+            value={q}
+            visibledBreadcrumb={true}
+        />
     );
 }

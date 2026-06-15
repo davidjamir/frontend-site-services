@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,6 +9,7 @@ import { Post, PostIndex } from "@/core/domain/post";
 import { Separator } from "@/components/ui/separator";
 import { useSite } from "@/hooks/use-site";
 import AdBlock from "@/components/layout/AdBlock";
+import BreadcrumbHeader from "@/components/layout/BreadcrumbHeader";
 
 export function NewsPostList({ posts }: { posts: PostIndex[] }) {
     return (
@@ -183,46 +184,62 @@ export function NewsPostGrid({ posts }: { posts: PostIndex[] }) {
 export function NewsContent({
     mode,
     posts,
+    component,
+    value,
+    visibledBreadcrumb
 }: {
     mode: "list" | "grid";
     posts: PostIndex[];
+    component?: "Tag" | "Category" | "Search";
+    value?: string;
+    visibledBreadcrumb: boolean
 }) {
-    return mode === "grid" ? (
-        <NewsPostGrid posts={posts} />
-    ) : (
-        <NewsPostList posts={posts} />
+    return (
+        <>
+            {visibledBreadcrumb && <BreadcrumbHeader component={component} value={value} />}
+            {posts.length > 0 ? (
+                mode === "grid" ? (
+                    <NewsPostGrid posts={posts} />
+                ) : (
+                    <NewsPostList posts={posts} />
+                )
+            ) : (<></>)}
+        </>
     );
 }
 
-export function NewsPostPage({ post, related }: { post: Post; related: PostIndex[] }) {
+export function NewsPostPage({
+    post,
+    related,
+}: {
+    post: Post;
+    related: PostIndex[];
+}) {
     const { site } = useSite();
 
     return (
         <div className="w-full grid grid-cols-1 md:grid-cols-[180px_1fr_180px] lg:grid-cols-[200px_1fr_200px] gap-4">
             {/* SIDERBAR LEFT */}
             <aside className="hidden md:block">
-                {
-                    site.ads.adsScript.adsLeftSidebar.length > 0 && (
-                        site.ads.adsScript.adsLeftSidebar.map((ad) => (
-                            <div key={ad.id} className="w-full pb-2">
-                                <AdBlock code={ad.content} />
-                            </div>
-                        ))
-                    )
-                }
+                {site.ads.adsScript.adsLeftSidebar.length > 0 &&
+                    site.ads.adsScript.adsLeftSidebar.map((ad) => (
+                        <div key={ad.id} className="w-full pb-2">
+                            <AdBlock code={ad.content} />
+                        </div>
+                    ))}
             </aside>
 
             {/* MAIN ARTICLE */}
             <div className="w-full px-2 border border-gray-200/5 shadow-sm rounded-md">
-
                 {/* BEFORE POST ADS */}
-                {
-                    site.ads.adsScript.adsBody?.beforePost?.content && (
-                        <div className="w-full min-h-5">
-                            <AdBlock key={site.ads.adsScript.adsBody?.beforePost.id} code={site.ads.adsScript.adsBody?.beforePost.content} />
-                        </div>
-                    )
-                }
+                {site.ads.adsScript.adsBody?.beforePost?.content && (
+                    <div className="w-full min-h-5">
+                        <AdBlock
+                            key={site.ads.adsScript.adsBody?.beforePost.id}
+                            code={site.ads.adsScript.adsBody?.beforePost.content}
+                        />
+                    </div>
+                )}
 
                 <article className="prose prose-neutral max-w-none text-black">
                     {/* TITLE */}
@@ -258,26 +275,24 @@ export function NewsPostPage({ post, related }: { post: Post; related: PostIndex
                 )}
 
                 {/* UNDER POST ADS */}
-                {
-                    site.ads.adsScript.adsBody?.afterPost?.content && (
-                        <div className="w-full min-h-5">
-                            <AdBlock key={site.ads.adsScript.adsBody?.afterPost.id} code={site.ads.adsScript.adsBody?.afterPost.content} />
-                        </div>
-                    )
-                }
+                {site.ads.adsScript.adsBody?.afterPost?.content && (
+                    <div className="w-full min-h-5">
+                        <AdBlock
+                            key={site.ads.adsScript.adsBody?.afterPost.id}
+                            code={site.ads.adsScript.adsBody?.afterPost.content}
+                        />
+                    </div>
+                )}
             </div>
 
             {/* SIDERBAR RIGHT */}
             <aside className="hidden md:block">
-                {
-                    site.ads.adsScript.adsRightSidebar.length > 0 && (
-                        site.ads.adsScript.adsRightSidebar.map((ad) => (
-                            <div key={ad.id} className="w-full pb-2">
-                                <AdBlock code={ad.content} />
-                            </div>
-                        ))
-                    )
-                }
+                {site.ads.adsScript.adsRightSidebar.length > 0 &&
+                    site.ads.adsScript.adsRightSidebar.map((ad) => (
+                        <div key={ad.id} className="w-full pb-2">
+                            <AdBlock code={ad.content} />
+                        </div>
+                    ))}
             </aside>
         </div>
     );
