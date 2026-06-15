@@ -14,19 +14,14 @@ const sizes = {
 
 export default function Logo({ logo, size }: Props) {
     return (
-        <Link href="/" className="block relative border-none">
-            <div className={`relative ${sizes[size]}`}>
-                <Image
-                    src={logo}
-                    alt="Logo"
-                    className={`object-contain`}
-                    fill
-                    sizes="
-                        (max-width: 1024px) 40px,
-                        48px
-                    "
-                />
-            </div>
+        <Link href="/" className="block border-none">
+            <Image
+                src={logo}
+                alt="Logo"
+                width={1000}
+                height={300}
+                className={`${sizes[size]} w-auto max-w-60 object-contain`}
+            />
         </Link>
     );
 }

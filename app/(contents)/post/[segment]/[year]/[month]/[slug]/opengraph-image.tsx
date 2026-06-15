@@ -65,7 +65,7 @@ export default async function Image({ params }: Props) {
                 }}
             />
 
-            {/* BOTTOM PANEL (40% height) */}
+            {/* BOTTOM PANEL (50% height) */}
             <div
                 style={{
                     position: "absolute",
@@ -87,11 +87,11 @@ export default async function Image({ params }: Props) {
             >
                 {/* Logo */}
                 <img
-                    src={`${site.baseUrl}/${site.logo}`}
+                    src={`${site.baseUrl}/${site.icon}`}
                     alt="logo"
                     style={{
-                        width: 100,
-                        height: 100,
+                        width: 130,
+                        height: 130,
                         objectFit: "contain",
                         marginBottom: 20,
                         opacity: 0.9,
@@ -102,7 +102,7 @@ export default async function Image({ params }: Props) {
                 <div
                     style={{
                         color: "white",
-                        fontSize: title.length > 120 ? 40 : title.length > 80 ? 46 : 50,
+                        fontSize: title.length > 120 ? 46 : title.length > 80 ? 50 : 52,
                         fontWeight: 800,
                         textAlign: "center",
                         lineHeight: 1.2,
