@@ -1,42 +1,25 @@
-"use client";
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
-import { useSite } from "@/hooks/use-site";
+import { redirect } from "next/navigation";
 import { searchService } from "@/services/search.service";
-import { PostIndex } from "@/core/domain/post";
 import { THEMES_CONTENT } from "@/constants";
+import { siteService } from "@/services/site.service";
 
-export default function Page() {
-    const { site } = useSite();
-    const searchParams = useSearchParams();
-    const q = searchParams.get("q") ?? "";
-    const [posts, setPosts] = useState<PostIndex[]>([]);
+export default async function Page({
+    searchParams,
+}: {
+    searchParams: Promise<{ q?: string }>;
+}) {
+    const params = await searchParams;
+    const q = params.q ?? "";
+
+    if(!q){
+        redirect("/")
+    }
+
+    const site = await siteService.getCurrentSite();
+    const posts = await searchService.searchPosts(site.baseUrl, site.host, q);
 
     const ThemeContent =
         THEMES_CONTENT[site.theme as keyof typeof THEMES_CONTENT];
-
-    useEffect(() => {
-        if (!q.trim()) {
-            // eslint-disable-next-line react-hooks/set-state-in-effect
-            setPosts([]);
-            return;
-        }
-
-        const fetchPosts = async () => {
-            try {
-                const items = await searchService.searchPosts(
-                    site.baseUrl,
-                    site.host,
-                    q,
-                );
-                setPosts(items || []);
-            } finally {
-            }
-        };
-
-        setPosts([]);
-        fetchPosts();
-    }, [q, site]);
 
     return (
         <ThemeContent
