@@ -8,6 +8,7 @@ export const searchService = {
       `${baseUrl}/api/search?${searchParams.toString()}`,
       { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
     );
+
     if (!response.ok) {
       throw new Error("Failed to search posts");
     }
