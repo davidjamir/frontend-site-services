@@ -10,6 +10,7 @@ import { Separator } from "@/components/ui/separator";
 import { useSite } from "@/hooks/use-site";
 import AdBlock from "@/components/layout/AdBlock";
 import BreadcrumbHeader from "@/components/layout/BreadcrumbHeader";
+import TagBlock from "@/components/layout/TagBlock"
 
 export function NewsPostList({ posts }: { posts: PostIndex[] }) {
     return (
@@ -261,6 +262,8 @@ export function NewsPostPage({
                     </div>
                     {/* CONTENT */}
                     <div dangerouslySetInnerHTML={{ __html: post.content }} />
+
+                    {post.tags.length > 0 && <TagBlock tags={post.tags} />}
                 </article>
 
                 {/* RELATED POSTS */}

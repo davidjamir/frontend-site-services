@@ -26,7 +26,7 @@ export default async function Page({
             mode={site.configView.search}
             posts={posts}
             component="Search"
-            value={q}
+            value={decodeURIComponent(q)}
             visibledBreadcrumb={true}
         />
     );
