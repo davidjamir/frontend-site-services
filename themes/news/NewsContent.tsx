@@ -60,20 +60,32 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
             </div>
 
             {/* CONTENT RIGHT */}
-            <div className=" relative z-20 flex flex-col gap-2 md:gap-2 justify-center md:p-4 flex-1 pointer-events-none">
+            <div className=" relative z-20 flex flex-col gap-2 md:gap-2 justify-center md:p-2 flex-1 pointer-events-none">
                 <h3 className="text-base md:text-lg font-semibold line-clamp-2 pointer-events-none">
                     {post.title.slice(0, 90)}...
                 </h3>
-                <div className="pointer-events-auto ">
-                    <Link
-                        key={post.mainCategory}
-                        href={`/category/${post.mainCategory}`}
-                        className="relative z-30 inline-flex items-center py-1"
-                    >
-                        <Badge className="bg-blue-600 text-white hover:bg-blue-700">
-                            {post.mainCategory}
+                <div className="flex flex-row gap-2 justify-start items-center pointer-events-auto">
+                    <div className="flex flex-row gap-2 justify-start items-center pointer-events-none">
+                        <Badge className="hidden md:flex min-h-0 bg-blue-400/20 text-blue-700 backdrop-blur">
+                            <UserPen data-icon="inline-start" />
+                            {post.author}
                         </Badge>
-                    </Link>
+                        <Badge className="bg-blue-400/20 text-blue-700 backdrop-blur">
+                            <CalendarCheck2 data-icon="inline-end" />{" "}
+                            {new Date(post.createdAt).toDateString()}
+                        </Badge>
+                    </div>
+                    <div className="pointer-events-auto ">
+                        <Link
+                            key={post.mainCategory}
+                            href={`/category/${post.mainCategory}`}
+                            className="relative z-30 inline-flex items-center py-1"
+                        >
+                            <Badge className="bg-blue-600 text-white hover:bg-blue-700">
+                                {post.mainCategory}
+                            </Badge>
+                        </Link>
+                    </div>
                 </div>
 
                 <span className="w-full min-h-0 hidden md:block pointer-events-none">
@@ -95,16 +107,7 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
                         ))}
                     </div>
                 )}
-                <div className="flex flex-row gap-2 justify-between items-center mt-auto pointer-events-none">
-                    <Badge className="hidden md:flex min-h-0 bg-blue-400/20 text-blue-700 backdrop-blur">
-                        <UserPen data-icon="inline-start" />
-                        {post.author}
-                    </Badge>
-                    <Badge className="bg-blue-400/20 text-blue-700 backdrop-blur">
-                        <CalendarCheck2 data-icon="inline-end" />{" "}
-                        {new Date(post.createdAt).toDateString()}
-                    </Badge>
-                </div>
+
             </div>
         </Card>
     );
