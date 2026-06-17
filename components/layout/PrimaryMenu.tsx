@@ -27,7 +27,7 @@ export default function PrimaryMenu({ items }: Props) {
                                     className={`
                                     ${navigationMenuTriggerStyle()}
                                     text-sm
-                                    lg:text-base text-black
+                                    lg:text-base
                                 `}
                                 >
                                     <Link href={item.slug}>{item.name}</Link>
