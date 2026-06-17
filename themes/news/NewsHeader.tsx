@@ -27,7 +27,7 @@ export default function NewsHeader({ site }: Props) {
     <div className="relative z-50 w-full max-w-300 mx-auto flex items-center justify-between">
       {/* LEFT */}
       <div className="flex-1 flex justify-start">
-        <Logo logo={site.logo} size="medium" />
+        <Logo logo={site.logo} wordmark={site.wordmark} size="medium" />
       </div>
 
       {/* CENTER */}

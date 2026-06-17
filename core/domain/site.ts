@@ -74,6 +74,7 @@ export type Site = {
   name: string;
   icon: string;
   logo: string;
+  wordmark?: string;
   siteCategory: string;
   theme: SiteTheme;
   seo: SiteSeo;
@@ -89,6 +90,7 @@ export type Site = {
   };
   config: {
     colorHeader: string;
+    colorTextHeader: string;
     visibledBreadcrumb: boolean;
     customOpengraphImage: boolean;
     enabledAds: boolean;
