@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Tag } from "lucide-react";
 
 export default function TagBlock({ tags }: { tags: string[] }) {
     return (
@@ -10,9 +12,12 @@ export default function TagBlock({ tags }: { tags: string[] }) {
                     <Link
                         key={tag}
                         href={`/tag/${tag}`}
-                        className="rounded-md bg-blue-300/10 px-3 py-1 text-sm no-underline hover:underline hover:bg-blue-300/15 hover:border-blue-500/30 transition"
+                        className="relative z-30 inline-flex text-sm no-underline hover:underline"
                     >
-                        {tag}
+                        <Badge className="bg-green-400/20 text-green-700 backdrop-blur hover:bg-green-400/30 hover:text-green-800 transition-colors">
+                            <Tag data-icon="inline-start" />
+                            {tag}
+                        </Badge>
                     </Link>
                 ))}
             </div>

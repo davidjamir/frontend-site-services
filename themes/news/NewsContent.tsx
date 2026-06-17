@@ -43,7 +43,7 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
             />
 
             {/* IMAGE LEFT */}
-            <div className="relative z-20 w-30 md:w-65 lg:w-80 h-30 md:h-60 lg:h-60 shrink-0 overflow-hidden pointer-events-none">
+            <div className="relative z-20 w-30 md:w-65 lg:w-80 h-30 md:h-62 shrink-0 overflow-hidden pointer-events-none">
                 <Image
                     src={post.featuredImage}
                     alt={post.title}
@@ -56,7 +56,6 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
                             transition-transform duration-300 ease-out
                             group-hover:scale-110
                         "
-                    unoptimized
                 />
             </div>
 
@@ -82,7 +81,7 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
                 </span>
                 {post.tags?.length > 0 && (
                     <div className="hidden md:flex flex-row gap-2 flex-wrap overflow-hidden pointer-events-auto">
-                        {post.tags.map((tag) => (
+                        {post.tags.slice(0, 3).map((tag) => (
                             <Link
                                 key={tag}
                                 href={`/tag/${tag}`}
@@ -145,7 +144,6 @@ function NewsCardGridItem({ post }: { post: PostIndex }) {
                             transition-transform duration-300 ease-out
                             group-hover:scale-110
                         "
-                    unoptimized
                 />
 
                 {/* OVERLAY CONTENT */}
