@@ -33,7 +33,7 @@ export default async function Image({ params }: Props) {
             ? post.title.slice(0, 150).trim() + "..."
             : post.title;
 
-    const cleanPath = site.icon.startsWith("/") ? site.icon.slice(1) : site.icon;
+    const cleanPath = site.logo.startsWith("/") ? site.logo.slice(1) : site.logo;
     const filePath = path.join(process.cwd(), "public", cleanPath);
     const buffer = await fs.readFile(filePath);
     const ext = path.extname(filePath).toLowerCase();
