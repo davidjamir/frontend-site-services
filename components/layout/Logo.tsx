@@ -24,16 +24,18 @@ export default function Logo({ logo, wordmark, size }: Props) {
     return (
         <Link href="/" className="flex items-center gap-3 border-none">
             {/* Logo */}
-            <Image
-                src={logo}
-                alt="Logo"
-                width={100}
-                height={100}
-                className={`${logoSizes[size]} shrink-0 object-contain`}
-                style={{
-                    filter: "drop-shadow(0 0 1px rgba(255,255,255))",
-                }}
-            />
+            <div className={`flex items-center justify-center ${logoSizes[size]}`}>
+                <Image
+                    src={logo}
+                    alt="Logo"
+                    width={200}
+                    height={200}
+                    className="max-w-full max-h-full shrink-0 object-contain"
+                    style={{
+                        filter: "drop-shadow(0 0 1px rgba(255,255,255))",
+                    }}
+                />
+            </div>
 
             {/* Wordmark */}
             {wordmark && (
