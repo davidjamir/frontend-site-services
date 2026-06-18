@@ -45,7 +45,7 @@ export default function Logo({ logo, wordmark, size }: Props) {
                     width={1000}
                     height={300}
                     style={{
-                        filter: "drop-shadow(0 0 1px rgba(255,255,255))",
+                        filter: "drop-shadow(0 0 0.5px rgba(255,255,255))",
                     }}
                     className={`${wordmarkSizes[size]} w-auto object-contain`}
                 />
