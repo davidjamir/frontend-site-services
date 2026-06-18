@@ -2,11 +2,11 @@
 <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1"
     xmlns:cc="http://creativecommons.org/ns#"
-    xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 500 85">
+    xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="-2 -2 502 88">
     <style>
     path{
         stroke:#fff;
-        stroke-width: 3;
+        stroke-width: 4;
         paint-order:stroke fill;
         stroke-linejoin:round;
     }

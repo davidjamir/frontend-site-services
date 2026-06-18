@@ -6,7 +6,7 @@
    <style>
     path{
         stroke:#fff;
-        stroke-width: 3;
+        stroke-width: 10;
         paint-order:stroke fill;
         stroke-linejoin:round;
     }

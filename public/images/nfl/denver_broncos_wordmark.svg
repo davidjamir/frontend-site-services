@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" height="32.931" viewBox="0 0 190.77251 32.930775" width="190.77">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" height="32.931" viewBox="-2 -2 192.77251 34.930775" width="190.77">
     <style>
     path{
         stroke:#fff;
-        stroke-width: 3;
+        stroke-width: 2;
         paint-order:stroke fill;
         stroke-linejoin:round;
     }
