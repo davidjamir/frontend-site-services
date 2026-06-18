@@ -5,7 +5,7 @@
       .cls-1 {
         fill: #00001b;
         stroke:#fff;
-        stroke-width: 0.7;
+        stroke-width: 1;
         paint-order:stroke fill;
         stroke-linejoin:round;
       }
@@ -13,7 +13,7 @@
       .cls-2 {
         fill: #ed1b30;
         stroke:#fff;
-        stroke-width: 0.7;
+        stroke-width: 1;
         paint-order:stroke fill;
         stroke-linejoin:round;
       }
