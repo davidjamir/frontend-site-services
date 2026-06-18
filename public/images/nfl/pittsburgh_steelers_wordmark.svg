@@ -7,7 +7,7 @@
 	<style>
     path, rect{
         stroke:#fff;
-        stroke-width: 6;
+        stroke-width: 4;
         paint-order:stroke fill;
         stroke-linejoin:round;
     }
