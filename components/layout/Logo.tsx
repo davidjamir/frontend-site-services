@@ -30,6 +30,9 @@ export default function Logo({ logo, wordmark, size }: Props) {
                 width={100}
                 height={100}
                 className={`${logoSizes[size]} shrink-0 object-contain`}
+                style={{
+                    filter: "drop-shadow(0 0 1px rgba(255,255,255))",
+                }}
             />
 
             {/* Wordmark */}
@@ -39,6 +42,9 @@ export default function Logo({ logo, wordmark, size }: Props) {
                     alt="Wordmark"
                     width={1000}
                     height={300}
+                    style={{
+                        filter: "drop-shadow(0 0 1px rgba(255,255,255))",
+                    }}
                     className={`${wordmarkSizes[size]} w-auto object-contain`}
                 />
             )}
