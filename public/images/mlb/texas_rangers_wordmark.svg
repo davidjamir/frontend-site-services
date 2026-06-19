@@ -12,6 +12,10 @@
 
       .cls-3 {
         fill: #c32032;
+        stroke:#fff;
+        stroke-width:4;
+        paint-order:stroke fill;
+        stroke-linejoin:round;
       }
     </style>
   </defs>
