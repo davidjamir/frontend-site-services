@@ -6,7 +6,7 @@
       .st0 {
         fill: #4e008e;
         stroke:#fff;
-        stroke-width:4;
+        stroke-width:20;
         paint-order:stroke fill;
         stroke-linejoin:round;
       }

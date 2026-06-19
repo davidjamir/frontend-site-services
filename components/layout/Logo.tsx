@@ -31,9 +31,6 @@ export default function Logo({ logo, wordmark, size }: Props) {
                     width={200}
                     height={200}
                     className="max-w-full max-h-full shrink-0 object-contain"
-                    style={{
-                        filter: "drop-shadow(0 0 0.5px rgba(255,255,255))",
-                    }}
                 />
             </div>
 

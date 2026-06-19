@@ -5,14 +5,10 @@
 	xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="45 43 310 314" style="enable-background:new 0 0 400 400;" xml:space="preserve">
 	<style type="text/css">
 	.st0{fill:#BC945C;
-		<!-- stroke:#fff;
-        stroke-width:3;
-        paint-order:stroke fill;
-        stroke-linejoin:round; -->
 	}
 	.st1{fill:#860038; 
 		stroke:#fff;
-        stroke-width:2;
+        stroke-width:5;
         paint-order:stroke fill;
         stroke-linejoin:round;
 	}
