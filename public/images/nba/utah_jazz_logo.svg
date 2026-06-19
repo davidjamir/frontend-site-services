@@ -5,6 +5,10 @@
     <style>
       .st0 {
         fill: #4e008e;
+        stroke:#fff;
+        stroke-width:4;
+        paint-order:stroke fill;
+        stroke-linejoin:round;
       }
     </style>
   </defs>
