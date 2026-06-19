@@ -68,7 +68,7 @@ async function SiteBoundary({
 
   return (
     <>
-      {site.script.map((item) => {
+      {site.config.enabledAds && site.script.map((item) => {
         if (!item.enabled) return null;
 
         const attrs = Object.fromEntries(

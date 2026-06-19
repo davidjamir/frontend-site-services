@@ -223,7 +223,7 @@ export function NewsPostPage({
         <div className="w-full grid grid-cols-1 md:grid-cols-[180px_1fr_180px] lg:grid-cols-[200px_1fr_200px] gap-4">
             {/* SIDERBAR LEFT */}
             <aside className="hidden md:block">
-                {site.ads.adsScript.adsLeftSidebar.length > 0 &&
+                {site.config.enabledAds && site.ads.adsScript.adsLeftSidebar.length > 0 &&
                     site.ads.adsScript.adsLeftSidebar.map((ad) => (
                         <div key={ad.id} className="w-full pb-2">
                             <AdBlock code={ad.content} />
@@ -234,7 +234,7 @@ export function NewsPostPage({
             {/* MAIN ARTICLE */}
             <div className="w-full px-2 border border-gray-200/5 shadow-sm rounded-md">
                 {/* BEFORE POST ADS */}
-                {site.ads.adsScript.adsBody?.beforePost?.content && (
+                {site.config.enabledAds && site.ads.adsScript.adsBody?.beforePost?.content && (
                     <div className="w-full min-h-5">
                         <AdBlock
                             key={site.ads.adsScript.adsBody?.beforePost.id}
@@ -279,7 +279,7 @@ export function NewsPostPage({
                 )}
 
                 {/* UNDER POST ADS */}
-                {site.ads.adsScript.adsBody?.afterPost?.content && (
+                {site.config.enabledAds && site.ads.adsScript.adsBody?.afterPost?.content && (
                     <div className="w-full min-h-5">
                         <AdBlock
                             key={site.ads.adsScript.adsBody?.afterPost.id}
@@ -291,7 +291,7 @@ export function NewsPostPage({
 
             {/* SIDERBAR RIGHT */}
             <aside className="hidden md:block">
-                {site.ads.adsScript.adsRightSidebar.length > 0 &&
+                {site.config.enabledAds && site.ads.adsScript.adsRightSidebar.length > 0 &&
                     site.ads.adsScript.adsRightSidebar.map((ad) => (
                         <div key={ad.id} className="w-full pb-2">
                             <AdBlock code={ad.content} />
