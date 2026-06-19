@@ -13,16 +13,16 @@ import { NewsHomePage } from "@/themes/news/NewsHomepage";
 export const NUMBER_POSTS_LATEST = 15;
 
 export const ORIGIN_CONFIG_DEVELOPMENT_DEFAULT = {
-  host: "pistons.nbahub.store",
-  url: "https://pistons.nbahub.store",
-  protocol: "https",
-  origin: "nflhub.store",
-  originUrl: "https://nflhub.store",
-  // host: "www.thetimenews.co",
+  // host: "padres.mlbhub.store",
+  // url: "https://padres.mlbhub.store",
   // protocol: "https",
-  // url: "https://www.thetimenews.co",
-  // origin: "thetimenews.co",
-  // originUrl: "https://thetimenews.co",
+  // origin: "mlbhub.store",
+  // originUrl: "https://mlbhub.store",
+  host: "www.thetimenews.co",
+  protocol: "https",
+  url: "https://www.thetimenews.co",
+  origin: "thetimenews.co",
+  originUrl: "https://thetimenews.co",
 };
 
 export const THEMES_LAYOUT = {

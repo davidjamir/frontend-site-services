@@ -4,6 +4,7 @@ import { Search } from "lucide-react";
 import { useState, useRef } from "react";
 
 import { usePathname, useRouter } from "next/navigation";
+import { useSite } from "@/hooks/use-site";
 
 import {
     InputGroup,
@@ -13,6 +14,7 @@ import {
 
 export default function SearchForm() {
     const router = useRouter();
+    const { site } = useSite()
 
     const pathname = usePathname();
     const previousPath = useRef(pathname);
@@ -50,8 +52,10 @@ export default function SearchForm() {
     };
 
     return (<div id="search-form" className="w-full max-w-xs">
-
-        <InputGroup className="w-full lg:h-10 min-w-0">
+        <InputGroup className="w-full lg:h-10 min-w-0 " style={{
+            borderColor: site.config.colorTextHeader,
+            color: site.config.colorTextHeader,
+        }}>
             <InputGroupInput
                 placeholder="Search..."
                 value={value}
@@ -62,9 +66,14 @@ export default function SearchForm() {
             <InputGroupAddon
                 align="inline-end"
                 onClick={onSubmit}
-                className="cursor-pointer bg-gray-200/20 hover:bg-gray-200/40 transition-colors p-2 rounded-md"
+                className="cursor-pointer transition-colors p-2 rounded-md"
+                style={{
+                    backgroundColor: `color-mix(in srgb, ${site.config.colorTextHeader} 10%, transparent)`
+                }}
             >
-                <Search />
+                <Search style={{
+                    color: site.config.colorTextHeader,
+                }} />
             </InputGroupAddon>
         </InputGroup>
     </div>
