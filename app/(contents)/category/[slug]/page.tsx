@@ -57,7 +57,7 @@ export default async function Page({ params }: Props) {
       posts={posts}
       component="Category"
       value={decodeURIComponent(slug)}
-      visibledBreadcrumb={true}
+      visibledBreadcrumb={site.config.visibledBreadcrumb}
     />
   );
 }

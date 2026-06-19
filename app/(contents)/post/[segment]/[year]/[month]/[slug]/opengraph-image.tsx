@@ -71,82 +71,83 @@ export default async function Image({ params }: Props) {
                     objectFit: "cover",
                 }}
             />
+            {site.config.customOpengraphImage && (
+                <>
+                    <div
+                        style={{
+                            position: "absolute",
+                            width: "100%",
+                            height: "100%",
+                            background:
+                                "linear-gradient(to top, rgba(0,0,0,0.2), transparent 60%)",
+                        }}
+                    />
 
-            <div
-                style={{
-                    position: "absolute",
-                    width: "100%",
-                    height: "100%",
-                    background:
-                        "linear-gradient(to top, rgba(0,0,0,0.2), transparent 60%)",
-                }}
-            />
+                    {/* BOTTOM PANEL (50% height) */}
+                    <div
+                        style={{
+                            position: "absolute",
+                            bottom: 0,
+                            left: 0,
+                            width: "100%",
+                            height: "50%",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            padding: "40px 80px",
+                            boxSizing: "border-box",
+                            // riêng gradient cho panel
+                            background:
+                                "linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.5), transparent)",
+                        }}
+                    >
+                        {/* Logo */}
+                        <img
+                            src={imageDataUri}
+                            alt={title}
+                            style={{
+                                width: 130,
+                                height: 130,
+                                objectFit: "contain",
+                                marginBottom: 20,
+                                opacity: 0.9,
+                            }}
+                        />
 
-            {/* BOTTOM PANEL (50% height) */}
-            <div
-                style={{
-                    position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "50%",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: "40px 80px",
-                    boxSizing: "border-box",
+                        {/* Title */}
+                        <div
+                            style={{
+                                color: "white",
+                                fontSize: title.length > 120 ? 46 : title.length > 80 ? 48 : 50,
+                                fontWeight: 800,
+                                textAlign: "center",
+                                lineHeight: 1.2,
+                                maxWidth: 1000,
+                                textShadow: "0 10px 30px rgba(0,0,0,0.7)",
+                            }}
+                        >
+                            {title}
+                        </div>
 
-                    // riêng gradient cho panel
-                    background:
-                        "linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.5), transparent)",
-                }}
-            >
-                {/* Logo */}
-                <img
-                    src={imageDataUri}
-                    alt={title}
-                    style={{
-                        width: 130,
-                        height: 130,
-                        objectFit: "contain",
-                        marginBottom: 20,
-                        opacity: 0.9,
-                    }}
-                />
-
-                {/* Title */}
-                <div
-                    style={{
-                        color: "white",
-                        fontSize: title.length > 120 ? 46 : title.length > 80 ? 48 : 50,
-                        fontWeight: 800,
-                        textAlign: "center",
-                        lineHeight: 1.2,
-                        maxWidth: 1000,
-                        textShadow: "0 10px 30px rgba(0,0,0,0.7)",
-                    }}
-                >
-                    {title}
-                </div>
-
-                {/* Source / Domain */}
-                <div
-                    style={{
-                        marginTop: 24,
-                        padding: "6px 14px",
-                        color: "rgba(255,255,255,0.8)",
-                        fontSize: 30,
-                        fontWeight: 500,
-                        letterSpacing: 0.8,
-                        textAlign: "center",
-                    }}
-                >
-                    {site.host}
-                </div>
-            </div>
+                        {/* Source / Domain */}
+                        <div
+                            style={{
+                                marginTop: 24,
+                                padding: "6px 14px",
+                                color: "rgba(255,255,255,0.8)",
+                                fontSize: 30,
+                                fontWeight: 500,
+                                letterSpacing: 0.8,
+                                textAlign: "center",
+                            }}
+                        >
+                            {site.host}
+                        </div>
+                    </div>
+                </>
+            )}
         </div>,
-
         {
             ...size,
             // fonts: [

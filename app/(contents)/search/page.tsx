@@ -11,7 +11,7 @@ export default async function Page({
     const params = await searchParams;
     const q = params.q ?? "";
 
-    if(!q){
+    if (!q) {
         redirect("/")
     }
 
@@ -27,7 +27,7 @@ export default async function Page({
             posts={posts}
             component="Search"
             value={decodeURIComponent(q)}
-            visibledBreadcrumb={true}
+            visibledBreadcrumb={site.config.visibledBreadcrumb}
         />
     );
 }

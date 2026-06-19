@@ -56,7 +56,7 @@ export default async function Page({ params }: Props) {
             posts={posts}
             component="Tag"
             value={decodeURIComponent(slug)}
-            visibledBreadcrumb={true}
+            visibledBreadcrumb={site.config.visibledBreadcrumb}
         />
     );
 }
