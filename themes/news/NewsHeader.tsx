@@ -41,10 +41,13 @@ export default function NewsHeader({ site }: Props) {
       </div>
 
       {/* MENU MOBILE */}
-      <div className="md:hidden flex flex-1 justify-end min-w-0 cursor-pointer">
+      <div className="md:hidden flex flex-1 justify-end min-w-0 cursor-pointer bg-transparent">
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon" aria-label="Open menu">
+            <Button variant="outline" size="icon-lg" aria-label="Open menu" style={{
+              backgroundColor: "transparent",
+              color: site.config.colorTextHeader,
+            }}>
               <MenuIcon />
             </Button>
           </SheetTrigger>
@@ -88,7 +91,6 @@ export default function NewsHeader({ site }: Props) {
           </SheetContent>
         </Sheet>
       </div>
-
     </div>
   );
 }
