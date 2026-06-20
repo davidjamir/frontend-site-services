@@ -95,4 +95,8 @@ export type Site = {
     customOpengraphImage: boolean;
     enabledAds: boolean;
   };
+  analytics: {
+    gaId?: string;
+    gtmId?: string;
+  };
 };

@@ -2,6 +2,7 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/providers/theme.provider";
@@ -68,6 +69,9 @@ async function SiteBoundary({
 
   return (
     <>
+      {site.analytics?.gaId && (
+        <GoogleAnalytics gaId={site.analytics.gaId} />
+      )}
       {site.config.enabledAds && site.script.map((item) => {
         if (!item.enabled) return null;
 
