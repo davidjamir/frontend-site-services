@@ -71,8 +71,19 @@ export default async function Image({ params }: Props) {
                     objectFit: "cover",
                 }}
             />
+
             {site.config.customOpengraphImage && (
-                <>
+                <div
+                    style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        display: "flex",
+                        flexDirection: "column",
+                    }}
+                >
                     <div
                         style={{
                             position: "absolute",
@@ -89,6 +100,7 @@ export default async function Image({ params }: Props) {
                             position: "absolute",
                             bottom: 0,
                             left: 0,
+                            right: 0,
                             width: "100%",
                             height: "50%",
                             display: "flex",
@@ -112,6 +124,7 @@ export default async function Image({ params }: Props) {
                                 objectFit: "contain",
                                 marginBottom: 20,
                                 opacity: 0.9,
+                                filter: "drop-shadow(0 0 10px rgba(255,255,255,0.5))"
                             }}
                         />
 
@@ -145,7 +158,7 @@ export default async function Image({ params }: Props) {
                             {site.host}
                         </div>
                     </div>
-                </>
+                </div>
             )}
         </div>,
         {
