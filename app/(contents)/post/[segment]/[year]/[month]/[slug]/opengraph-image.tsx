@@ -123,8 +123,13 @@ export default async function Image({ params }: Props) {
                                 height: 130,
                                 objectFit: "contain",
                                 marginBottom: 20,
-                                opacity: 0.9,
-                                filter: "drop-shadow(0 0 10px rgba(255,255,255,0.5))"
+                                opacity: 0.9
+                                // filter:
+                                //     "drop-shadow(0 0 4px rgba(255,255,255,0.9)) " +
+                                //     "drop-shadow(0 0 12px rgba(255,255,255,0.5)) " +
+                                //     "drop-shadow(0 0 24px rgba(0,0,0,0.5))"
+
+
                             }}
                         />
 
