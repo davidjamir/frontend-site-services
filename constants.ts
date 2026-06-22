@@ -13,9 +13,9 @@ import { NewsHomePage } from "@/themes/news/NewsHomepage";
 export const NUMBER_POSTS_LATEST = 15;
 
 export const ORIGIN_CONFIG_DEVELOPMENT_DEFAULT = {
-  host: "hawks.nbahub.store",
+  host: "bills.nflhub.store",
   protocol: "https",
-  url: "https://hawks.nbahub.store",
+  url: "https://bills.nflhub.store",
   origin: "nflhub.store",
   originUrl: "https://nflhub.store",
 };

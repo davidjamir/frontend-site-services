@@ -31,7 +31,7 @@ export async function GET(request: Request) {
   }
   const url = new URL("/api/category", ADAPTER_API_ENDPOINT);
   url.searchParams.set("domain", domain);
-  url.searchParams.set("category", category);
+  url.searchParams.set("category", decodeURIComponent(category));
 
   const response = await fetch(url.toString(), {
     method: "GET",
