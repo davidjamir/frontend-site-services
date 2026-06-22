@@ -28,6 +28,11 @@ export default function PrimaryMenu({ items }: Props) {
                                     ${navigationMenuTriggerStyle()}
                                     text-sm
                                     lg:text-base
+                                    bg-transparent
+                                    hover:bg-white/10
+                                    focus:bg-white/10
+                                    data-active:bg-white/10
+                                    data-[state=open]:bg-white/10
                                 `}
                                 >
                                     <Link href={item.slug}>{item.name}</Link>
