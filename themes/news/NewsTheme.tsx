@@ -4,6 +4,7 @@ import NewHeader from "./NewsHeader";
 import NewsFooter from "./NewsFooter";
 import { Separator } from "@/components/ui/separator";
 import AdBlock from "@/components/layout/AdBlock";
+import { isProduction } from "@/lib/env";
 
 export default function NewsTheme({ children }: { children: React.ReactNode }) {
     const { site } = useSite();
@@ -11,11 +12,13 @@ export default function NewsTheme({ children }: { children: React.ReactNode }) {
     return (
         <div className="min-h-screen flex flex-col overflow-hidden">
             {/* ADS VIDEO HEADER*/}
-            {site.config.enabledAds && site.ads.adsScript.adsVideoHeader.content && (
-                <div key={site.ads.adsScript.adsVideoHeader.id} className="w-full">
-                    <AdBlock code={site.ads.adsScript.adsVideoHeader.content} />
-                </div>
-            )}
+            {isProduction &&
+                site.config.enabledAds &&
+                site.ads.adsScript.adsVideoHeader.content && (
+                    <div key={site.ads.adsScript.adsVideoHeader.id} className="w-full">
+                        <AdBlock code={site.ads.adsScript.adsVideoHeader.content} />
+                    </div>
+                )}
 
             {/* HEADER */}
             <div
@@ -31,7 +34,9 @@ export default function NewsTheme({ children }: { children: React.ReactNode }) {
 
             {/* SCRIPTS ADS HEADER */}
             <div className=" w-full min-h-1">
-                {site.config.enabledAds && site.ads.adsScript.adsHeader.length > 0 &&
+                {isProduction &&
+                    site.config.enabledAds &&
+                    site.ads.adsScript.adsHeader.length > 0 &&
                     site.ads.adsScript.adsHeader.map((ad) => (
                         <AdBlock key={ad.id} code={ad.content} />
                     ))}
@@ -45,7 +50,9 @@ export default function NewsTheme({ children }: { children: React.ReactNode }) {
 
             {/* SCRIPTS ADS FOOTER */}
             <div className=" w-full min-h-1">
-                {site.config.enabledAds && site.ads.adsScript.adsFooter.length > 0 &&
+                {isProduction &&
+                    site.config.enabledAds &&
+                    site.ads.adsScript.adsFooter.length > 0 &&
                     site.ads.adsScript.adsFooter.map((ad) => (
                         <AdBlock key={ad.id} code={ad.content} />
                     ))}

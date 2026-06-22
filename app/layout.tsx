@@ -2,7 +2,8 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { isProduction, isVercelProduction } from "@/lib/env";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/providers/theme.provider";
@@ -52,7 +53,7 @@ export async function generateMetadata(): Promise<Metadata> {
       other: {
         me: site.verification?.other.me,
         monetag: site.verification?.other.monetag,
-        verification: site.verification?.other.adsconex
+        verification: site.verification?.other.adsconex,
       },
     },
     pinterest: {
@@ -69,29 +70,34 @@ async function SiteBoundary({
 
   return (
     <>
-      {site.analytics?.gaId && (
+      {isProduction && site.analytics?.gaId && (
         <GoogleAnalytics gaId={site.analytics.gaId} />
       )}
-      {site.config.enabledAds && site.script.map((item) => {
-        if (!item.enabled) return null;
+      {isProduction && site.analytics?.gtmId && (
+        <GoogleTagManager gtmId={site.analytics.gtmId} />
+      )}
+      {isProduction &&
+        site.config.enabledAds &&
+        site.script.map((item) => {
+          if (!item.enabled) return null;
 
-        const attrs = Object.fromEntries(
-          item.attributes?.map(attr => [attr.key, attr.value]) ?? []
-        );
+          const attrs = Object.fromEntries(
+            item.attributes?.map((attr) => [attr.key, attr.value]) ?? [],
+          );
 
-        return (
-          <Script
-            key={item.id}
-            id={item.id}
-            src={item.src}
-            async={item.async}
-            defer={item.defer}
-            crossOrigin={item.crossOrigin}
-            strategy={item.strategy}
-            {...attrs}
-          />
-        );
-      })}
+          return (
+            <Script
+              key={item.id}
+              id={item.id}
+              src={item.src}
+              async={item.async}
+              defer={item.defer}
+              crossOrigin={item.crossOrigin}
+              strategy={item.strategy}
+              {...attrs}
+            />
+          );
+        })}
       <ThemeProvider site={site}>
         <ThemeLayout>{children}</ThemeLayout>
       </ThemeProvider>
@@ -104,15 +110,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en" className={`${inter.className} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <Suspense fallback={<div />}>
           <SiteBoundary>{children}</SiteBoundary>
         </Suspense>
-        <Analytics />
-        <SpeedInsights />
+        {isVercelProduction && (
+          <>
+            <Analytics />
+            <SpeedInsights />
+          </>
+        )}
       </body>
     </html>
   );
