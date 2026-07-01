@@ -13,11 +13,11 @@ import { NewsHomePage } from "@/themes/news/NewsHomepage";
 export const NUMBER_POSTS_LATEST = 15;
 
 export const ORIGIN_CONFIG_DEVELOPMENT_DEFAULT = {
-  host: "bills.nflhub.store",
+  host: "villa.fchub.store",
   protocol: "https",
-  url: "https://bills.nflhub.store",
-  origin: "nflhub.store",
-  originUrl: "https://nflhub.store",
+  url: "https://villa.fchub.store",
+  origin: "fchub.store",
+  originUrl: "https://fchub.store",
 };
 
 export const THEMES_LAYOUT = {
