@@ -66,7 +66,7 @@ export default function NewsHeader({ site }: Props) {
               <div className="grid gap-3">
                 <Label>Pages</Label>
                 {site.pages?.map((page) => (
-                  <Link key={page.id} href={page.slug} className="block">
+                  <Link key={page.id} href={page.slug} prefetch={false} className="block">
                     <SheetClose asChild>
                       <Button variant="ghost" className="w-full cursor-pointer justify-start text-xs">
                         {page.name}
@@ -78,7 +78,7 @@ export default function NewsHeader({ site }: Props) {
               <div className="grid gap-3">
                 <Label>Categories</Label>
                 {site.categories?.map((category) => (
-                  <Link key={category.id} href={category.slug} className="block">
+                  <Link key={category.id} href={category.slug} prefetch={false} className="block">
                     <SheetClose asChild>
                       <Button variant="ghost" className="w-full cursor-pointer justify-start text-xs">
                         {category.name}

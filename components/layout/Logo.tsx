@@ -22,7 +22,7 @@ const wordmarkSizes = {
 
 export default function Logo({ logo, wordmark, size }: Props) {
     return (
-        <Link href="/" className="flex items-center gap-3 border-none">
+        <Link href="/" prefetch={false} className="flex items-center gap-3 border-none">
             {/* Logo */}
             <div className={`flex items-center justify-center ${logoSizes[size]}`}>
                 <Image

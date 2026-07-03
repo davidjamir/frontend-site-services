@@ -14,6 +14,7 @@ export default function NewFooter() {
                 <div className="lg:col-span-5">
                     <Link
                         href="/"
+                        prefetch={false}
                         className="inline-flex items-center gap-3"
                     >
                         <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 text-sm font-bold tracking-widest text-white">
@@ -42,6 +43,7 @@ export default function NewFooter() {
                             <Link
                                 key={item.title}
                                 href="#"
+                                prefetch={false}
                                 className="rounded-full border border-white/10 p-1 md:p-2 text-xs text-white/65 transition hover:border-white/25 hover:text-white"
                             >
                                 <Badge className="bg-transparent text-white/85 hover:text-white">

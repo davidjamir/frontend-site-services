@@ -35,7 +35,9 @@ export default function PrimaryMenu({ items }: Props) {
                                     data-[state=open]:bg-white/10
                                 `}
                                 >
-                                    <Link href={item.slug}>{item.name}</Link>
+                                    <Link href={item.slug} prefetch={false}>
+                                        {item.name}
+                                    </Link>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                         );

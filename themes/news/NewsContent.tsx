@@ -80,6 +80,7 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
                         <Link
                             key={post.mainCategory}
                             href={`/category/${post.mainCategory}`}
+                            prefetch={false}
                             className="relative z-30 inline-flex items-center py-1"
                         >
                             <Badge className="bg-blue-600 text-white hover:bg-blue-700">
@@ -98,6 +99,7 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
                             <Link
                                 key={tag}
                                 href={`/tag/${tag}`}
+                                prefetch={false}
                                 className="relative z-30 inline-flex"
                             >
                                 <Badge className="bg-green-400/20 text-green-700 backdrop-blur hover:bg-green-400/30 hover:text-green-800 transition-colors">
@@ -262,6 +264,7 @@ export function NewsPostPage({
                         <Link
                             key={post.mainCategory}
                             href={`/category/${post.mainCategory}`}
+                            prefetch={false}
                             className="relative z-30 inline-flex"
                         >
                             <Badge className="bg-blue-600 text-white hover:bg-blue-700 p-2 md:p-3 transition-colors">

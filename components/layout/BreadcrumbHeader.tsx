@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 
 import {
     Breadcrumb,
@@ -7,21 +7,31 @@ import {
     BreadcrumbList,
     BreadcrumbPage,
     BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+} from "@/components/ui/breadcrumb";
 
-export default function BreadcrumbHeader({ component, value }: { component?: "Tag" | "Category" | "Search", value?: string }) {
+export default function BreadcrumbHeader({
+    component,
+    value,
+}: {
+    component?: "Tag" | "Category" | "Search";
+    value?: string;
+}) {
     return (
         <Breadcrumb className="text-6xl pt-2 pb-8 ">
             <BreadcrumbList>
                 <BreadcrumbItem>
                     <BreadcrumbLink asChild>
-                        <Link href="/">Home</Link>
+                        <Link href="/" prefetch={false}>
+                            Home
+                        </Link>
                     </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                     <BreadcrumbLink asChild>
-                        <Link href="/">{component}</Link>
+                        <Link href="/" prefetch={false}>
+                            {component}
+                        </Link>
                     </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
@@ -30,5 +40,5 @@ export default function BreadcrumbHeader({ component, value }: { component?: "Ta
                 </BreadcrumbItem>
             </BreadcrumbList>
         </Breadcrumb>
-    )
+    );
 }
