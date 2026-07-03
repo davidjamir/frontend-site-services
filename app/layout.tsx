@@ -78,26 +78,27 @@ async function SiteBoundary({
       )}
       {isProduction &&
         site.config.enabledAds &&
-        site.script.map((item) => {
-          if (!item.enabled) return null;
+        site.script.length > 0 &&
+        site.script
+          .filter((item) => item.enabled)
+          .map((item) => {
+            const attrs = Object.fromEntries(
+              item.attributes?.map((attr) => [attr.key, attr.value]) ?? [],
+            );
 
-          const attrs = Object.fromEntries(
-            item.attributes?.map((attr) => [attr.key, attr.value]) ?? [],
-          );
-
-          return (
-            <Script
-              key={item.id}
-              id={item.id}
-              src={item.src}
-              async={item.async}
-              defer={item.defer}
-              crossOrigin={item.crossOrigin}
-              strategy={item.strategy}
-              {...attrs}
-            />
-          );
-        })}
+            return (
+              <Script
+                key={item.id}
+                id={item.id}
+                src={item.src}
+                async={item.async}
+                defer={item.defer}
+                crossOrigin={item.crossOrigin}
+                strategy={item.strategy}
+                {...attrs}
+              />
+            );
+          })}
       <ThemeProvider site={site}>
         <ThemeLayout>{children}</ThemeLayout>
       </ThemeProvider>

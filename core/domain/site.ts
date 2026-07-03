@@ -21,6 +21,7 @@ export type AdsItem = {
   id: string;
   source: string;
   content: string;
+  enabled: boolean;
 };
 
 export type SiteAds = {
@@ -98,5 +99,21 @@ export type Site = {
   analytics: {
     gaId?: string;
     gtmId?: string;
+  };
+  socials?: {
+    facebook?: string;
+    instagram?: string;
+    threads?: string;
+    x?: string;
+    tiktok?: string;
+    youtube?: string;
+    telegram?: string;
+    reddit?: string;
+    pinterest?: string;
+    discord?: string;
+    whatsapp?: string;
+    snapchat?: string;
+    twitch?: string;
+    linkedin?: string;
   };
 };

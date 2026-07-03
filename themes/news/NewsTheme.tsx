@@ -14,6 +14,7 @@ export default function NewsTheme({ children }: { children: React.ReactNode }) {
             {/* ADS VIDEO HEADER*/}
             {isProduction &&
                 site.config.enabledAds &&
+                site.ads.adsScript.adsVideoHeader.enabled &&
                 site.ads.adsScript.adsVideoHeader.content && (
                     <div key={site.ads.adsScript.adsVideoHeader.id} className="w-full">
                         <AdBlock code={site.ads.adsScript.adsVideoHeader.content} />
@@ -37,7 +38,7 @@ export default function NewsTheme({ children }: { children: React.ReactNode }) {
                 {isProduction &&
                     site.config.enabledAds &&
                     site.ads.adsScript.adsHeader.length > 0 &&
-                    site.ads.adsScript.adsHeader.map((ad) => (
+                    site.ads.adsScript.adsHeader.filter(ad => ad.enabled).map((ad) => (
                         <AdBlock key={ad.id} code={ad.content} />
                     ))}
             </div>
@@ -53,7 +54,7 @@ export default function NewsTheme({ children }: { children: React.ReactNode }) {
                 {isProduction &&
                     site.config.enabledAds &&
                     site.ads.adsScript.adsFooter.length > 0 &&
-                    site.ads.adsScript.adsFooter.map((ad) => (
+                    site.ads.adsScript.adsFooter.filter(ad => ad.enabled).map((ad) => (
                         <AdBlock key={ad.id} code={ad.content} />
                     ))}
             </div>

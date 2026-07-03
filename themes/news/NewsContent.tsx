@@ -232,7 +232,7 @@ export function NewsPostPage({
                 {isProduction &&
                     site.config.enabledAds &&
                     site.ads.adsScript.adsLeftSidebar.length > 0 &&
-                    site.ads.adsScript.adsLeftSidebar.map((ad) => (
+                    site.ads.adsScript.adsLeftSidebar.filter(ad => ad.enabled).map((ad) => (
                         <div key={ad.id} className="w-full pb-2">
                             <AdBlock code={ad.content} />
                         </div>
@@ -244,6 +244,7 @@ export function NewsPostPage({
                 {/* BEFORE POST ADS */}
                 {isProduction &&
                     site.config.enabledAds &&
+                    site.ads.adsScript.adsBody?.beforePost?.enabled &&
                     site.ads.adsScript.adsBody?.beforePost?.content && (
                         <div className="w-full min-h-5">
                             <AdBlock
@@ -292,6 +293,7 @@ export function NewsPostPage({
                 {/* UNDER POST ADS */}
                 {isProduction &&
                     site.config.enabledAds &&
+                    site.ads.adsScript.adsBody?.afterPost?.enabled &&
                     site.ads.adsScript.adsBody?.afterPost?.content && (
                         <div className="w-full min-h-5">
                             <AdBlock
@@ -307,7 +309,7 @@ export function NewsPostPage({
                 {isProduction &&
                     site.config.enabledAds &&
                     site.ads.adsScript.adsRightSidebar.length > 0 &&
-                    site.ads.adsScript.adsRightSidebar.map((ad) => (
+                    site.ads.adsScript.adsRightSidebar.filter(ad => ad.enabled).map((ad) => (
                         <div key={ad.id} className="w-full pb-2">
                             <AdBlock code={ad.content} />
                         </div>
