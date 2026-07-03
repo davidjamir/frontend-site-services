@@ -14,8 +14,14 @@ type Props = {
 };
 
 export const size = {
-    width: 1600,
-    height: 1200,
+    horizontal: {
+        width: 1600,
+        height: 1200,
+    },
+    vertical: {
+        width: 1080,
+        height: 1350,
+    },
 };
 
 export const contentType = "image/png";
@@ -123,13 +129,11 @@ export default async function Image({ params }: Props) {
                                 height: 130,
                                 objectFit: "contain",
                                 marginBottom: 20,
-                                opacity: 0.9
+                                opacity: 0.9,
                                 // filter:
                                 //     "drop-shadow(0 0 4px rgba(255,255,255,0.9)) " +
                                 //     "drop-shadow(0 0 12px rgba(255,255,255,0.5)) " +
                                 //     "drop-shadow(0 0 24px rgba(0,0,0,0.5))"
-
-
                             }}
                         />
 
@@ -167,7 +171,7 @@ export default async function Image({ params }: Props) {
             )}
         </div>,
         {
-            ...size,
+            ...(site.config.customOpengraphImage ? size.horizontal : size.vertical),
             // fonts: [
             //     {
             //         name: 'Inter',
