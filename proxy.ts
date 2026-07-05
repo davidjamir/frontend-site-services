@@ -2,13 +2,10 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function proxy(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+  const host = request.headers.get("host") ?? "";
 
-  if (pathname === "/feeds/posts/default") {
-    const url = request.nextUrl.clone();
-    url.pathname = "/feed";
-
-    return NextResponse.rewrite(url);
+  if (host.endsWith(".vercel.app")) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
   return NextResponse.next();
