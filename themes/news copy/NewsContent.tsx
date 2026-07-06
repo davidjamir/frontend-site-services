@@ -19,7 +19,7 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
 
 export function NewsCardGridItem({ post }: { post: PostIndex }) {
     return (
-        <Link href={`/post/${post.segment}/${post.slug}`} className="block group">
+        <Link href={`/post/${post.segment}/${post.slug}`} prefetch={false} className="block group">
             <Card
                 className="
                     relative mx-auto w-full max-w-sm p-0 min-h-50 lg:min-h-70

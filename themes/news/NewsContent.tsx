@@ -39,6 +39,7 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
             {/* MAIN ARTICLE LINK */}
             <Link
                 href={`/post/${post.segment}/${post.slug}`}
+                prefetch={false}
                 className="absolute inset-0 z-10"
                 aria-label={post.title}
             />
@@ -117,7 +118,7 @@ function NewsCardListItem({ post }: { post: PostIndex }) {
 
 function NewsCardGridItem({ post }: { post: PostIndex }) {
     return (
-        <Link href={`/post/${post.segment}/${post.slug}`} className="block group">
+        <Link href={`/post/${post.segment}/${post.slug}`} prefetch={false} className="block group">
             <Card
                 className="
                     relative mx-auto w-full max-w-sm p-0 min-h-50 md:min-h-60 lg:min-h-90
