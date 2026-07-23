@@ -63,30 +63,53 @@ export default function NewsHeader({ site }: Props) {
                 <Label>Search</Label>
                 <SearchForm />
               </div>
-              <div className="grid gap-3">
-                <Label>Pages</Label>
-                {site.pages?.map((page) => (
-                  <Link key={page.id} href={page.slug} prefetch={false} className="block">
-                    <SheetClose asChild>
-                      <Button variant="ghost" className="w-full cursor-pointer justify-start text-xs">
-                        {page.name}
-                      </Button>
-                    </SheetClose>
-                  </Link>
-                ))}
-              </div>
-              <div className="grid gap-3">
-                <Label>Categories</Label>
-                {site.categories?.map((category) => (
-                  <Link key={category.id} href={category.slug} prefetch={false} className="block">
-                    <SheetClose asChild>
-                      <Button variant="ghost" className="w-full cursor-pointer justify-start text-xs">
-                        {category.name}
-                      </Button>
-                    </SheetClose>
-                  </Link>
-                ))}
-              </div>
+              {
+                site.pages.length > 0 && (
+                  <div className="grid gap-2">
+                    <Label>Pages</Label>
+                    {site.pages?.map((page) => (
+                      <Link key={page.id} href={page.slug} prefetch={false} className="block">
+                        <SheetClose asChild>
+                          <Button variant="ghost" className="w-full cursor-pointer justify-start text-xs">
+                            {page.name}
+                          </Button>
+                        </SheetClose>
+                      </Link>
+                    ))}
+                  </div>
+                )
+              }
+              {
+                site.categories.length > 0 && (
+                  <div className="grid gap-2">
+                    <Label>Categories</Label>
+                    {site.categories?.map((category) => (
+                      <Link key={category.id} href={category.slug} prefetch={false} className="block">
+                        <SheetClose asChild>
+                          <Button variant="ghost" className="w-full cursor-pointer justify-start text-xs">
+                            {category.name}
+                          </Button>
+                        </SheetClose>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              {
+                site.networks.length > 0 && (
+                  <div className="grid gap-2">
+                    <Label>Networks</Label>
+                    {site.networks?.map((network) => (
+                      <Link key={network.slug} href={`/network/${network.slug}`} prefetch={false} className="block">
+                        <SheetClose asChild>
+                          <Button variant="ghost" className="w-full cursor-pointer justify-start text-xs">
+                            {network.name}&lsquo;s Network Sites
+                          </Button>
+                        </SheetClose>
+                      </Link>
+                    ))}
+                  </div>
+                )
+              }
             </div>
           </SheetContent>
         </Sheet>

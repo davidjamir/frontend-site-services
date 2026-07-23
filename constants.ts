@@ -7,7 +7,11 @@ import NewsTheme from "@/themes/news/NewsTheme";
 // import NHLTheme from "@/themes/nhl/NHLTheme";
 // import SportTheme from "@/themes/sport/SportTheme";
 
-import { NewsContent, NewsPostPage } from "@/themes/news/NewsContent";
+import {
+  NewsContent,
+  NewsPostPage,
+  NewsNetworkItem,
+} from "@/themes/news/NewsContent";
 import { NewsHomePage } from "@/themes/news/NewsHomepage";
 
 export const NUMBER_POSTS_LATEST = 15;
@@ -62,4 +66,15 @@ export const THEMES_POSTPAGE = {
   nfl: NewsPostPage,
   nhl: NewsPostPage,
   mlb: NewsPostPage,
+};
+
+export const THEMES_NETWORK = {
+  news: NewsNetworkItem,
+  team: NewsNetworkItem,
+  sport: NewsNetworkItem,
+  music: NewsNetworkItem,
+  nba: NewsNetworkItem,
+  nfl: NewsNetworkItem,
+  nhl: NewsNetworkItem,
+  mlb: NewsNetworkItem,
 };

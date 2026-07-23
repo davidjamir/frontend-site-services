@@ -67,6 +67,29 @@ export type SiteScriptItem = {
   enabled: boolean;
 };
 
+export type SiteNetworkItem = {
+  id: string;
+  host: string;
+  baseUrl: string;
+  name: string;
+  logo: string;
+  entity: string;
+  colorBackground: string;
+};
+
+export type LeagueNetworkItem = {
+  slug: string;
+  name: string;
+  sites: SiteNetworkItem[];
+};
+
+export type NetworkItem = {
+  slug: string;
+  name: string;
+  leagues: LeagueNetworkItem[];
+  generalSites: SiteNetworkItem[];
+};
+
 export type Site = {
   id: string;
   host: string;
@@ -81,8 +104,8 @@ export type Site = {
   seo: SiteSeo;
   ads: SiteAds;
   script: SiteScriptItem[];
-  categories?: Category[];
-  pages?: Page[];
+  categories: Category[];
+  pages: Page[];
   verification: SiteVerification;
   configView: {
     category: "list" | "grid";
@@ -100,7 +123,7 @@ export type Site = {
     gaId?: string;
     gtmId?: string;
   };
-  socials?: {
+  socials: {
     facebook?: string;
     instagram?: string;
     threads?: string;
@@ -116,4 +139,5 @@ export type Site = {
     twitch?: string;
     linkedin?: string;
   };
+  networks: NetworkItem[];
 };

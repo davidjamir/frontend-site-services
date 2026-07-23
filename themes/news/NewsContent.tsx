@@ -12,6 +12,7 @@ import AdBlock from "@/components/layout/AdBlock";
 import BreadcrumbHeader from "@/components/layout/BreadcrumbHeader";
 import TagBlock from "@/components/layout/TagBlock";
 import { isProduction } from "@/lib/env";
+import { NetworkItem, SiteNetworkItem } from "@/core/domain/site";
 
 export function NewsPostList({ posts }: { posts: PostIndex[] }) {
     return (
@@ -316,6 +317,74 @@ export function NewsPostPage({
                         </div>
                     ))}
             </aside>
+        </div>
+    );
+}
+
+export function NewsNetworkSiteCard({ site }: { site: SiteNetworkItem }) {
+    return (
+        <Link
+            href={site.baseUrl}
+            target="_blank"
+            className="flex items-center gap-4 rounded-xl border p-3 lg:p-4 transition hover:bg-muted"
+        >
+            <div className="relative h-12 w-12 lg:h-16 lg:w-16 shrink-0 overflow-hidden rounded-lg"
+                style={{ backgroundColor: site.colorBackground }}
+            >
+                <Image
+                    src={site.logo}
+                    alt={site.name}
+                    fill
+                    className="object-contain"
+                />
+            </div>
+
+            <div className="min-w-0">
+                <h3 className="truncate font-medium">{site.name}</h3>
+
+                {site.entity && (
+                    <p className="text-muted-foreground truncate text-sm">
+                        {site.entity}
+                    </p>
+                )}
+            </div>
+        </Link>
+    );
+}
+
+export function NewsNetworkItem({ network }: { network: NetworkItem }) {
+    return (
+        <div className="space-y-10">
+            <header className="space-y-2">
+                <h1 className="text-3xl font-bold">{network.name} Network</h1>
+                <p className="text-muted-foreground">
+                    Browse all websites in the {network.name} network.
+                </p>
+            </header>
+
+            {network.generalSites.length > 0 && (
+                <section className="space-y-4">
+                    <h2 className="text-xl font-semibold">General</h2>
+
+                    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                        {network.generalSites.map((site) => (
+                            <NewsNetworkSiteCard key={site.host} site={site} />
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            {network.leagues.map((league) => (
+                <section key={league.slug} className="space-y-4">
+                    <h2 className="text-xl font-semibold">{league.name}</h2>
+
+                    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                        {league.sites.map((site) => (
+                            <NewsNetworkSiteCard key={site.host} site={site} />
+                        ))}
+                    </div>
+                </section>
+            ))}
         </div>
     );
 }
