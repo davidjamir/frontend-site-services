@@ -17,6 +17,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { MenuIcon } from "lucide-react";
+import SocialBlock from "@/components/layout/SocialBlock";
 
 type Props = {
   site: Site;
@@ -110,6 +111,7 @@ export default function NewsHeader({ site }: Props) {
                   </div>
                 )
               }
+              <SocialBlock mode="dark" />
             </div>
           </SheetContent>
         </Sheet>

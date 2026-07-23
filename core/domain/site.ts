@@ -90,6 +90,23 @@ export type NetworkItem = {
   generalSites: SiteNetworkItem[];
 };
 
+export type Socials = {
+  facebook?: string;
+  instagram?: string;
+  threads?: string;
+  x?: string;
+  tiktok?: string;
+  youtube?: string;
+  telegram?: string;
+  reddit?: string;
+  pinterest?: string;
+  discord?: string;
+  whatsapp?: string;
+  snapchat?: string;
+  twitch?: string;
+  linkedin?: string;
+};
+
 export type Site = {
   id: string;
   host: string;
@@ -123,21 +140,6 @@ export type Site = {
     gaId?: string;
     gtmId?: string;
   };
-  socials: {
-    facebook?: string;
-    instagram?: string;
-    threads?: string;
-    x?: string;
-    tiktok?: string;
-    youtube?: string;
-    telegram?: string;
-    reddit?: string;
-    pinterest?: string;
-    discord?: string;
-    whatsapp?: string;
-    snapchat?: string;
-    twitch?: string;
-    linkedin?: string;
-  };
+  socials: Socials;
   networks: NetworkItem[];
 };
