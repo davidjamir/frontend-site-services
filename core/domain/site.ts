@@ -135,6 +135,8 @@ export type Site = {
     visibledBreadcrumb: boolean;
     customOpengraphImage: boolean;
     enabledAds: boolean;
+    primaryColor: string;
+    accentColor: string;
   };
   analytics: {
     gaId?: string;
@@ -142,4 +144,6 @@ export type Site = {
   };
   socials: Socials;
   networks: NetworkItem[];
+  entity?: string;
+  league?: string;
 };

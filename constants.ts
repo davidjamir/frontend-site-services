@@ -1,3 +1,5 @@
+import { getOrigin } from "@/helpers/getOrigin";
+
 import NewsTheme from "@/themes/news/NewsTheme";
 // import TeamTheme from "@/themes/team/TeamTheme";
 // import MLBTheme from "@/themes/mlb/MLBTheme";
@@ -6,6 +8,14 @@ import NewsTheme from "@/themes/news/NewsTheme";
 // import NFLTheme from "@/themes/nfl/NFLTheme";
 // import NHLTheme from "@/themes/nhl/NHLTheme";
 // import SportTheme from "@/themes/sport/SportTheme";
+
+import NewsOG from "@/themes/news/NewsOg";
+import TeamOG from "@/themes/team/TeamOg";
+import MLBOG from "@/themes/mlb/MLBOg";
+import NBAOG from "@/themes/nba/NBAOg";
+import NFLOG from "@/themes/nfl/NFLOg";
+import NHLOG from "@/themes/nhl/NHLOg";
+import SportOG from "@/themes/sport/SportOg";
 
 import {
   NewsContent,
@@ -16,12 +26,14 @@ import { NewsHomePage } from "@/themes/news/NewsHomepage";
 
 export const NUMBER_POSTS_LATEST = 15;
 
+const DOMAIN = "news.thetimenews.us";
+
 export const ORIGIN_CONFIG_DEVELOPMENT_DEFAULT = {
-  host: "villa.fchub.store",
+  host: DOMAIN,
   protocol: "https",
-  url: "https://villa.fchub.store",
-  origin: "fchub.store",
-  originUrl: "https://fchub.store",
+  url: `https://${DOMAIN}`,
+  origin: getOrigin(DOMAIN),
+  originUrl: `https://${getOrigin(DOMAIN)}`,
 };
 
 export const THEMES_LAYOUT = {
@@ -77,4 +89,15 @@ export const THEMES_NETWORK = {
   nfl: NewsNetworkItem,
   nhl: NewsNetworkItem,
   mlb: NewsNetworkItem,
+};
+
+export const THEMES_OG = {
+  news: NewsOG,
+  team: TeamOG,
+  sport: SportOG,
+  music: NewsOG,
+  nba: NBAOG,
+  nfl: NFLOG,
+  nhl: NHLOG,
+  mlb: MLBOG,
 };
