@@ -1,133 +1,54 @@
 import { Post } from "@/core/domain/post";
 import { Site } from "@/core/domain/site";
+import { getSegmentNumber } from "@/helpers/getSegmentNumber";
+import { NHLOgTemplate1 } from "@/components/og/nhl/NHLOgTemplate1";
+import { NHLOgTemplate2 } from "@/components/og/nhl/NHLOgTemplate2";
+import { NHLOgTemplate3 } from "@/components/og/nhl/NHLOgTemplate3";
+import { NHLOgTemplate4 } from "@/components/og/nhl/NHLOgTemplate4";
+import { NHLOgTemplate5 } from "@/components/og/nhl/NHLOgTemplate5";
+import { NHLOgTemplate6 } from "@/components/og/nhl/NHLOgTemplate6";
+import { NHLOgTemplate7 } from "@/components/og/nhl/NHLOgTemplate7";
+import { NHLOgTemplate8 } from "@/components/og/nhl/NHLOgTemplate8";
+import { NHLOgTemplate9 } from "@/components/og/nhl/NHLOgTemplate9";
+import { NHLOgTemplate10 } from "@/components/og/nhl/NHLOgTemplate10";
 
 type Props = {
     site: Site;
     post: Post;
     logo: string;
-}
+};
+
+const NHL_OG_TEMPLATE = [
+    NHLOgTemplate1,
+    NHLOgTemplate2,
+    NHLOgTemplate3,
+    NHLOgTemplate4,
+    NHLOgTemplate5,
+    NHLOgTemplate6,
+    NHLOgTemplate7,
+    NHLOgTemplate8,
+    NHLOgTemplate9,
+    NHLOgTemplate10,
+];
 
 export default function NHLOg({ site, post, logo }: Props) {
-    const title =
-        post.title.length > 150
-            ? post.title.slice(0, 150).trim() + "..."
-            : post.title;
-            
+    const segmentNumber = getSegmentNumber(post.segment);
+    const TemplateComponent =
+        NHL_OG_TEMPLATE[segmentNumber % NHL_OG_TEMPLATE.length];
+
     return (
-        <div
-            style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                position: "relative",
-                overflow: "hidden",
-                alignItems: "center",
-                justifyContent: "center",
-                fontFamily: "sans-serif",
-            }}
-        >
-            <img
-                src={post.featuredImage}
-                alt={post.title}
-                style={{
-                    position: "absolute",
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                }}
-            />
-
-            {site.config.customOpengraphImage && (
-                <div
-                    style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        display: "flex",
-                        flexDirection: "column",
-                    }}
-                >
-                    <div
-                        style={{
-                            position: "absolute",
-                            width: "100%",
-                            height: "100%",
-                            background:
-                                "linear-gradient(to top, rgba(0,0,0,0.2), transparent 60%)",
-                        }}
-                    />
-
-                    {/* BOTTOM PANEL (50% height) */}
-                    <div
-                        style={{
-                            position: "absolute",
-                            bottom: 0,
-                            left: 0,
-                            right: 0,
-                            width: "100%",
-                            height: "50%",
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            padding: "40px 80px",
-                            boxSizing: "border-box",
-                            // riêng gradient cho panel
-                            background:
-                                "linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.5), transparent)",
-                        }}
-                    >
-                        {/* Logo */}
-                        <img
-                            src={logo}
-                            alt={title}
-                            style={{
-                                width: 130,
-                                height: 130,
-                                objectFit: "contain",
-                                marginBottom: 20,
-                                opacity: 0.9,
-                                // filter:
-                                //     "drop-shadow(0 0 4px rgba(255,255,255,0.9)) " +
-                                //     "drop-shadow(0 0 12px rgba(255,255,255,0.5)) " +
-                                //     "drop-shadow(0 0 24px rgba(0,0,0,0.5))"
-                            }}
-                        />
-
-                        {/* Title */}
-                        <div
-                            style={{
-                                color: "white",
-                                fontSize: title.length > 120 ? 46 : title.length > 80 ? 48 : 50,
-                                fontWeight: 800,
-                                textAlign: "center",
-                                lineHeight: 1.2,
-                                maxWidth: 1000,
-                                textShadow: "0 10px 30px rgba(0,0,0,0.7)",
-                            }}
-                        >
-                            {title}
-                        </div>
-
-                        {/* Source / Domain */}
-                        <div
-                            style={{
-                                marginTop: 24,
-                                padding: "6px 14px",
-                                color: "rgba(255,255,255,0.8)",
-                                fontSize: 30,
-                                fontWeight: 500,
-                                letterSpacing: 0.8,
-                                textAlign: "center",
-                            }}
-                        >
-                            {site.host}
-                        </div>
-                    </div>
-                </div>
-            )}
-        </div>
-    )
+        <TemplateComponent
+            teamName={site.entity || "NHL"}
+            title={post.title}
+            snippet={post.snippet}
+            imageUrl={post.featuredImage}
+            logoUrl={logo}
+            primaryColor={site.config.primaryColor}
+            accentColor={site.config.accentColor}
+            badgeTag="BREAKING NEWS"
+            author={post.author}
+            authorRole="Senior Reporter"
+            sourceDomain={site.host}
+        />
+    );
 }

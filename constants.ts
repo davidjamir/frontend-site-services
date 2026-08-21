@@ -8,6 +8,7 @@ import NewsTheme from "@/themes/news/NewsTheme";
 // import NFLTheme from "@/themes/nfl/NFLTheme";
 // import NHLTheme from "@/themes/nhl/NHLTheme";
 // import SportTheme from "@/themes/sport/SportTheme";
+// import FootballTheme from "@/themes/football/FootballTheme";
 
 import NewsOG from "@/themes/news/NewsOg";
 import TeamOG from "@/themes/team/TeamOg";
@@ -16,6 +17,7 @@ import NBAOG from "@/themes/nba/NBAOg";
 import NFLOG from "@/themes/nfl/NFLOg";
 import NHLOG from "@/themes/nhl/NHLOg";
 import SportOG from "@/themes/sport/SportOg";
+import FootballOG from "@/themes/football/FootballOg";
 
 import {
   NewsContent,
@@ -26,7 +28,7 @@ import { NewsHomePage } from "@/themes/news/NewsHomepage";
 
 export const NUMBER_POSTS_LATEST = 15;
 
-const DOMAIN = "news.thetimenews.us";
+const DOMAIN = "warriors.nbahub.store";
 
 export const ORIGIN_CONFIG_DEVELOPMENT_DEFAULT = {
   host: DOMAIN,
@@ -45,6 +47,7 @@ export const THEMES_LAYOUT = {
   nfl: NewsTheme,
   nhl: NewsTheme,
   mlb: NewsTheme,
+  football: NewsTheme,
 };
 
 export const THEMES_CONTENT = {
@@ -56,6 +59,7 @@ export const THEMES_CONTENT = {
   nfl: NewsContent,
   nhl: NewsContent,
   mlb: NewsContent,
+  football: NewsContent,
 };
 
 export const THEMES_HOMEPAGE = {
@@ -67,6 +71,7 @@ export const THEMES_HOMEPAGE = {
   nfl: NewsHomePage,
   nhl: NewsHomePage,
   mlb: NewsHomePage,
+  football: NewsHomePage,
 };
 
 export const THEMES_POSTPAGE = {
@@ -78,6 +83,7 @@ export const THEMES_POSTPAGE = {
   nfl: NewsPostPage,
   nhl: NewsPostPage,
   mlb: NewsPostPage,
+  football: NewsPostPage,
 };
 
 export const THEMES_NETWORK = {
@@ -89,6 +95,7 @@ export const THEMES_NETWORK = {
   nfl: NewsNetworkItem,
   nhl: NewsNetworkItem,
   mlb: NewsNetworkItem,
+  football: NewsNetworkItem,
 };
 
 export const THEMES_OG = {
@@ -96,8 +103,9 @@ export const THEMES_OG = {
   team: TeamOG,
   sport: SportOG,
   music: NewsOG,
-  nba: NBAOG,
+  nba: NewsOG,
   nfl: NFLOG,
-  nhl: NHLOG,
-  mlb: MLBOG,
+  nhl: NewsOG,
+  mlb: NewsOG,
+  football: NewsOG,
 };
