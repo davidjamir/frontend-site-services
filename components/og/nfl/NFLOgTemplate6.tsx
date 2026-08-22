@@ -7,8 +7,8 @@ export function NFLOgTemplate6({
     imageUrl,
     logoUrl,
     titleItalic = false,
-    primaryColor = "#E31837",
-    accentColor = "#FFB81C",
+    primaryColor = "#eceaeb",
+    accentColor = "#654500",
     badgeTag = "BREAKING NEWS",
     author = "Adam Schefter",
     authorRole = "ESPN Senior Insider",
@@ -57,7 +57,7 @@ export function NFLOgTemplate6({
                     width: "1080px",
                     height: "1350px",
                     background:
-                        "linear-gradient(180deg, rgba(3,5,9,0.3) 0%, rgba(3,5,9,0.05) 25%, transparent 45%, rgba(3,5,9,0.7) 65%, #030509 90%)",
+                        "linear-gradient(180deg, rgba(3,5,9,0.1) 0%, rgba(3,5,9,0.05) 25%, transparent 45%, rgba(3,5,9,0.6) 65%, #030509 90%)",
                     display: "flex",
                 }}
             />
@@ -92,7 +92,7 @@ export function NFLOgTemplate6({
                         display: "flex",
                         alignItems: "center",
                         gap: "8px",
-                        backgroundColor: "rgba(255,255,255,0.12)",
+                        backgroundColor: "rgba(255,255,255,0.2)",
                         padding: "8px 20px",
                         borderRadius: "6px",
                         border: "1px solid rgba(255,255,255,0.18)",
@@ -103,7 +103,7 @@ export function NFLOgTemplate6({
                         style={{
                             fontSize: "13px",
                             fontWeight: 800,
-                            color: "#E2E8F0",
+                            color: primaryColor,
                             letterSpacing: "1px",
                             textTransform: "uppercase",
                         }}
@@ -127,10 +127,10 @@ export function NFLOgTemplate6({
                         style={{
                             width: "220px",
                             height: "220px",
-                            backgroundColor: "#000000",
+                            backgroundColor: "transparent",
                             borderRadius: "32px",
-                            border: `3px solid ${primaryColor}`,
-                            boxShadow: `0 20px 50px rgba(0,0,0,0.9), 0 0 30px ${primaryColor}66`,
+                            border: `1px solid ${primaryColor}`,
+                            boxShadow: `0 20px 50px rgba(0,0,0,0.1), 0 0 30px ${primaryColor}66`,
                             padding: "24px",
                             display: "flex",
                             alignItems: "center",
@@ -208,7 +208,7 @@ export function NFLOgTemplate6({
                     >
                         <span
                             style={{
-                                color: primaryColor,
+                                color: "#FF0033",
                                 fontWeight: 800,
                                 fontSize: "13px",
                                 letterSpacing: "1.5px",

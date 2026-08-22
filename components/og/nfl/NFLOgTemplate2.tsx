@@ -1,13 +1,13 @@
 import { OgTemplate } from "@/types/og-template";
 
 export function NFLOgTemplate2({
-    teamName = "",
-    title = "",
-    snippet = "",
-    imageUrl = "",
-    logoUrl = "",
+    teamName,
+    title,
+    snippet,
+    imageUrl,
+    logoUrl,
     titleItalic = false,
-    primaryColor = "#E31837",
+    primaryColor = "#a21313",
     accentColor = "#FFB81C",
     badgeTag = "BREAKING NEWS",
     author = "Adam Schefter",
@@ -68,7 +68,7 @@ export function NFLOgTemplate2({
                     left: "0px",
                     width: "1080px",
                     height: "340px",
-                    background: "linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%)",
+                    background: "linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%)",
                 }}
             />
 
@@ -184,12 +184,12 @@ export function NFLOgTemplate2({
                             display: "flex",
                             alignItems: "center",
                             alignSelf: "flex-start",
-                            backgroundColor: primaryColor,
+                            backgroundColor: "#ff0000",
                             borderRadius: "3px",
                             padding: "8px 18px",
                             width: "auto",
                             marginBottom: "16px",
-                            boxShadow: `0 4px 12px ${primaryColor}50`,
+                            boxShadow: `0 0 10px #ff000050`,
                         }}
                     >
                         <div
@@ -206,8 +206,8 @@ export function NFLOgTemplate2({
                             style={{
                                 display: "flex",
                                 color: "#FFFFFF",
-                                fontWeight: 900,
-                                fontSize: "15px",
+                                fontWeight: 800,
+                                fontSize: "18px",
                                 letterSpacing: "1.8px",
                                 textTransform: "uppercase",
                             }}
@@ -223,14 +223,14 @@ export function NFLOgTemplate2({
                         display: "flex",
                         flexDirection: "column",
                         backgroundColor: "rgba(5, 9, 17, 0.82)",
-                        border: `1.5px solid ${primaryColor}`,
+                        border: `1px solid ${primaryColor}`,
                         borderRadius: "24px",
                         padding: "38px 48px 32px 48px",
                         position: "relative",
                         width: "976px",
                         boxSizing: "border-box",
                         backdropFilter: "blur(20px)",
-                        boxShadow: `0 0 40px ${primaryColor}30`,
+                        boxShadow: `0 0 40px ${primaryColor}66`,
                     }}
                 >
                     {/* Headline */}
@@ -258,7 +258,7 @@ export function NFLOgTemplate2({
                             style={{
                                 display: "flex",
                                 backgroundColor: "rgba(12, 18, 30, 0.85)",
-                                borderLeft: `5px solid ${primaryColor}`,
+                                borderLeft: `5px solid ${accentColor}`,
                                 borderRadius: "4px",
                                 padding: "20px 24px",
                                 marginBottom: "28px",
@@ -298,7 +298,7 @@ export function NFLOgTemplate2({
                                     display: "flex",
                                     width: "8px",
                                     height: "8px",
-                                    backgroundColor: primaryColor,
+                                    backgroundColor: accentColor,
                                     marginRight: "10px",
                                 }}
                             />
@@ -343,11 +343,11 @@ export function NFLOgTemplate2({
                             width: "180px",
                             height: "180px",
                             borderRadius: "90px",
-                            backgroundColor: "#0A0D14",
+                            backgroundColor: "rgb(0,0,0,0.85)",
                             border: `4px solid ${accentColor}`,
                             alignItems: "center",
                             justifyContent: "center",
-                            boxShadow: `0 0 20px ${accentColor}50`,
+                            boxShadow: `0 0 20px ${accentColor}66`,
                         }}
                     >
                         <img

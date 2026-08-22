@@ -7,8 +7,8 @@ export function NFLOgTemplate3({
     imageUrl,
     logoUrl,
     titleItalic = false,
-    primaryColor = "#E31837",
-    accentColor = "#FFB81C",
+    primaryColor = "#0022fb",
+    accentColor = "#5d4718",
     badgeTag = "BREAKING NEWS",
     author = "Adam Schefter",
     authorRole = "ESPN Senior Insider",
@@ -63,7 +63,7 @@ export function NFLOgTemplate3({
                         left: 0,
                         width: "100%",
                         height: "100%",
-                        background: "linear-gradient(180deg, rgba(10,12,16,0.85) 0%, rgba(10,12,16,0.1) 40%, rgba(10,12,16,0.95) 100%)",
+                        background: "linear-gradient(180deg, rgba(10,12,16,0.2) 0%, rgba(10,12,16,0.1) 40%, rgba(10,12,16,0.4) 80%, rgba(10,12,16,0.95) 100%)",
                         display: "flex",
                     }}
                 />
@@ -120,6 +120,9 @@ export function NFLOgTemplate3({
                             color: "#CBD5E1",
                             letterSpacing: "1px",
                             textTransform: "uppercase",
+                            padding: "10px 15px",
+                            backgroundColor: "#000000",
+                            borderLeft: `7px solid ${primaryColor}`
                         }}
                     >
                         {statusLabel}{timeAgo ? ` • ${timeAgo}` : ""}
@@ -133,7 +136,7 @@ export function NFLOgTemplate3({
                     marginTop: "auto",
                     height: "690px",
                     backgroundColor: "#0E1117",
-                    borderTop: `3px solid ${accentColor}`,
+                    borderTop: `4px solid ${accentColor}`,
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
@@ -149,7 +152,7 @@ export function NFLOgTemplate3({
                             style={{
                                 display: "flex",
                                 fontSize: "20px",
-                                fontWeight: 900,
+                                fontWeight: 800,
                                 color: accentColor,
                                 letterSpacing: "2.5px",
                                 textTransform: "uppercase",
@@ -163,10 +166,10 @@ export function NFLOgTemplate3({
                             <div
                                 style={{
                                     display: "flex",
-                                    backgroundColor: primaryColor,
+                                    backgroundColor: "#ff0000",
                                     padding: "5px 14px",
                                     color: "#FFFFFF",
-                                    fontWeight: 900,
+                                    fontWeight: 800,
                                     fontSize: "18px",
                                     letterSpacing: "2px",
                                     textTransform: "uppercase",
@@ -183,9 +186,9 @@ export function NFLOgTemplate3({
                     <div
                         style={{
                             display: "flex",
-                            fontSize: "44px",
+                            fontSize: "48px",
                             lineHeight: 1.12,
-                            fontWeight: 900,
+                            fontWeight: 800,
                             fontStyle: titleItalic ? "italic" : "normal",
                             textTransform: "uppercase",
                             color: "#FFFFFF",
@@ -241,8 +244,8 @@ export function NFLOgTemplate3({
                     <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
                         <div
                             style={{
-                                width: "36px",
-                                height: "36px",
+                                width: "48px",
+                                height: "48px",
                                 borderRadius: "50%",
                                 backgroundColor: "#1E293B",
                                 border: "1px solid rgba(255,255,255,0.2)",

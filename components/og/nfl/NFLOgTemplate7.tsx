@@ -7,8 +7,8 @@ export function NFLOgTemplate7({
     imageUrl,
     logoUrl,
     titleItalic = false,
-    primaryColor = "#E31837",
-    accentColor = "#FFB81C",
+    primaryColor = "#ea0023",
+    accentColor = "#f0a000",
     badgeTag = "BREAKING NEWS",
     author = "Adam Schefter",
     authorRole = "ESPN Senior Insider",
@@ -48,19 +48,6 @@ export function NFLOgTemplate7({
                 />
             )}
 
-            {/* Dynamic Team Color & Gold Ambient Light Flare (Đã giảm độ chói) */}
-            <div
-                style={{
-                    position: "absolute",
-                    bottom: "320px",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    width: "500px",
-                    height: "300px",
-                    background: `radial-gradient(circle, ${primaryColor}20 0%, rgba(212, 175, 55, 0.08) 50%, transparent 75%)`,
-                    display: "flex",
-                }}
-            />
 
             {/* Clean Soft Contrast Scrim Overlay */}
             <div
@@ -71,7 +58,7 @@ export function NFLOgTemplate7({
                     width: "1080px",
                     height: "1350px",
                     background:
-                        "linear-gradient(180deg, rgba(7,7,7,0.45) 0%, rgba(7,7,7,0.05) 20%, transparent 40%, rgba(7,7,7,0.65) 60%, #070707 92%)",
+                        `linear-gradient(180deg, rgba(7,7,7,0.3) 0%, transparent 30%, ${primaryColor}20 70%, ${primaryColor}40 92%)`,
                     display: "flex",
                 }}
             />
@@ -84,7 +71,7 @@ export function NFLOgTemplate7({
                     left: "24px",
                     right: "24px",
                     bottom: "24px",
-                    border: "1px solid rgba(212, 175, 55, 0.15)",
+                    border: "1px solid rgba(45, 44, 44, 0.1)",
                     display: "flex",
                 }}
             />
@@ -170,10 +157,9 @@ export function NFLOgTemplate7({
                             justifyContent: "center",
                             boxSizing: "border-box",
                             marginBottom: "16px",
-                            borderRadius: "50%",
-                            backgroundColor: "#000000",
-                            border: `2px solid ${primaryColor}`,
-                            boxShadow: `0 0 20px ${primaryColor}33`,
+                            borderRadius: "20%",
+                            backgroundColor: "transparent",
+                            boxShadow: `0 0 30px ${primaryColor}66`,
                         }}
                     >
                         <img
@@ -210,7 +196,7 @@ export function NFLOgTemplate7({
                             style={{
                                 color: "#FFFFFF",
                                 fontWeight: 800,
-                                fontSize: "14px",
+                                fontSize: "18px",
                                 letterSpacing: "2px",
                                 textTransform: "uppercase",
                             }}
@@ -221,12 +207,12 @@ export function NFLOgTemplate7({
 
                     <span
                         style={{
-                            fontSize: "18px",
+                            fontSize: "20px",
                             fontWeight: 800,
-                            color: accentColor,
+                            color: "#FFFFFF",
                             letterSpacing: "3px",
                             textTransform: "uppercase",
-                            textShadow: "0 2px 8px rgba(0,0,0,0.9)",
+                            textShadow: `0 0px 8px ${primaryColor}`,
                         }}
                     >
                         {teamName}

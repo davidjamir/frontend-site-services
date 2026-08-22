@@ -7,8 +7,8 @@ export function NFLOgTemplate9({
     imageUrl,
     logoUrl,
     titleItalic = true,
-    primaryColor = "#E31837",
-    accentColor = "#FFB81C",
+    primaryColor = "#001eb2",
+    accentColor = "#443a26",
     badgeTag = "BREAKING NEWS",
     author = "Adam Schefter",
     authorRole = "ESPN Senior Insider",
@@ -57,7 +57,7 @@ export function NFLOgTemplate9({
                     width: "1080px",
                     height: "1350px",
                     background:
-                        "linear-gradient(135deg, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0.05) 30%, transparent 45%, rgba(10,10,10,0.7) 70%, rgba(10,10,10,0.85) 95%)",
+                        "linear-gradient(135deg, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.05) 30%, transparent 45%, rgba(10,10,10,0.35) 70%, rgba(10,10,10,0.6) 95%)",
                     display: "flex",
                 }}
             />
@@ -142,14 +142,14 @@ export function NFLOgTemplate9({
                         style={{
                             width: "210px",
                             height: "210px",
-                            backgroundColor: "#000000",
-                            border: `3px solid ${primaryColor}`,
+                            backgroundColor: "transparent",
+                            border: `0.2px solid ${primaryColor}`,
                             borderRadius: "28px",
                             padding: "24px",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            boxShadow: `0 20px 50px rgba(0,0,0,0.9), 0 0 35px ${primaryColor}55`,
+                            boxShadow: ` 0 0 20px ${primaryColor}66`,
                             boxSizing: "border-box",
                         }}
                     >
@@ -189,14 +189,14 @@ export function NFLOgTemplate9({
                 >
                     <span
                         style={{
-                            fontSize: "18px",
+                            fontSize: "20px",
                             fontWeight: 800,
                             color: accentColor,
                             letterSpacing: "2px",
                             textTransform: "uppercase",
                             fontStyle: "italic",
                             display: "flex",
-                            textShadow: `0 0 12px ${primaryColor}55`,
+                            textShadow: `0 0 15px ${primaryColor}66`,
                         }}
                     >
                         {teamName}
@@ -205,7 +205,7 @@ export function NFLOgTemplate9({
                     {/* Skewed Red Badge */}
                     <div
                         style={{
-                            backgroundColor: primaryColor,
+                            backgroundColor: "#E31837",
                             padding: "5px 16px",
                             transform: "skewX(-15deg)",
                             display: "flex",
@@ -214,8 +214,8 @@ export function NFLOgTemplate9({
                         <span
                             style={{
                                 color: "#FFFFFF",
-                                fontWeight: 900,
-                                fontSize: "12px",
+                                fontWeight: 800,
+                                fontSize: "18px",
                                 letterSpacing: "2px",
                                 textTransform: "uppercase",
                                 transform: "skewX(15deg)",

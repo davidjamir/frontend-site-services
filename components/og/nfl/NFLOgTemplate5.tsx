@@ -7,8 +7,8 @@ export function NFLOgTemplate5({
     imageUrl,
     logoUrl,
     titleItalic = false,
-    primaryColor = "#E31837",
-    accentColor = "#FFB81C",
+    primaryColor = "#b6b5b5",
+    accentColor = "#14b887",
     badgeTag = "BREAKING NEWS",
     author = "Adam Schefter",
     authorRole = "ESPN Senior Insider",
@@ -70,7 +70,7 @@ export function NFLOgTemplate5({
                     right: 0,
                     width: "500px",
                     height: "1350px",
-                    background: `linear-gradient(270deg, ${primaryColor}15 0%, transparent 100%)`,
+                    background: `linear-gradient(270deg, ${primaryColor}10 0%, transparent 100%)`,
                     display: "flex",
                 }}
             />
@@ -84,7 +84,7 @@ export function NFLOgTemplate5({
                     width: "1080px",
                     height: "1350px",
                     background:
-                        "linear-gradient(180deg, rgba(4,7,17,0.4) 0%, rgba(4,7,17,0.05) 25%, transparent 45%, rgba(4,7,17,0.7) 65%, #040711 92%)",
+                        `linear-gradient(180deg, rgba(4,7,17,0.3) 0%, rgba(4,7,17,0.05) 25%, transparent 45%, ${primaryColor}20 65%, ${primaryColor}40 92%)`,
                     display: "flex",
                 }}
             />
@@ -106,12 +106,9 @@ export function NFLOgTemplate5({
                     <div
                         style={{
                             backgroundColor: "#FFFFFF33",
-                            border: `0.2px solid ${accentColor}`,
                             padding: "8px 24px",
-                            borderRadius: "2px",
                             display: "flex",
                             alignItems: "center",
-
                         }}
                     >
                         <span
@@ -131,10 +128,8 @@ export function NFLOgTemplate5({
                 {/* Top Right Status Badge */}
                 <div
                     style={{
-                        backgroundColor: "rgba(0,0,0,0.75)",
-                        border: "1px solid rgba(255,255,255,0.2)",
+                        backgroundColor: "#00000033",
                         padding: "8px 20px",
-                        borderRadius: "6px",
                         display: "flex",
                     }}
                 >
@@ -167,10 +162,10 @@ export function NFLOgTemplate5({
                         style={{
                             width: "180px",
                             height: "180px",
-                            backgroundColor: "rgba(10, 18, 36, 0.95)",
+                            backgroundColor: "transparent",
                             borderRadius: "28px",
-                            border: `3px solid ${accentColor}`,
-                            boxShadow: `0 15px 35px rgba(0,0,0,0.8), 0 0 30px ${accentColor}44`,
+                            border: `1px solid ${accentColor}`,
+                            boxShadow: `0 0 40px ${accentColor}50`,
                             padding: "20px",
                             display: "flex",
                             alignItems: "center",
@@ -214,7 +209,7 @@ export function NFLOgTemplate5({
                 >
                     <span
                         style={{
-                            fontSize: "14px",
+                            fontSize: "18px",
                             fontWeight: 800,
                             color: "#FFFFFF",
                             letterSpacing: "1.5px",
@@ -236,7 +231,7 @@ export function NFLOgTemplate5({
                             style={{
                                 color: "#FFFFFF",
                                 fontWeight: 900,
-                                fontSize: "14px",
+                                fontSize: "18px",
                                 letterSpacing: "2px",
                                 textTransform: "uppercase",
                             }}
@@ -270,7 +265,7 @@ export function NFLOgTemplate5({
                             display: "flex",
                             backgroundColor: "rgba(8, 14, 28, 0.92)",
                             border: "1px solid rgba(255,255,255,0.15)",
-                            borderLeft: `6px solid ${accentColor}`,
+                            borderLeft: `5px solid ${accentColor}`,
                             borderRadius: "8px",
                             padding: "22px 26px",
                             marginBottom: "26px",

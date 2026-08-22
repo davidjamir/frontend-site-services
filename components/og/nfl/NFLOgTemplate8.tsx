@@ -7,8 +7,8 @@ export function NFLOgTemplate8({
     imageUrl,
     logoUrl,
     titleItalic = false,
-    primaryColor = "#E31837",
-    accentColor = "#FFB81C",
+    primaryColor = "#01a355",
+    accentColor = "#a8a398",
     badgeTag = "BREAKING NEWS",
     author = "Adam Schefter",
     authorRole = "ESPN Senior Insider",
@@ -48,19 +48,6 @@ export function NFLOgTemplate8({
                 />
             )}
 
-            {/* Ambient Red Accent Glow (Né bớt độ chói xung quanh logo) */}
-            <div
-                style={{
-                    position: "absolute",
-                    top: "100px",
-                    right: "-50px",
-                    width: "450px",
-                    height: "450px",
-                    background: `radial-gradient(circle, ${primaryColor}33 0%, transparent 70%)`,
-                    display: "flex",
-                }}
-            />
-
             {/* Clean Bottom Gradient Scrim */}
             <div
                 style={{
@@ -70,7 +57,7 @@ export function NFLOgTemplate8({
                     width: "1080px",
                     height: "1350px",
                     background:
-                        "linear-gradient(180deg, rgba(9,13,22,0.45) 0%, rgba(9,13,22,0.05) 25%, transparent 45%, rgba(9,13,22,0.75) 65%, #090D16 92%)",
+                        `linear-gradient(180deg, rgba(9,13,22,0.2) 0%, rgba(9,13,22,0.05) 25%, transparent 45%, rgba(9,13,22,0.6) 65%, #090D16 92%)`,
                     display: "flex",
                 }}
             />
@@ -116,8 +103,8 @@ export function NFLOgTemplate8({
             >
                 <span
                     style={{
-                        fontSize: "13px",
-                        fontWeight: 800,
+                        fontSize: "12px",
+                        fontWeight: 700,
                         color: "rgba(255, 255, 255, 0.75)",
                         letterSpacing: "1.5px",
                         textTransform: "uppercase",
@@ -135,7 +122,7 @@ export function NFLOgTemplate8({
                         backgroundColor: "rgba(9, 13, 22, 0.8)",
                         border: "1px solid rgba(255,255,255,0.18)",
                         padding: "8px 16px",
-                        borderRadius: "6px",
+                        borderRadius: "4px",
                     }}
                 >
                     <span style={{ fontSize: "12px" }}>⏱️</span>
@@ -143,7 +130,7 @@ export function NFLOgTemplate8({
                         style={{
                             fontSize: "12px",
                             color: "#E2E8F0",
-                            fontWeight: 800,
+                            fontWeight: 700,
                             letterSpacing: "1px",
                             textTransform: "uppercase",
                         }}
@@ -167,14 +154,14 @@ export function NFLOgTemplate8({
                         style={{
                             width: "210px",
                             height: "210px",
-                            backgroundColor: "#000000",
-                            border: `3px solid ${primaryColor}`,
+                            backgroundColor: "transparent",
+                            border: `1px solid ${primaryColor}`,
                             borderRadius: "28px",
                             padding: "24px",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            boxShadow: `0 16px 40px rgba(0,0,0,0.8), 0 0 30px ${primaryColor}44`,
+                            boxShadow: ` 0 0 30px ${primaryColor}50`,
                             boxSizing: "border-box",
                         }}
                     >
@@ -215,7 +202,7 @@ export function NFLOgTemplate8({
                     {/* Red Breaking Badge */}
                     <div
                         style={{
-                            backgroundColor: primaryColor,
+                            backgroundColor: "#E31837",
                             padding: "6px 14px",
                             borderRadius: "2px",
                             display: "flex",
@@ -224,7 +211,7 @@ export function NFLOgTemplate8({
                         <span
                             style={{
                                 color: "#FFFFFF",
-                                fontSize: "12px",
+                                fontSize: "14px",
                                 fontWeight: 800,
                                 letterSpacing: "2px",
                                 textTransform: "uppercase",
@@ -238,7 +225,7 @@ export function NFLOgTemplate8({
                     <div
                         style={{
                             backgroundColor: "rgba(255, 255, 255, 0.12)",
-                            border: "1px solid rgba(255, 255, 255, 0.25)",
+                            border: `0.5px solid ${primaryColor}`,
                             padding: "6px 16px",
                             borderRadius: "4px",
                             display: "flex",
@@ -246,7 +233,7 @@ export function NFLOgTemplate8({
                     >
                         <span
                             style={{
-                                fontSize: "13px",
+                                fontSize: "14px",
                                 fontWeight: 800,
                                 color: accentColor,
                                 letterSpacing: "2px",
@@ -281,7 +268,7 @@ export function NFLOgTemplate8({
                         style={{
                             display: "flex",
                             backgroundColor: "rgba(14, 20, 34, 0.94)",
-                            borderLeft: `6px solid ${primaryColor}`,
+                            borderLeft: `5px solid ${primaryColor}`,
                             borderTop: "1px solid rgba(255,255,255,0.08)",
                             borderRight: "1px solid rgba(255,255,255,0.08)",
                             borderBottom: "1px solid rgba(255,255,255,0.08)",
