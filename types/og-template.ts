@@ -1,5 +1,6 @@
 export type OgTemplate = {
   teamName: string;
+  siteName: string;
   title: string;
   titleItalic?: boolean;
   snippet?: string;

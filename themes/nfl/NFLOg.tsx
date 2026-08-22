@@ -37,6 +37,7 @@ export default function NFLOg({ site, post, logo }: Props) {
     return (
         <TemplateComponent
             teamName={site.entity || "NFL"}
+            siteName={site.name || "NFL"}
             title={post.title}
             snippet={post.snippet}
             imageUrl={post.featuredImage}

@@ -39,6 +39,7 @@ export default function MLBOg({ site, post, logo }: Props) {
     return (
         <TemplateComponent
             teamName={site.entity || "MLB"}
+            siteName={site.name || "MLB"}
             title={post.title}
             snippet={post.snippet}
             imageUrl={post.featuredImage}

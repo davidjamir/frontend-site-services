@@ -103,7 +103,7 @@ export const THEMES_OG = {
   team: TeamOG,
   sport: SportOG,
   music: NewsOG,
-  nba: NewsOG,
+  nba: NBAOG,
   nfl: NFLOG,
   nhl: NewsOG,
   mlb: NewsOG,

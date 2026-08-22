@@ -1,11 +1,11 @@
 import { OgTemplate } from "@/types/og-template";
 
 export function NBAOgTemplate3({
-    teamName = "New York Knicks",
-    title = "MADISON SQUARE GARDEN ROARS AS KNICKS COMPLETE THRILLING RALLY",
-    snippet = "New York overcomes an 18-point deficit in the final frame to ignite the home crowd and grab key postseason positioning.",
-    imageUrl = "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&w=1200&auto=format&fit=crop",
-    logoUrl = "https://cdn.nba.com/logos/nba/1610612752/primary/L/logo.svg",
+    teamName,
+    title,
+    snippet,
+    imageUrl,
+    logoUrl,
     titleItalic = true,
     primaryColor = "#DC2626",
     accentColor = "#F58426",
@@ -16,7 +16,6 @@ export function NBAOgTemplate3({
     statusLabel = "JUST IN",
     timeAgo = "7 MINS AGO",
 }: OgTemplate) {
-    const initial = author ? author.charAt(0).toUpperCase() : "I";
 
     return (
         <div
@@ -56,7 +55,7 @@ export function NBAOgTemplate3({
                     width: '1080px',
                     height: '1350px',
                     backgroundImage:
-                        'linear-gradient(180deg, rgba(7,8,12,0.85) 0%, rgba(7,8,12,0.3) 30%, rgba(7,8,12,0.85) 65%, #07080C 100%)',
+                        `linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 40%, ${primaryColor}30 75%, ${primaryColor}60 100%)`,
                 }}
             />
 
@@ -70,7 +69,6 @@ export function NBAOgTemplate3({
                     width: '1080px',
                     padding: '52px 52px 0 52px',
                     position: 'relative',
-                    zIndex: 10,
                 }}
             >
                 {/* Author Card */}
@@ -78,8 +76,8 @@ export function NBAOgTemplate3({
                     style={{
                         display: 'flex',
                         alignItems: 'center',
-                        backgroundColor: 'rgba(11, 16, 26, 0.85)',
-                        border: '1px solid rgba(255, 255, 255, 0.12)',
+                        backgroundColor: '#00000099',
+                        border: '1px solid #FFFFFF',
                         padding: '10px 24px 10px 12px',
                         borderRadius: '9999px',
                         gap: '14px',
@@ -105,7 +103,7 @@ export function NBAOgTemplate3({
 
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                            <span style={{ fontSize: '18px', fontWeight: 800, color: '#FFFFFF' }}>
+                            <span style={{ fontSize: '18px', fontWeight: 700, color: '#FFFFFF' }}>
                                 {author}
                             </span>
                             {/* Verified Badge SVG */}
@@ -137,22 +135,22 @@ export function NBAOgTemplate3({
                     style={{
                         display: 'flex',
                         alignItems: 'center',
-                        backgroundColor: 'rgba(11, 16, 26, 0.85)',
-                        border: `1px solid ${accentColor}`,
-                        padding: '10px 22px',
-                        borderRadius: '16px',
+                        backgroundColor: '#00000099',
+                        border: `2px solid ${accentColor}`,
+                        padding: '5px 20px',
+                        borderRadius: '14px',
                         gap: '12px',
                     }}
                 >
                     <img
                         src={logoUrl}
                         alt={teamName}
-                        style={{ width: '32px', height: '32px', objectFit: 'contain' }}
+                        style={{ width: '48px', height: '48px', objectFit: 'contain' }}
                     />
                     <span
                         style={{
-                            fontSize: '16px',
-                            fontWeight: 900,
+                            fontSize: '14px',
+                            fontWeight: 800,
                             color: '#FFFFFF',
                             letterSpacing: '0.5px',
                         }}
@@ -173,7 +171,6 @@ export function NBAOgTemplate3({
                     width: '1080px',
                     padding: '0 52px 56px 52px',
                     position: 'relative',
-                    zIndex: 10,
                 }}
             >
                 {/* Status Badges */}
@@ -184,9 +181,9 @@ export function NBAOgTemplate3({
                             alignItems: 'center',
                             gap: '8px',
                             fontSize: '14px',
-                            fontWeight: 900,
+                            fontWeight: 800,
                             color: '#FFFFFF',
-                            backgroundColor: primaryColor,
+                            backgroundColor: "#DC2626",
                             padding: '8px 20px',
                             borderRadius: '8px',
                             letterSpacing: '0.5px',
@@ -199,11 +196,11 @@ export function NBAOgTemplate3({
                     <div
                         style={{
                             display: 'flex',
-                            fontSize: '13px',
-                            fontWeight: 800,
+                            fontSize: '14px',
+                            fontWeight: 700,
                             color: accentColor,
-                            backgroundColor: 'rgba(15, 23, 42, 0.85)',
-                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            backgroundColor: '#00000033',
+                            border: `1px solid ${accentColor}`,
                             padding: '8px 18px',
                             borderRadius: '8px',
                             letterSpacing: '0.5px',
@@ -216,8 +213,8 @@ export function NBAOgTemplate3({
                 {/* Title Header */}
                 <h1
                     style={{
-                        fontSize: '58px',
-                        fontWeight: 900,
+                        fontSize: '54px',
+                        fontWeight: 800,
                         fontStyle: titleItalic ? 'italic' : 'normal',
                         color: '#FFFFFF',
                         lineHeight: 1.05,
@@ -237,6 +234,7 @@ export function NBAOgTemplate3({
                         border: '1px solid rgba(255, 255, 255, 0.1)',
                         borderRadius: '14px',
                         padding: '24px 30px',
+                        borderLeft: `6px solid ${accentColor}`
                     }}
                 >
                     <p

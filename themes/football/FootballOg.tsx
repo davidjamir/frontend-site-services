@@ -38,7 +38,8 @@ export default function FootballOg({ site, post, logo }: Props) {
 
     return (
         <TemplateComponent
-            teamName={site.entity || "FOOTBALL"}
+            teamName={site.entity || "Football"}
+            siteName={site.name || "Football"}
             title={post.title}
             snippet={post.snippet}
             imageUrl={post.featuredImage}

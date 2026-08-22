@@ -1,11 +1,11 @@
 import { OgTemplate } from "@/types/og-template";
 
 export function NBAOgTemplate1({
-    teamName = "New York Knicks",
-    title = "MADISON SQUARE GARDEN ROARS AS KNICKS COMPLETE THRILLING RALLY",
-    snippet = "New York overcomes an 18-point deficit in the final frame to ignite the home crowd and grab key postseason positioning.",
-    imageUrl = "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&w=1200&auto=format&fit=crop",
-    logoUrl = "https://cdn.nba.com/logos/nba/1610612752/primary/L/logo.svg",
+    teamName,
+    title,
+    snippet,
+    imageUrl,
+    logoUrl,
     titleItalic = true,
     primaryColor = "#006BB6",
     accentColor = "#F58426",
@@ -54,7 +54,7 @@ export function NBAOgTemplate1({
                     width: "1080px",
                     height: "1350px",
                     backgroundImage:
-                        "linear-gradient(180deg, rgba(7,8,12,0.85) 0%, rgba(7,8,12,0.45) 30%, rgba(7,8,12,0.88) 65%, #07080C 95%)",
+                        "linear-gradient(180deg, rgba(7,8,12,0.5) 0%, rgba(7,8,12,0.1) 30%, rgba(7,8,12,0.6) 75%, #07080C 95%)",
                 }}
             />
 
@@ -89,8 +89,8 @@ export function NBAOgTemplate1({
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
-                                width: "52px",
-                                height: "52px",
+                                width: "72px",
+                                height: "72px",
                                 borderRadius: "12px",
                                 border: `1px solid ${accentColor}`,
                                 backgroundColor: "rgba(255, 255, 255, 0.05)",
@@ -99,7 +99,7 @@ export function NBAOgTemplate1({
                             <img
                                 src={logoUrl}
                                 alt={teamName}
-                                style={{ width: "32px", height: "32px", objectFit: "contain" }}
+                                style={{ width: "48px", height: "48px", objectFit: "contain" }}
                             />
                         </div>
                         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -112,7 +112,7 @@ export function NBAOgTemplate1({
                                         letterSpacing: "2px",
                                     }}
                                 >
-                                    THE ATHLETIC NBA
+                                    THE REPORT NBA
                                 </span>
                                 <span
                                     style={{
@@ -149,7 +149,7 @@ export function NBAOgTemplate1({
                             alignItems: "center",
                             gap: "8px",
                             backgroundColor: "rgba(0, 0, 0, 0.6)",
-                            border: "1px solid rgba(255, 255, 255, 0.2)",
+                            border: "0.8px solid rgba(255, 255, 255, 0.7)",
                             padding: "8px 18px",
                             borderRadius: "9999px",
                         }}
@@ -272,6 +272,7 @@ export function NBAOgTemplate1({
                             borderRadius: "12px",
                             padding: "24px 28px",
                             marginBottom: "28px",
+                            borderLeft: `6px solid ${accentColor}`
                         }}
                     >
                         <p
@@ -309,7 +310,7 @@ export function NBAOgTemplate1({
                                     width: "40px",
                                     height: "40px",
                                     borderRadius: "50%",
-                                    backgroundColor: "#0077C0",
+                                    backgroundColor: primaryColor,
                                     color: "#FFFFFF",
                                     fontWeight: 800,
                                     fontSize: "16px",

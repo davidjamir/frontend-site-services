@@ -39,6 +39,7 @@ export default function NHLOg({ site, post, logo }: Props) {
     return (
         <TemplateComponent
             teamName={site.entity || "NHL"}
+            siteName={site.name || "NHL"}
             title={post.title}
             snippet={post.snippet}
             imageUrl={post.featuredImage}

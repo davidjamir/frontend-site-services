@@ -12,8 +12,6 @@ import { MLBOgTemplate8 } from "@/components/og/mlb/MLBOgTemplate8";
 import { MLBOgTemplate9 } from "@/components/og/mlb/MLBOgTemplate9";
 import { MLBOgTemplate10 } from "@/components/og/mlb/MLBOgTemplate10";
 
-import { NBAOgTemplate1 } from "@/components/og/nba/NBAOgTemplate1";
-import { NBAOgTemplate2 } from "@/components/og/nba/NBAOgTemplate2";
 import { NBAOgTemplate3 } from "@/components/og/nba/NBAOgTemplate3";
 import { NBAOgTemplate4 } from "@/components/og/nba/NBAOgTemplate4";
 import { NBAOgTemplate5 } from "@/components/og/nba/NBAOgTemplate5";
@@ -51,12 +49,15 @@ export async function GET() {
 
     return new ImageResponse(
         (
-            <NBAOgTemplate1
-                teamName="Buffalo Bills"
-                title="MADISON SQUARE GARDEN ROARS AS KNICKS COMPLETE THRILLING RALLY"
+            <NBAOgTemplate3
+                teamName="Boston Celtics"
+                title="CELTICS CLINCH #1 SEED IN THE EAST WITH HISTORIC OFFENSIVE RATING"
                 snippet="New York overcomes an 18-point deficit in the final frame to ignite the home crowd and grab key postseason positioning."
                 imageUrl="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&w=1200&auto=format&fit=crop"
-                logoUrl="https://bills.nflhub.store/images/nfl/buffalo_bills_logo.svg"
+                logoUrl="https://cdn.nba.com/logos/nba/1610612738/primary/L/logo.svg"
+                primaryColor="#0034ef"
+                accentColor="#472532"
+                siteName="NBA"
 
             />
         ),

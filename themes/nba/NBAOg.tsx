@@ -22,13 +22,13 @@ const NBA_OG_TEMPLATE = [
     NBAOgTemplate1,
     NBAOgTemplate2,
     NBAOgTemplate3,
-    NBAOgTemplate4,
-    NBAOgTemplate5,
-    NBAOgTemplate6,
-    NBAOgTemplate7,
-    NBAOgTemplate8,
-    NBAOgTemplate9,
-    NBAOgTemplate10,
+    // NBAOgTemplate4,
+    // NBAOgTemplate5,
+    // NBAOgTemplate6,
+    // NBAOgTemplate7,
+    // NBAOgTemplate8,
+    // NBAOgTemplate9,
+    // NBAOgTemplate10,
 ];
 
 export default function NBAOg({ site, post, logo }: Props) {
@@ -39,6 +39,7 @@ export default function NBAOg({ site, post, logo }: Props) {
     return (
         <TemplateComponent
             teamName={site.entity || "NBA"}
+            siteName={site.name || "NBA"}
             title={post.title}
             snippet={post.snippet}
             imageUrl={post.featuredImage}

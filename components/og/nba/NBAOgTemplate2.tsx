@@ -1,14 +1,14 @@
 import { OgTemplate } from "@/types/og-template";
 
 export function NBAOgTemplate2({
-    teamName = "LOS ANGELES LAKERS",
-    title = "LAKERS SECURE DRAMATIC OVERTIME VICTORY IN GAME 7 SHOWDOWN",
-    snippet = "LeBron James orchestrates a masterclass performance in the 4th quarter to seal the victory at Crypto.com Arena.",
-    imageUrl = "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-    logoUrl = "https://cdn.nba.com/logos/nba/1610612747/primary/L/logo.svg",
+    teamName,
+    title,
+    snippet,
+    imageUrl,
+    logoUrl,
     titleItalic = true,
-    primaryColor = "#552583",
-    accentColor = "#FFB81C",
+    primaryColor = "#7801e7",
+    accentColor = "#689880",
     badgeTag = "BREAKING NEWS",
     author = "Shams Charania",
     authorRole = "Senior NBA Insider",
@@ -16,10 +16,6 @@ export function NBAOgTemplate2({
     statusLabel = "JUST IN",
     timeAgo = "4 MINS AGO",
 }: OgTemplate) {
-
-    const badgeTagWidth = Math.max(280, badgeTag.length * 13 + 120)
-    const teamNameWidth = Math.max(280, teamName.length * 11 + 90);
-
     return (
         <div
             style={{
@@ -60,8 +56,7 @@ export function NBAOgTemplate2({
                     left: 0,
                     width: "1080px",
                     height: "1350px",
-                    backgroundImage:
-                        "linear-gradient(180deg, rgba(3,5,10,0.5) 0%, rgba(3,5,10,0.05) 32%, rgba(3,5,10,0.5) 75%, #030509 90%)",
+                    backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.1) 0%, transparent 32%, rgba(0,0,0,0.6) 75%, rgba(0,0,0,0.8) 90%)`,
                 }}
             />
 
@@ -109,7 +104,7 @@ export function NBAOgTemplate2({
                         <span
                             style={{
                                 fontSize: "14px",
-                                fontWeight: 900,
+                                fontWeight: 700,
                                 color: "#FFFFFF",
                                 letterSpacing: "2px",
                                 textTransform: "uppercase",
@@ -125,16 +120,16 @@ export function NBAOgTemplate2({
                                 display: "flex",
                                 flexDirection: "row",
                                 alignItems: "center",
-                                backgroundColor: "rgba(15, 23, 42, 0.85)",
+                                backgroundColor: "#000000",
                                 padding: "8px 18px",
                                 borderRadius: "6px",
-                                border: "1px solid rgba(255, 255, 255, 0.15)",
+                                border: "0.7px solid rgba(255, 255, 255)",
                             }}
                         >
                             <span
                                 style={{
                                     fontSize: "13px",
-                                    fontWeight: 800,
+                                    fontWeight: 700,
                                     color: "#E2E8F0",
                                     letterSpacing: "1.5px",
                                     textTransform: "uppercase",
@@ -155,9 +150,9 @@ export function NBAOgTemplate2({
                             justifyContent: "center",
                             width: "58px",
                             height: "58px",
-                            backgroundColor: "rgba(0, 0, 0, 0.75)",
+                            backgroundColor: "#00000099",
                             borderRadius: "12px",
-                            border: `1.5px solid ${accentColor}`,
+                            border: `2px solid ${accentColor}`,
                             padding: "6px",
                         }}
                     >
@@ -183,14 +178,13 @@ export function NBAOgTemplate2({
                     boxSizing: "border-box",
                 }}
             >
-
                 {/* Top Tags Bar */}
                 <div
                     style={{
                         display: "flex",
                         flexDirection: "row",
                         alignItems: "stretch",
-                        height: "48px",
+                        height: "auto",
                         position: "relative",
                     }}
                 >
@@ -198,57 +192,24 @@ export function NBAOgTemplate2({
                     <div
                         style={{
                             display: "flex",
-                            width: `${badgeTagWidth}px`,
-                            height: "48px",
+                            width: "auto",
+                            height: "auto",
                             position: "relative",
                             alignItems: "center",
                             justifyContent: "center",
-                            padding: "0 44px 0 34px", // đủ chỗ cho phần đầu chéo (slant=18) + lề chữ
+                            padding: "8px 24px", // đủ chỗ cho phần đầu chéo (slant=18) + lề chữ
                             whiteSpace: "nowrap",
+                            backgroundColor: "#DC2626",
+                            transform: "skewX(-18deg)",
+                            borderRadius: " 8px 0 0 0",
                         }}
                     >
-                        {/* Lớp viền (nằm dưới, lệch xuống) */}
-                        <img
-                            src={`data:image/svg+xml;utf8,${encodeURIComponent(`
-        <svg xmlns="http://www.w3.org/2000/svg" width="330" height="48" viewBox="0 0 330 48">
-            <path d="${roundedParallelogramPath(330, 48, 18, 8, 0, 0, 0)}" fill="#DC2626" />
-        </svg>
-    `)}`}
-                            width="330"
-                            height="48"
-                            style={{
-                                position: "absolute",
-                                top: "-3px",
-                                left: 0,
-                                width: `${badgeTagWidth}px`,
-                                height: "48px",
-                            }}
-                        />
-
-                        {/* Lớp fill chính (nằm trên) */}
-                        <img
-                            src={`data:image/svg+xml;utf8,${encodeURIComponent(`
-        <svg xmlns="http://www.w3.org/2000/svg" width="330" height="48" viewBox="0 0 330 48">
-            <path d="${roundedParallelogramPath(330, 48, 18, 8, 0, 0, 0)}" fill="#DC2626" />
-        </svg>
-    `)}`}
-                            width="330"
-                            height="48"
-                            style={{
-                                position: "absolute",
-                                top: 0,
-                                left: 0,
-                                width: `${badgeTagWidth}px`,
-                                height: "48px",
-                            }}
-                        />
-
                         <span
                             style={{
                                 display: "flex",
                                 position: "relative",
-                                fontSize: "16px",
-                                fontWeight: 900,
+                                fontSize: "14px",
+                                fontWeight: 700,
                                 color: "#FFFFFF",
                                 letterSpacing: "2.5px",
                                 textTransform: "uppercase",
@@ -263,56 +224,24 @@ export function NBAOgTemplate2({
                         <div
                             style={{
                                 display: "flex",
-                                width: `${teamNameWidth}px`,
-                                height: "48px",
+                                width: "auto",
+                                height: "auto",
                                 position: "relative",
                                 alignItems: "center",
                                 justifyContent: "center",
-                                marginLeft: "-24px",
+                                padding: "8px 24px",
+                                backgroundColor: primaryColor,
+                                transform: "skewX(-18deg)",
+                                borderRadius: "0 8px 0 0",
+                                borderTop: `1px solid ${accentColor}`,
                             }}
                         >
-                            {/* Lớp viền (nằm dưới, lệch xuống) */}
-                            <img
-                                src={`data:image/svg+xml;utf8,${encodeURIComponent(`
-        <svg xmlns="http://www.w3.org/2000/svg" width="320" height="48" viewBox="0 0 320 48">
-            <path d="${roundedParallelogramPath(320, 48, 18, 0, 8, 0, 0)}" fill="${accentColor}" />
-        </svg>
-    `)}`}
-                                width="320"
-                                height="48"
-                                style={{
-                                    position: "absolute",
-                                    top: "-3px",
-                                    left: 0,
-                                    width: `${teamNameWidth}px`,
-                                    height: "48px",
-                                }}
-                            />
-
-                            {/* Lớp fill chính (nằm trên) */}
-                            <img
-                                src={`data:image/svg+xml;utf8,${encodeURIComponent(`
-        <svg xmlns="http://www.w3.org/2000/svg" width="320" height="48" viewBox="0 0 320 48">
-            <path d="${roundedParallelogramPath(320, 48, 18, 0, 8, 0, 0)}" fill="${primaryColor}" />
-        </svg>
-    `)}`}
-                                width="320"
-                                height="48"
-                                style={{
-                                    position: "absolute",
-                                    top: 0,
-                                    left: 0,
-                                    width: `${teamNameWidth}px`,
-                                    height: "48px",
-                                }}
-                            />
-
                             <span
                                 style={{
                                     display: "flex",
                                     position: "relative",
                                     fontSize: "14px",
-                                    fontWeight: 800,
+                                    fontWeight: 700,
                                     color: "#FFFFFF",
                                     letterSpacing: "2px",
                                     textTransform: "uppercase",
@@ -324,7 +253,6 @@ export function NBAOgTemplate2({
                     ) : null}
                 </div>
 
-
                 {/* Main Content Box */}
                 <div
                     style={{
@@ -332,7 +260,7 @@ export function NBAOgTemplate2({
                         flexDirection: "column",
                         backgroundColor: "rgba(9, 13, 22, 0.96)",
                         borderRadius: "0 12px 12px 12px",
-                        border: "1.5px solid rgba(255, 255, 255, 0.16)",
+                        border: `1px solid ${primaryColor}`,
                         borderLeft: `6px solid ${accentColor}`,
                         padding: "30px 36px",
                     }}
@@ -359,9 +287,9 @@ export function NBAOgTemplate2({
                         <div
                             style={{
                                 display: "flex",
-                                fontSize: "20px",
+                                fontSize: "18px",
                                 fontWeight: 400,
-                                color: "#CBD5E1",
+                                color: "#FFFFFF",
                                 lineHeight: 1.45,
                                 marginBottom: "24px",
                             }}
@@ -400,9 +328,10 @@ export function NBAOgTemplate2({
                                     backgroundColor: accentColor,
                                     alignItems: "center",
                                     justifyContent: "center",
-                                    fontWeight: 900,
+                                    fontWeight: 700,
                                     color: "#030509",
-                                    fontSize: "15px",
+                                    fontSize: "14px",
+                                    padding: "0 2px",
                                 }}
                             >
                                 NBA
@@ -421,25 +350,41 @@ export function NBAOgTemplate2({
                                         gap: "6px",
                                     }}
                                 >
-                                    <span style={{ fontSize: "15px", fontWeight: 800, color: "#FFFFFF" }}>
+                                    <span
+                                        style={{
+                                            fontSize: "15px",
+                                            fontWeight: 800,
+                                            color: "#FFFFFF",
+                                        }}
+                                    >
                                         {author}
                                     </span>
                                     {/* Inline SVG Verified Badge - Tránh dùng ký tự ✓ gây lỗi Font 400 */}
                                     <svg
-                                        width="14"
-                                        height="14"
+                                        width="20"
+                                        height="20"
                                         viewBox="0 0 24 24"
                                         fill="none"
-                                        stroke="#38BDF8"
-                                        strokeWidth="3.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
+                                        style={{ display: "flex" }}
                                     >
-                                        <polyline points="20 6 9 17 4 12" />
+                                        <path
+                                            d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.79-4-4-4-.495 0-.965.084-1.4.238C14.55 2.475 13.18 1.6 11.6 1.6c-1.58 0-2.95.875-3.6 2.148-.435-.154-.905-.238-1.4-.238-2.21 0-4 1.79-4 4 0 .495.084.965.238 1.4C1.575 9.55.7 10.92.7 12.5c0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.79 4 4 4 .495 0 .965-.084 1.4-.238 1.35 1.273 2.72 2.148 4.3 2.148 1.58 0 2.95-.875 3.6-2.148.435.154.905.238 1.4.238 2.21 0 4-1.79 4-4 0-.495-.084-.965-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6z"
+                                            fill="#1D9BF0"
+                                        />
+                                        <path
+                                            d="M10.2 16.2l-3.5-3.5 1.4-1.4 2.1 2.1 5.3-5.3 1.4 1.4-6.7 6.7z"
+                                            fill="#FFFFFF"
+                                        />
                                     </svg>
                                 </div>
                                 {authorRole ? (
-                                    <span style={{ fontSize: "12px", fontWeight: 600, color: "#94A3B8" }}>
+                                    <span
+                                        style={{
+                                            fontSize: "12px",
+                                            fontWeight: 600,
+                                            color: "#94A3B8",
+                                        }}
+                                    >
                                         {authorRole}
                                     </span>
                                 ) : null}
@@ -481,51 +426,4 @@ export function NBAOgTemplate2({
             </div>
         </div>
     );
-}
-
-function roundedParallelogramPath(
-    w: number,
-    h: number,
-    slant: number,
-    rA: number, // góc trên-trái (chéo)
-    rB: number, // góc trên-phải
-    rC: number, // góc dưới-phải (chéo)
-    rD: number  // góc dưới-trái
-) {
-    const L = Math.sqrt(slant * slant + h * h);
-    const ux = slant / L, uy = h / L;
-
-    const A = { x: slant, y: 0 };
-    const B = { x: w, y: 0 };
-    const C = { x: w - slant, y: h };
-    const D = { x: 0, y: h };
-
-    // Cạnh AB (trên): dùng ux/uy cho phía A (chéo), trục x thường cho phía B
-    const A2 = { x: A.x + rA, y: A.y };
-    const B1 = { x: B.x - rB, y: B.y };
-
-    // Cạnh BC (phải, chéo)
-    const B2 = { x: B.x - rB * ux, y: B.y + rB * uy };
-    const C1 = { x: C.x + rC * ux, y: C.y - rC * uy };
-
-    // Cạnh CD (dưới)
-    const C2 = { x: C.x - rC, y: C.y };
-    const D1 = { x: D.x + rD, y: D.y };
-
-    // Cạnh DA (trái, chéo)
-    const D2 = { x: D.x + rD * ux, y: D.y - rD * uy };
-    const A1 = { x: A.x - rA * ux, y: A.y + rA * uy };
-
-    return `
-        M ${A2.x} ${A2.y}
-        L ${B1.x} ${B1.y}
-        ${rB > 0 ? `Q ${B.x} ${B.y} ${B2.x} ${B2.y}` : `L ${B.x} ${B.y}`}
-        L ${C1.x} ${C1.y}
-        ${rC > 0 ? `Q ${C.x} ${C.y} ${C2.x} ${C2.y}` : `L ${C.x} ${C.y}`}
-        L ${D1.x} ${D1.y}
-        ${rD > 0 ? `Q ${D.x} ${D.y} ${D2.x} ${D2.y}` : `L ${D.x} ${D.y}`}
-        L ${A1.x} ${A1.y}
-        ${rA > 0 ? `Q ${A.x} ${A.y} ${A2.x} ${A2.y}` : `L ${A.x} ${A.y}`}
-        Z
-    `;
 }
