@@ -99,7 +99,7 @@ export function NBAOgTemplate1({
                             <img
                                 src={logoUrl}
                                 alt={teamName}
-                                style={{ width: "48px", height: "48px", objectFit: "contain" }}
+                                style={{ width: "54px", height: "54px", objectFit: "contain" }}
                             />
                         </div>
                         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -263,30 +263,53 @@ export function NBAOgTemplate1({
                         “{title}”
                     </h1>
 
-                    {/* Snippet Card */}
                     <div
                         style={{
                             display: "flex",
-                            backgroundColor: "rgba(15, 23, 42, 0.6)",
-                            border: "1px solid rgba(255, 255, 255, 0.1)",
-                            borderRadius: "12px",
-                            padding: "24px 28px",
+                            flexDirection: "column",
+                            position: "relative",
                             marginBottom: "28px",
-                            borderLeft: `6px solid ${accentColor}`
                         }}
                     >
-                        <p
+                        {/* LAYER PHÍA SAU — render trước */}
+                        <div
                             style={{
-                                fontSize: "20px",
-                                fontWeight: 400,
-                                color: "#E2E8F0",
-                                lineHeight: 1.4,
-                                margin: 0,
-                                fontFamily: "Georgia, serif",
+                                display: "flex",
+                                position: "absolute",
+                                top: "0",
+                                left: "-6px",
+                                right: "0",
+                                bottom: "0",
+                                backgroundColor: accentColor,
+                                borderRadius: "12px",
+                            }}
+                        />
+
+                        {/* CARD PHÍA TRƯỚC — render sau nên nằm trên */}
+                        <div
+                            style={{
+                                display: "flex",
+                                position: "relative",
+                                flexDirection: "column",
+                                backgroundColor: "rgb(0,0,0)",
+                                border: "1px solid rgba(255, 255, 255, 0.2)",
+                                borderRadius: "12px",
+                                padding: "24px 28px",
                             }}
                         >
-                            {snippet}
-                        </p>
+                            <p
+                                style={{
+                                    fontSize: "20px",
+                                    fontWeight: 400,
+                                    color: "#E2E8F0",
+                                    lineHeight: 1.4,
+                                    margin: 0,
+                                    fontFamily: "Georgia, serif",
+                                }}
+                            >
+                                {snippet}
+                            </p>
+                        </div>
                     </div>
 
                     {/* Footer Section */}

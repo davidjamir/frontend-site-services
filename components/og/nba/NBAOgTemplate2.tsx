@@ -148,8 +148,6 @@ export function NBAOgTemplate2({
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            width: "58px",
-                            height: "58px",
                             backgroundColor: "#00000099",
                             borderRadius: "12px",
                             border: `2px solid ${accentColor}`,
@@ -159,7 +157,7 @@ export function NBAOgTemplate2({
                         <img
                             src={logoUrl}
                             alt="Team Logo"
-                            style={{ width: "44px", height: "44px", objectFit: "contain" }}
+                            style={{ width: "54px", height: "54px", objectFit: "contain" }}
                         />
                     </div>
                 ) : null}

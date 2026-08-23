@@ -43,19 +43,21 @@ import { NHLOgTemplate9 } from "@/components/og/nhl/NHLOgTemplate9";
 import { NHLOgTemplate10 } from "@/components/og/nhl/NHLOgTemplate10";
 
 
+
+
 export async function GET() {
     const fonts = await getOgFonts();
 
     return new ImageResponse(
         (
-            <NBAOgTemplate4
+            <NBAOgTemplate5
                 teamName="Boston Celtics"
                 title="CELTICS CLINCH #1 SEED IN THE EAST WITH HISTORIC OFFENSIVE RATING"
                 snippet="New York overcomes an 18-point deficit in the final frame to ignite the home crowd and grab key postseason positioning."
                 imageUrl="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&w=1200&auto=format&fit=crop"
                 logoUrl="https://cdn.nba.com/logos/nba/1610612738/primary/L/logo.svg"
                 primaryColor="#0034ef"
-                accentColor="#472532"
+                accentColor="#acff37"
                 siteName="NBA"
 
             />

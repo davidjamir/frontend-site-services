@@ -145,7 +145,7 @@ export function NBAOgTemplate3({
                     <img
                         src={logoUrl}
                         alt={teamName}
-                        style={{ width: '48px', height: '48px', objectFit: 'contain' }}
+                        style={{ width: '54px', height: '54px', objectFit: 'contain' }}
                     />
                     <span
                         style={{
@@ -226,28 +226,51 @@ export function NBAOgTemplate3({
                     {title}
                 </h1>
 
-                {/* Snippet Footer Box */}
                 <div
                     style={{
-                        display: 'flex',
-                        backgroundColor: 'rgba(11, 16, 26, 0.92)',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                        borderRadius: '14px',
-                        padding: '24px 30px',
-                        borderLeft: `6px solid ${accentColor}`
+                        display: "flex",
+                        flexDirection: "column",
+                        position: "relative",
                     }}
                 >
-                    <p
+                    {/* LAYER PHÍA SAU — render trước */}
+                    <div
                         style={{
-                            fontSize: '22px',
-                            fontWeight: 500,
-                            color: '#E2E8F0',
-                            lineHeight: 1.45,
-                            margin: 0,
+                            display: "flex",
+                            position: "absolute",
+                            top: "0",
+                            left: "-6px",
+                            right: "0",
+                            bottom: "0",
+                            backgroundColor: accentColor,
+                            borderRadius: "14px",
+                        }}
+                    />
+
+                    {/* CARD PHÍA TRƯỚC — render sau nên nằm trên */}
+                    <div
+                        style={{
+                            display: "flex",
+                            position: "relative",
+                            flexDirection: "column",
+                            backgroundColor: "rgb(0,0,0)",
+                            border: "1px solid rgba(255, 255, 255, 0.2)",
+                            borderRadius: "14px",
+                            padding: "24px 30px",
                         }}
                     >
-                        {snippet}
-                    </p>
+                        <p
+                            style={{
+                                fontSize: "22px",
+                                fontWeight: 500,
+                                color: "#E2E8F0",
+                                lineHeight: 1.4,
+                                margin: 0,
+                            }}
+                        >
+                            {snippet}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
