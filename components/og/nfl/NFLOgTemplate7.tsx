@@ -243,7 +243,7 @@ export function NFLOgTemplate7({
                             fontSize: "20px",
                             lineHeight: 1.5,
                             fontWeight: 400,
-                            color: "#CBD5E1",
+                            color: "#FFFFFF",
                             maxWidth: "860px",
                             margin: "0 0 28px 0",
                         }}
