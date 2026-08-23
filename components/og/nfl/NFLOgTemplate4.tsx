@@ -148,14 +148,15 @@ export function NFLOgTemplate4({
                 <div
                     style={{
                         position: "absolute",
-                        left: "-100px",
-                        top: "150px",
+                        left: "30px",
+                        top: "350px",
+                        transformOrigin: "left top",
                         transform: "rotate(-90deg)",
                         display: "flex",
                         alignItems: "center",
                     }}
                 >
-                    <div
+                    <span
                         style={{
                             display: "flex",
                             fontSize: "32px",
@@ -167,7 +168,7 @@ export function NFLOgTemplate4({
                         }}
                     >
                         {teamName}
-                    </div>
+                    </span>
                 </div>
             )}
 
