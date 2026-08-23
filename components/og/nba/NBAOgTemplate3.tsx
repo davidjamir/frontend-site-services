@@ -92,8 +92,8 @@ export function NBAOgTemplate3({
                             width: '44px',
                             height: '44px',
                             borderRadius: '50%',
-                            backgroundColor: accentColor,
-                            color: '#000000',
+                            backgroundColor: primaryColor,
+                            color: '#FFFFFF',
                             fontWeight: 800,
                             fontSize: '20px',
                         }}

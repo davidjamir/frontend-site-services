@@ -320,16 +320,15 @@ export function NBAOgTemplate2({
                                 style={{
                                     display: "flex",
                                     flexDirection: "row",
-                                    width: "38px",
-                                    height: "38px",
+                                    width: "42px",
+                                    height: "42px",
                                     borderRadius: "8px",
-                                    backgroundColor: accentColor,
+                                    backgroundColor: primaryColor,
                                     alignItems: "center",
                                     justifyContent: "center",
                                     fontWeight: 700,
-                                    color: "#030509",
+                                    color: "#FFFFFF",
                                     fontSize: "14px",
-                                    padding: "0 2px",
                                 }}
                             >
                                 NBA

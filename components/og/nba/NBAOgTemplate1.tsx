@@ -92,7 +92,7 @@ export function NBAOgTemplate1({
                                 width: "72px",
                                 height: "72px",
                                 borderRadius: "12px",
-                                border: `1px solid ${accentColor}`,
+                                border: `2px solid ${accentColor}`,
                                 backgroundColor: "rgba(255, 255, 255, 0.05)",
                             }}
                         >

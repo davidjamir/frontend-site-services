@@ -23,7 +23,7 @@ const NBA_OG_TEMPLATE = [
     NBAOgTemplate2,
     NBAOgTemplate3,
     // NBAOgTemplate4,
-    // NBAOgTemplate5,
+    NBAOgTemplate5,
     // NBAOgTemplate6,
     // NBAOgTemplate7,
     // NBAOgTemplate8,
