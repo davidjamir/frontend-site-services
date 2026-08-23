@@ -12,7 +12,6 @@ import { MLBOgTemplate8 } from "@/components/og/mlb/MLBOgTemplate8";
 import { MLBOgTemplate9 } from "@/components/og/mlb/MLBOgTemplate9";
 import { MLBOgTemplate10 } from "@/components/og/mlb/MLBOgTemplate10";
 
-import { NBAOgTemplate3 } from "@/components/og/nba/NBAOgTemplate3";
 import { NBAOgTemplate4 } from "@/components/og/nba/NBAOgTemplate4";
 import { NBAOgTemplate5 } from "@/components/og/nba/NBAOgTemplate5";
 import { NBAOgTemplate6 } from "@/components/og/nba/NBAOgTemplate6";
@@ -49,7 +48,7 @@ export async function GET() {
 
     return new ImageResponse(
         (
-            <NBAOgTemplate3
+            <NBAOgTemplate4
                 teamName="Boston Celtics"
                 title="CELTICS CLINCH #1 SEED IN THE EAST WITH HISTORIC OFFENSIVE RATING"
                 snippet="New York overcomes an 18-point deficit in the final frame to ignite the home crowd and grab key postseason positioning."

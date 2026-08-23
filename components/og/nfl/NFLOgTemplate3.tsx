@@ -323,7 +323,7 @@ export function NFLOgTemplate3({
                         backgroundColor: "rgba(10, 12, 16, 0.95)",
                         borderRadius: "50%",
                         border: `4px solid ${accentColor}`,
-                        boxShadow: "0 20px 50px rgba(0,0,0,0.9), 0 0 30px rgba(212,175,55,0.3)",
+                        boxShadow: `0 0 30px ${accentColor}66`,
                         padding: "24px",
                         display: "flex",
                         alignItems: "center",

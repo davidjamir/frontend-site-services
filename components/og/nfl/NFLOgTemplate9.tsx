@@ -140,17 +140,18 @@ export function NFLOgTemplate9({
                 >
                     <div
                         style={{
-                            width: "210px",
-                            height: "210px",
+                            width: "180px",
+                            height: "180px",
                             backgroundColor: "transparent",
-                            border: `0.2px solid ${primaryColor}`,
+                            border: `2px solid ${primaryColor}`,
                             borderRadius: "28px",
-                            padding: "24px",
+                            padding: "15px",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            boxShadow: ` 0 0 20px ${primaryColor}66`,
+                            boxShadow: ` 0 0 40px ${primaryColor}99`,
                             boxSizing: "border-box",
+
                         }}
                     >
                         <img
@@ -160,6 +161,8 @@ export function NFLOgTemplate9({
                                 width: "100%",
                                 height: "100%",
                                 objectFit: "contain",
+                            transform: "rotate(5deg) skewX(3deg)",
+
                             }}
                         />
                     </div>

@@ -63,8 +63,7 @@ export function NFLOgTemplate4({
                         left: 0,
                         width: "100%",
                         height: "100%",
-                        background:
-                            `linear-gradient(180deg, rgba(10,12,16,0.2) 0%, rgba(10,12,16,0.05) 30%, ${primaryColor}33 75%, ${primaryColor}66 95%)`,
+                        background: `linear-gradient(180deg, rgba(10,12,16,0.2) 0%, rgba(10,12,16,0.05) 30%, ${primaryColor}33 75%, ${primaryColor}66 95%)`,
                         display: "flex",
                     }}
                 />
@@ -126,7 +125,7 @@ export function NFLOgTemplate4({
                                         display: "flex",
                                     }}
                                 />
-                            )
+                            ),
                         )}
                     </div>
                     <div
@@ -364,13 +363,11 @@ export function NFLOgTemplate4({
                         position: "absolute",
                         top: "160px",
                         right: "48px",
-                        width: "250px",
-                        height: "230px",
+                        width: "180px",
+                        height: "180px",
                         display: "flex",
                     }}
                 >
-
-
                     {/* Lớp khung trắng chứa logo phía trên */}
                     <div
                         style={{
@@ -379,14 +376,14 @@ export function NFLOgTemplate4({
                             height: "100%",
                             backgroundColor: "transparent",
                             borderRadius: "16px",
-                            border: `1px solid ${primaryColor}`,
-                            padding: "20px",
+                            border: `2px solid ${primaryColor}`,
+                            padding: "15px",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
                             boxSizing: "border-box",
                             transform: "rotate(4deg)",
-                            boxShadow: `0 0 30px ${primaryColor}99`
+                            boxShadow: `0 0 40px ${primaryColor}99`,
                         }}
                     >
                         <img

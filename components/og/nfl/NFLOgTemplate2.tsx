@@ -347,7 +347,7 @@ export function NFLOgTemplate2({
                             border: `4px solid ${accentColor}`,
                             alignItems: "center",
                             justifyContent: "center",
-                            boxShadow: `0 0 20px ${accentColor}66`,
+                            boxShadow: `0 0 30px ${accentColor}66`,
                         }}
                     >
                         <img

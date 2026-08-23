@@ -155,13 +155,13 @@ export function NFLOgTemplate8({
                             width: "210px",
                             height: "210px",
                             backgroundColor: "transparent",
-                            border: `1px solid ${primaryColor}`,
+                            border: `2px solid ${primaryColor}`,
                             borderRadius: "28px",
-                            padding: "24px",
+                            padding: "15px",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            boxShadow: ` 0 0 30px ${primaryColor}50`,
+                            boxShadow: ` 0 0 40px ${primaryColor}99`,
                             boxSizing: "border-box",
                         }}
                     >

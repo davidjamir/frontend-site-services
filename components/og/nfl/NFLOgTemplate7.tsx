@@ -159,7 +159,7 @@ export function NFLOgTemplate7({
                             marginBottom: "16px",
                             borderRadius: "20%",
                             backgroundColor: "transparent",
-                            boxShadow: `0 0 30px ${primaryColor}66`,
+                            boxShadow: `0 0 40px ${primaryColor}66`,
                         }}
                     >
                         <img

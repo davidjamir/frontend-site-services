@@ -136,7 +136,7 @@ export function NFLOgTemplate1({
                             padding: "16px",
                             boxSizing: "border-box",
                             transform: "rotate(-3deg)",
-                            boxShadow: `0px 0 20px ${primaryColor}99`,
+                            boxShadow: `0px 0 40px ${primaryColor}99`,
                         }}
                     >
                         <img
