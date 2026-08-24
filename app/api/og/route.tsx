@@ -23,31 +23,19 @@ import { FootballOgTemplate8 } from "@/components/og/football/FootballOgTemplate
 import { FootballOgTemplate9 } from "@/components/og/football/FootballOgTemplate9";
 import { FootballOgTemplate10 } from "@/components/og/football/FootballOgTemplate10";
 
-import { NHLOgTemplate1 } from "@/components/og/nhl/NHLOgTemplate1";
-import { NHLOgTemplate2 } from "@/components/og/nhl/NHLOgTemplate2";
-import { NHLOgTemplate3 } from "@/components/og/nhl/NHLOgTemplate3";
-import { NHLOgTemplate4 } from "@/components/og/nhl/NHLOgTemplate4";
-import { NHLOgTemplate5 } from "@/components/og/nhl/NHLOgTemplate5";
-import { NHLOgTemplate6 } from "@/components/og/nhl/NHLOgTemplate6";
-import { NHLOgTemplate7 } from "@/components/og/nhl/NHLOgTemplate7";
-import { NHLOgTemplate8 } from "@/components/og/nhl/NHLOgTemplate8";
-import { NHLOgTemplate9 } from "@/components/og/nhl/NHLOgTemplate9";
-import { NHLOgTemplate10 } from "@/components/og/nhl/NHLOgTemplate10";
-
-
 export async function GET() {
     const fonts = await getOgFonts();
 
     return new ImageResponse(
         (
-            <NHLOgTemplate1
-                teamName="Los Angeles Lakers"
-                title="CELTICS CLINCH #1 SEED IN THE EAST WITH HISTORIC OFFENSIVE RATING"
+            <MLBOgTemplate1
+                teamName="DETROIT RED WINGS"
+                title="TKACHUK BRINGS PHYSICALITY AND 2 GOALS IN CANADIAN CAPITAL WIN"
                 snippet="New York overcomes an 18-point deficit in the final frame to ignite the home crowd and grab key postseason positioning."
-                imageUrl="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&w=1200&auto=format&fit=crop"
-                logoUrl="https://cdn.nba.com/logos/nba/1610612738/primary/L/logo.svg"
-                primaryColor="#14a46a"
-                accentColor="#9bb711"
+                imageUrl="https://images.unsplash.com/photo-1580748141549-71748dbe0bdc?auto=format&fit=crop&w=1200&q=80"
+                logoUrl="https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
+                primaryColor="#b10d75"
+                accentColor="#131cba"
                 siteName="NBA"
 
             />
