@@ -106,6 +106,6 @@ export const THEMES_OG = {
   nba: NBAOG,
   nfl: NFLOG,
   nhl: NHLOG,
-  mlb: NewsOG,
+  mlb: MLBOG,
   football: NewsOG,
 };
