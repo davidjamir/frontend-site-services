@@ -9,12 +9,12 @@ export function NHLOgTemplate9({
     titleItalic = true,
     primaryColor = "#002868",
     accentColor = "#00A3E0",
-    badgeTag = "TROPHY UPDATE",
+    badgeTag = "BREAKING NEWS",
     author = "Kevin Weekes",
     authorRole = "ESPN & NHL Network Analyst",
     sourceDomain = "NHL.COM/TBL",
     statusLabel = "SCORING CHAMPION",
-    timeAgo = "SEASON FINALE",
+    timeAgo = "5 MINS AGO",
 }: OgTemplate) {
     return (
         <div
@@ -23,7 +23,7 @@ export function NHLOgTemplate9({
                 flexDirection: "row",
                 width: "1080px",
                 height: "1350px",
-                backgroundColor: "#FAF9F6", // Off-white editorial paper
+                backgroundColor: "#FAF9F6",
                 position: "relative",
                 overflow: "hidden",
                 fontFamily: "Montserrat",
@@ -31,89 +31,163 @@ export function NHLOgTemplate9({
                 boxSizing: "border-box",
             }}
         >
-            {/* LEFT COLUMN: Image & Monogram (45%) */}
+            {/* Layer 1 (DOM Bottom): Full Width Image (width 1080px, height 1030px) */}
+            <div
+                style={{
+                    display: "flex",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "1080px",
+                    height: "1030px",
+                    overflow: "hidden",
+                }}
+            >
+                <img
+                    src={imageUrl}
+                    alt={teamName}
+                    style={{
+                        width: "1080px",
+                        height: "1030px",
+                        objectFit: "cover",
+                    }}
+                />
+            </div>
+
+            {/* Layer 2: Subtle Ambient Vignette on Image */}
+            <div
+                style={{
+                    display: "flex",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "1080px",
+                    height: "1030px",
+                    backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 40%)",
+                }}
+            />
+
+            {/* Layer 3: Bottom Left Monogram Box (486px width, 320px height) */}
             <div
                 style={{
                     display: "flex",
                     flexDirection: "column",
-                    width: "486px", // 45% of 1080
-                    height: "100%",
-                    borderRight: "2px solid #E5E5E5",
+                    position: "absolute",
+                    top: "1030px",
+                    left: 0,
+                    width: "486px",
+                    height: "320px",
+                    backgroundColor: "#FFFFFF",
+                    borderTop: "1px solid #E2E8F0",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "24px 20px",
                 }}
             >
                 <div
                     style={{
+                        width: "170px",
+                        height: "170px",
                         display: "flex",
-                        width: "100%",
-                        height: "1030px",
-                        position: "relative",
-                        overflow: "hidden",
-                    }}
-                >
-                    <img
-                        src={imageUrl}
-                        alt={teamName}
-                        style={{
-                            width: "100%",
-                            height: "100%",
-                            objectFit: "cover",
-                        }}
-                    />
-                </div>
-                <div
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        width: "100%",
-                        height: "320px",
-                        backgroundColor: "#FFFFFF",
                         alignItems: "center",
                         justifyContent: "center",
-                        padding: "24px 20px",
+                        marginBottom: "12px",
                     }}
                 >
-                    <div style={{ width: "170px", height: "170px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "12px" }}>
-                        <img src={logoUrl} alt="Logo" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
-                    </div>
-                    <span
-                        style={{
-                            display: "flex",
-                            fontSize: "22px",
-                            fontWeight: 800,
-                            color: "#000000",
-                            letterSpacing: "2.5px",
-                            textTransform: "uppercase",
-                            textAlign: "center",
-                            lineHeight: 1.2,
-                        }}
-                    >
-                        {teamName}
-                    </span>
+                    <img src={logoUrl} alt="Logo" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
                 </div>
+                <span
+                    style={{
+                        display: "flex",
+                        fontSize: "22px",
+                        fontWeight: 800,
+                        color: "#111111",
+                        letterSpacing: "2.5px",
+                        textTransform: "uppercase",
+                        textAlign: "center",
+                        lineHeight: 1.2,
+                    }}
+                >
+                    {teamName}
+                </span>
             </div>
 
-            {/* RIGHT COLUMN: Editorial Content (55%) */}
+            {/* Layer 4: Shadow Feather Strip to the left of the upper right glass panel */}
+            <div
+                style={{
+                    display: "flex",
+                    position: "absolute",
+                    top: 0,
+                    right: "594px",
+                    width: "36px",
+                    height: "1030px",
+                    backgroundImage: "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.10) 100%)",
+                }}
+            />
+
+            {/* Layer 5: Upper Right Editorial Glass Background (over the image: top 0 -> 1030px) */}
+            <div
+                style={{
+                    display: "flex",
+                    position: "absolute",
+                    top: 0,
+                    right: 0,
+                    width: "594px",
+                    height: "1030px",
+                    backgroundImage: "linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(248, 250, 252, 0.78) 45%, rgba(255, 255, 255, 0.92) 100%)",
+                    borderLeft: "1px solid rgba(255, 255, 255, 0.85)",
+                }}
+            />
+
+            {/* Layer 6: Lower Right Warm Off-White Background (below the image: top 1030px -> 1350px, height 320px) */}
+            <div
+                style={{
+                    display: "flex",
+                    position: "absolute",
+                    top: "1030px",
+                    right: 0,
+                    width: "594px",
+                    height: "320px",
+                    backgroundColor: "#FAF9F6",
+                    borderTop: "1px solid #E2E8F0",
+                    borderLeft: "1px solid #E2E8F0",
+                }}
+            />
+
+            {/* Layer 7 (DOM Top): Right Editorial Content Panel (594px width, 1350px height) */}
             <div
                 style={{
                     display: "flex",
                     flexDirection: "column",
-                    width: "594px", // 55% of 1080
-                    height: "100%",
-                    padding: "80px",
+                    position: "absolute",
+                    top: 0,
+                    right: 0,
+                    width: "594px",
+                    height: "1350px",
+                    padding: "80px 70px",
                     justifyContent: "space-between",
                 }}
             >
-                {/* Header Tag */}
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                    <div style={{ display: "flex", alignItems: "center", marginBottom: "40px" }}>
-                        <div style={{ display: "flex", width: "16px", height: "16px", backgroundColor: primaryColor, marginRight: "16px" }} />
+                {/* Header Tag & Title */}
+                <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
+                    <div style={{ display: "flex", alignItems: "center", marginBottom: "36px" }}>
+                        <div
+                            style={{
+                                display: "flex",
+                                width: "16px",
+                                height: "16px",
+                                backgroundColor: primaryColor,
+                                marginRight: "16px",
+                                borderRadius: "3px",
+                            }}
+                        />
                         <span
                             style={{
                                 display: "flex",
-                                fontSize: "16px",
+                                fontSize: "15px",
                                 fontWeight: 800,
                                 letterSpacing: "4px",
-                                color: "#111",
+                                color: "rgba(15, 23, 42, 0.70)",
                                 textTransform: "uppercase",
                             }}
                         >
@@ -125,27 +199,36 @@ export function NHLOgTemplate9({
                         style={{
                             display: "flex",
                             fontSize: "56px",
-                            fontWeight: 800,
-                            color: "#111",
+                            fontWeight: 900,
+                            color: "#0F172A",
                             textTransform: "uppercase",
-                            lineHeight: 1.05,
-                            letterSpacing: "-2px",
-                            margin: "0 0 40px 0",
+                            lineHeight: 1.06,
+                            letterSpacing: "-1.5px",
+                            margin: "0 0 36px 0",
                             fontStyle: titleItalic ? "italic" : "normal",
                         }}
                     >
                         {title}
                     </h1>
 
-                    <div style={{ display: "flex", width: "80px", height: "4px", backgroundColor: accentColor, marginBottom: "40px" }} />
+                    <div
+                        style={{
+                            display: "flex",
+                            width: "80px",
+                            height: "4px",
+                            backgroundColor: accentColor,
+                            borderRadius: "2px",
+                            marginBottom: "36px",
+                        }}
+                    />
 
                     <p
                         style={{
                             display: "flex",
-                            fontSize: "20px",
+                            fontSize: "24px",
                             fontWeight: 500,
-                            color: "#444",
-                            lineHeight: 1.5,
+                            color: "#000000",
+                            lineHeight: 1.55,
                             margin: 0,
                         }}
                     >
@@ -154,27 +237,64 @@ export function NHLOgTemplate9({
                 </div>
 
                 {/* Footer Section */}
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                    <div style={{ display: "flex", width: "100%", height: "2px", backgroundColor: "#E5E5E5", marginBottom: "30px" }} />
+                <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
+                    <div
+                        style={{
+                            display: "flex",
+                            width: "100%",
+                            height: "1px",
+                            backgroundColor: "rgba(226, 232, 240, 0.95)",
+                            marginBottom: "28px",
+                        }}
+                    />
 
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", width: "100%" }}>
                         <div style={{ display: "flex", flexDirection: "column" }}>
-                            <span style={{ display: "flex", fontSize: "14px", fontWeight: 700, color: "#888", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" }}>
+                            <span
+                                style={{
+                                    display: "flex",
+                                    fontSize: "14px",
+                                    fontWeight: 700,
+                                    color: "#64748B",
+                                    letterSpacing: "2px",
+                                    textTransform: "uppercase",
+                                    marginBottom: "8px",
+                                }}
+                            >
                                 REPORT
                             </span>
-                            <span style={{ display: "flex", fontSize: "24px", fontWeight: 800, color: "#111" }}>
+                            <span style={{ display: "flex", fontSize: "22px", fontWeight: 800, color: "#0F172A" }}>
                                 {author}
                             </span>
-                            <span style={{ display: "flex", fontSize: "16px", fontWeight: 500, color: "#666", marginTop: "4px" }}>
+                            <span style={{ display: "flex", fontSize: "14px", fontWeight: 600, color: "#64748B", marginTop: "4px" }}>
                                 {authorRole}
                             </span>
                         </div>
 
                         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
-                            <span style={{ display: "flex", fontSize: "14px", fontWeight: 700, color: "#888", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" }}>
+                            <span
+                                style={{
+                                    display: "flex",
+                                    fontSize: "14px",
+                                    fontWeight: 700,
+                                    color: "#64748B",
+                                    letterSpacing: "2px",
+                                    textTransform: "uppercase",
+                                    marginBottom: "8px",
+                                }}
+                            >
                                 {timeAgo}
                             </span>
-                            <span style={{ display: "flex", fontSize: "20px", fontWeight: 800, color: primaryColor, letterSpacing: "2px", textTransform: "uppercase" }}>
+                            <span
+                                style={{
+                                    display: "flex",
+                                    fontSize: "18px",
+                                    fontWeight: 800,
+                                    color: primaryColor,
+                                    letterSpacing: "1.5px",
+                                    textTransform: "uppercase",
+                                }}
+                            >
                                 {sourceDomain}
                             </span>
                         </div>

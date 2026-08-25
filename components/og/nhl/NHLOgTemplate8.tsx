@@ -68,8 +68,14 @@ export function NHLOgTemplate8({
                             <polygon points="0,0 750,0 600,1350 0,1350" />
                         </clipPath>
 
-                        <filter id="blur">
-                            <feGaussianBlur stdDeviation="12" />
+                        <filter
+                            id="blur"
+                            x="-10%"
+                            y="-10%"
+                            width="120%"
+                            height="120%"
+                        >
+                            <feGaussianBlur stdDeviation="10" />
                         </filter>
 
                         {/* Grid chấm */}
@@ -97,7 +103,7 @@ export function NHLOgTemplate8({
                             height="1350"
                             filter="url(#blur)"
                             clipPath="url(#trapezoidClip)"
-                            preserveAspectRatio="none"
+                            preserveAspectRatio="xMidYMid slice"
                         />
 
                         {/* LỚP TỐI */}
