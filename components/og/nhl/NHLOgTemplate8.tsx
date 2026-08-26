@@ -75,7 +75,7 @@ export function NHLOgTemplate8({
                             width="120%"
                             height="120%"
                         >
-                            <feGaussianBlur stdDeviation="10" />
+                            <feGaussianBlur stdDeviation="8" />
                         </filter>
 
                         {/* Grid chấm */}
@@ -112,7 +112,7 @@ export function NHLOgTemplate8({
                             y="0"
                             width="750"
                             height="1350"
-                            fill="#000000"
+                            fill="#000000)"
                             fillOpacity="0.3"
                         />
 

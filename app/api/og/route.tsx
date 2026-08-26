@@ -3,8 +3,6 @@ import { getOgFonts } from "@/lib/og-fonts";
 
 import { NHLOgTemplate8 } from "@/components/og/nhl/NHLOgTemplate8";
 
-import { FootballOgTemplate5 } from "@/components/og/football/FootballOgTemplate5";
-
 const data = {
     teamName: "REAL MADRID CF",
     siteName: "FOOTBALL INSIDER",
@@ -12,7 +10,7 @@ const data = {
     snippet:
         "Full agreement reached between all parties on €130M package plus add-ons. Medical tests booked for Monday in Madrid.",
     imageUrl:
-        "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1080&h=1350&fit=crop",
+        "https://images2.minutemediacdn.com/image/upload/c_crop,x_0,y_0,w_3499,h_1968/c_fill,w_1440,ar_1440:810,f_auto,q_auto,g_auto/images/ReutersImages/mmsport/111/01kzk7d4cgte6wn5jq5x.jpg",
     logoUrl: "https://crests.football-data.org/86.png",
     titleItalic: true,
     primaryColor: "#d40f3d",
@@ -28,7 +26,7 @@ const data = {
 export async function GET() {
     const fonts = await getOgFonts();
 
-    return new ImageResponse(<FootballOgTemplate5 {...data} />, {
+    return new ImageResponse(<NHLOgTemplate8 {...data} />, {
         width: 1080,
         height: 1350,
         fonts,
