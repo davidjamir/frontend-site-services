@@ -82,7 +82,7 @@ export function NFLOgTemplate1({
                     width: "1080px",
                     height: "880px",
                     background:
-                        `linear-gradient(180deg, transparent 0%, ${accentColor}30 40%, ${accentColor}60 75%, ${accentColor}99 100%)`,
+                        `linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.7) 75%, rgba(0,0,0,0.9) 100%)`,
                 }}
             />
 
@@ -110,9 +110,9 @@ export function NFLOgTemplate1({
                 >
                     <span
                         style={{
-                            fontSize: "18px",
+                            fontSize: "20px",
                             fontWeight: 800,
-                            color: "#FFFFFF",
+                            color: primaryColor,
                             letterSpacing: "1.5px",
                             textTransform: "uppercase",
                         }}
