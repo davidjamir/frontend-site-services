@@ -36,14 +36,31 @@ export function FootballOgTemplate7({
             }}
         >
             {/* Hero Image Container */}
-            <div style={{ display: "flex", position: "absolute", top: 0, left: 0, width: "1080px", height: "1350px" }}>
-                <img src={imageUrl} referrerPolicy="no-referrer" style={{ width: "1080px", height: "1350px", objectFit: "cover" }} />
+            <div
+                style={{
+                    display: "flex",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "1080px",
+                    height: "1350px",
+                }}
+            >
+                <img
+                    src={imageUrl}
+                    referrerPolicy="no-referrer"
+                    style={{ width: "1080px", height: "1350px", objectFit: "cover" }}
+                />
                 <div
                     style={{
                         display: "flex",
                         position: "absolute",
-                        inset: 0,
-                        background: "linear-gradient(180deg, rgba(7,10,16,0.9) 0%, rgba(7,10,16,0.15) 30%, rgba(7,10,16,0.85) 70%, rgba(7,10,16,0.98) 100%)",
+                        top: 0,
+                        left: 0,
+                        width: "1080px",
+                        height: "1350px",
+                        background:
+                            "linear-gradient(180deg, rgba(7,10,16,0.9) 0%, rgba(7,10,16,0.15) 30%, rgba(7,10,16,0.85) 70%, rgba(7,10,16,0.98) 100%)",
                     }}
                 />
             </div>
@@ -60,7 +77,11 @@ export function FootballOgTemplate7({
                         transform: "rotate(10deg)",
                     }}
                 >
-                    <img src={logoUrl} alt={teamName} style={{ width: "540px", height: "540px", objectFit: "contain" }} />
+                    <img
+                        src={logoUrl}
+                        alt={teamName}
+                        style={{ width: "540px", height: "540px", objectFit: "contain" }}
+                    />
                 </div>
             ) : null}
 
@@ -75,7 +96,13 @@ export function FootballOgTemplate7({
                     width: "100%",
                 }}
             >
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div
+                    style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                    }}
+                >
                     <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
                         {logoUrl ? (
                             <div
@@ -90,10 +117,26 @@ export function FootballOgTemplate7({
                                     border: `2px solid ${accentColor}`,
                                 }}
                             >
-                                <img src={logoUrl} alt={teamName} style={{ width: "38px", height: "38px", objectFit: "contain" }} />
+                                <img
+                                    src={logoUrl}
+                                    alt={teamName}
+                                    style={{
+                                        width: "38px",
+                                        height: "38px",
+                                        objectFit: "contain",
+                                    }}
+                                />
                             </div>
                         ) : null}
-                        <span style={{ fontSize: "38px", fontWeight: 800, letterSpacing: "8px", textTransform: "uppercase", color: "#FFFFFF" }}>
+                        <span
+                            style={{
+                                fontSize: "38px",
+                                fontWeight: 800,
+                                letterSpacing: "8px",
+                                textTransform: "uppercase",
+                                color: "#FFFFFF",
+                            }}
+                        >
                             {sourceDomain || siteName}
                         </span>
                     </div>
@@ -114,13 +157,24 @@ export function FootballOgTemplate7({
                         >
                             {badgeTag}
                         </div>
-                        <span style={{ fontSize: "16px", color: "#94A3B8", fontWeight: 700 }}>EDITION 2026</span>
+                        <span
+                            style={{ fontSize: "16px", color: "#94A3B8", fontWeight: 700 }}
+                        >
+                            EDITION 2026
+                        </span>
                     </div>
                 </div>
             </div>
 
             {/* Floating Tag Pill on Image */}
-            <div style={{ display: "flex", position: "absolute", top: "260px", left: "60px" }}>
+            <div
+                style={{
+                    display: "flex",
+                    position: "absolute",
+                    top: "260px",
+                    left: "60px",
+                }}
+            >
                 <div
                     style={{
                         display: "flex",
@@ -166,7 +220,16 @@ export function FootballOgTemplate7({
                 </div>
 
                 {snippet ? (
-                    <div style={{ display: "flex", fontSize: "24px", color: "#FFFFFF", lineHeight: 1.45, marginBottom: "28px", width: "900px" }}>
+                    <div
+                        style={{
+                            display: "flex",
+                            fontSize: "24px",
+                            color: "#FFFFFF",
+                            lineHeight: 1.45,
+                            marginBottom: "28px",
+                            width: "900px",
+                        }}
+                    >
                         {snippet}
                     </div>
                 ) : null}
@@ -182,14 +245,26 @@ export function FootballOgTemplate7({
                     }}
                 >
                     <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                        <span style={{ fontSize: "20px", fontWeight: 800, color: "#FFFFFF" }}>{author}</span>
-                        <span style={{ fontSize: "16px", color: "#94A3B8" }}>{authorRole}</span>
+                        <span
+                            style={{ fontSize: "20px", fontWeight: 800, color: "#FFFFFF" }}
+                        >
+                            {author}
+                        </span>
+                        <span style={{ fontSize: "16px", color: "#94A3B8" }}>
+                            {authorRole}
+                        </span>
                     </div>
 
                     <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                        <span style={{ fontSize: "16px", color: accentColor, fontWeight: 800 }}>{teamName}</span>
+                        <span
+                            style={{ fontSize: "16px", color: accentColor, fontWeight: 800 }}
+                        >
+                            {teamName}
+                        </span>
                         <span style={{ fontSize: "16px", color: "#64748B" }}>|</span>
-                        <span style={{ fontSize: "16px", color: "#94A3B8" }}>{timeAgo}</span>
+                        <span style={{ fontSize: "16px", color: "#94A3B8" }}>
+                            {timeAgo}
+                        </span>
                     </div>
                 </div>
             </div>

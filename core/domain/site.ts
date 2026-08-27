@@ -137,6 +137,7 @@ export type Site = {
     enabledAds: boolean;
     primaryColor: string;
     accentColor: string;
+    symbolOg: string;
   };
   analytics: {
     gaId?: string;
