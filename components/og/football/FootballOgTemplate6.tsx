@@ -88,11 +88,12 @@ export function FootballOgTemplate6({
                     height: "64px",
                     backgroundColor: accentColor,
                     transform: "rotate(-3deg)",
-                    color: "#000000",
+                    color: primaryColor,
                     fontWeight: 600,
                     fontSize: "22px",
                     letterSpacing: "3px",
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.7)",
+                    boxShadow: `0 10px 30px ${primaryColor}99`,
+                    border: `1px solid ${primaryColor}`
                 }}
             >
                 <span>{"// "}{badgeTag}{" //"}</span>
