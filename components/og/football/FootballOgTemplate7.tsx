@@ -130,7 +130,7 @@ export function FootballOgTemplate7({
                         ) : null}
                         <span
                             style={{
-                                fontSize: "38px",
+                                fontSize: "24px",
                                 fontWeight: 800,
                                 letterSpacing: "8px",
                                 textTransform: "uppercase",

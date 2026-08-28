@@ -83,7 +83,6 @@ export function FootballOgTemplate10({
                             padding: "8px 20px",
                             borderRadius: "4px",
                             gap: "8px",
-                            boxShadow: "0 6px 20px rgba(225,29,72,0.6)",
                         }}
                     >
                         <div style={{ display: "flex", width: "10px", height: "10px", borderRadius: "5px", backgroundColor: "#FFFFFF" }} />
