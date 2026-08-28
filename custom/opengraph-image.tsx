@@ -1,3 +1,5 @@
+// Dự phòng, nếu muốn custom lại hình ảnh 16:9
+
 import { ImageResponse } from "next/og";
 import { getOgFonts } from "@/lib/og-fonts";
 import { postService } from "@/services/post.service";

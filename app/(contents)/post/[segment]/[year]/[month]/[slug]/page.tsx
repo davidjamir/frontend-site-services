@@ -36,7 +36,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             url: `${site.baseUrl}/post/${post.segment}/${post.slug}`,
             title: post.title,
             description: post.snippet,
-            // images: [{ url: "/images/default-banner.png", alt: site.seo.title }],
+            images: [
+                {
+                    url: `/post/${segment}/${year}/${month}/${slug}/opengraph-image`,
+                    width: 1080,
+                    height: 1350,
+                    alt: post.title,
+                    type: "image/png",
+                },
+            ],
         },
         alternates: {
             canonical: `post/${post.segment}/${post.slug}`,
