@@ -1,6 +1,7 @@
 import { Post } from "@/core/domain/post";
 import { Site } from "@/core/domain/site";
 import { getSegmentNumber } from "@/helpers/getSegmentNumber";
+import { DefaultOgTemplate } from "@/components/og/DefaultOgTemplate";
 import { NFLOgTemplate1 } from "@/components/og/nfl/NFLOgTemplate1";
 import { NFLOgTemplate2 } from "@/components/og/nfl/NFLOgTemplate2";
 import { NFLOgTemplate3 } from "@/components/og/nfl/NFLOgTemplate3";
@@ -31,8 +32,8 @@ const NFL_OG_TEMPLATE = [
 
 export default function NFLOg({ site, post, logo }: Props) {
     const segmentNumber = getSegmentNumber(post.segment);
-    const TemplateComponent =
-        NFL_OG_TEMPLATE[segmentNumber % NFL_OG_TEMPLATE.length];
+    const TemplateComponent = site.config.customOpengraphImage ?
+        NFL_OG_TEMPLATE[segmentNumber % NFL_OG_TEMPLATE.length] : DefaultOgTemplate;
 
     return (
         <TemplateComponent

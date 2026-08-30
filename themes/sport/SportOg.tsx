@@ -1,6 +1,7 @@
 import { Post } from "@/core/domain/post";
 import { Site } from "@/core/domain/site";
 import { getSegmentNumber } from "@/helpers/getSegmentNumber";
+import { DefaultOgTemplate } from "@/components/og/DefaultOgTemplate";
 import { SportOgTemplate1 } from "@/components/og/sport/SportOgTemplate1";
 import { SportOgTemplate2 } from "@/components/og/sport/SportOgTemplate2";
 import { SportOgTemplate3 } from "@/components/og/sport/SportOgTemplate3";
@@ -23,8 +24,8 @@ const SPORT_OG_TEMPLATE = [
 
 export default function SportOg({ site, post, logo }: Props) {
     const segmentNumber = getSegmentNumber(post.segment);
-    const TemplateComponent =
-        SPORT_OG_TEMPLATE[segmentNumber % SPORT_OG_TEMPLATE.length];
+    const TemplateComponent = site.config.customOpengraphImage ?
+        SPORT_OG_TEMPLATE[segmentNumber % SPORT_OG_TEMPLATE.length] : DefaultOgTemplate;
 
     return (
         <TemplateComponent

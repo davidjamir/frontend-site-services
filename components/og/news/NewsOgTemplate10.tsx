@@ -1,17 +1,17 @@
 import { OgTemplate } from "@/types/og-template";
 
-export function NewsOgTemplate5({
+export function NewsOgTemplate10({
     title,
     snippet,
     imageUrl,
     logoUrl,
-    titleItalic = false,
+    titleItalic = true,
     primaryColor = "#DC2626",
     accentColor = "#FFFFFF",
     badgeTag = "BREAKING NEWS",
     sourceDomain = "THE TIME NEWS",
-    statusLabel = "TECH EXPLAINER",
-    timeAgo = "SAN FRANCISCO // SILICON VALLEY",
+    statusLabel = "ENERGY BREAKTHROUGH",
+    timeAgo = "ICELAND // DISPATCH",
 }: OgTemplate) {
     return (
         <div
@@ -22,12 +22,12 @@ export function NewsOgTemplate5({
                 height: "1350px",
                 position: "relative",
                 overflow: "hidden",
-                backgroundColor: "#020617",
+                backgroundColor: "#080C14",
                 fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif",
                 boxSizing: "border-box",
             }}
         >
-            {/* 1. Full-Bleed Atmospheric Background Photo */}
+            {/* 1. Full-Bleed High-Definition Background Photo */}
             {imageUrl && (
                 <img
                     src={imageUrl}
@@ -43,7 +43,7 @@ export function NewsOgTemplate5({
                 />
             )}
 
-            {/* Atmospheric Vignette Overlay */}
+            {/* Atmospheric Dark Gradient Overlay */}
             <div
                 style={{
                     display: "flex",
@@ -53,11 +53,11 @@ export function NewsOgTemplate5({
                     width: "1080px",
                     height: "1350px",
                     background:
-                        "linear-gradient(180deg, rgba(2,6,23,0.75) 0%, rgba(2,6,23,0.15) 30%, rgba(2,6,23,0.65) 65%, rgba(2,6,23,0.98) 100%)",
+                        "linear-gradient(180deg, rgba(8,12,20,0.65) 0%, rgba(8,12,20,0.2) 35%, rgba(8,12,20,0.6) 65%, rgba(8,12,20,0.95) 100%)",
                 }}
             />
 
-            {/* 2. Top Brand Header Bar */}
+            {/* 2. Top Header Brand Bar (Absolute Positioning) */}
             <div
                 style={{
                     display: "flex",
@@ -70,15 +70,15 @@ export function NewsOgTemplate5({
                     justifyContent: "space-between",
                 }}
             >
-                {/* Logo */}
+                {/* Logo with explicit pixel dimensions for Satori */}
                 <div style={{ display: "flex", flexDirection: "row", alignItems: "center", height: "50px" }}>
                     {logoUrl ? (
                         <img
                             src={logoUrl}
                             alt="Logo"
                             style={{
-                                width: "220px",
-                                height: "50px",
+                                width: "62px",
+                                height: "62px",
                                 objectFit: "contain",
                             }}
                         />
@@ -98,173 +98,142 @@ export function NewsOgTemplate5({
                     )}
                 </div>
 
-                {/* Top Right Channel Tag */}
+                {/* Dynamic Primary Color Badge */}
                 <div
                     style={{
                         display: "flex",
                         flexDirection: "row",
                         alignItems: "center",
                         padding: "8px 22px",
-                        backgroundColor: "rgba(0, 0, 0, 0.75)",
-                        border: `1.5px solid ${accentColor}80`,
-                        borderRadius: "6px",
-                        color: accentColor,
+                        backgroundColor: primaryColor,
+                        color: "#FFFFFF",
                         fontSize: "13px",
-                        fontFamily: "'JetBrains Mono', monospace",
                         fontWeight: 700,
-                        letterSpacing: "2.5px",
+                        fontFamily: "'JetBrains Mono', monospace",
+                        letterSpacing: "2px",
                         textTransform: "uppercase",
-                        boxShadow: "0 4px 16px rgba(0,0,0,0.5)",
+                        borderRadius: "4px",
                     }}
                 >
-                    {statusLabel}
+                    {badgeTag}
                 </div>
             </div>
 
-            {/* 3. Unified News Deck: Attached Header Ribbon + Glass Card Body */}
+            {/* 3. Floating Architectural Monolith News Card (Absolute Positioning) */}
             <div
                 style={{
                     display: "flex",
                     flexDirection: "column",
                     position: "absolute",
-                    bottom: "100px",
+                    bottom: "105px",
                     left: "56px",
                     width: "968px",
-                    boxShadow:
-                        "0 30px 60px -10px rgba(0, 0, 0, 0.85), inset 0 1px 2px rgba(255, 255, 255, 0.2)",
-                    borderRadius: "16px",
-                    overflow: "hidden",
+                    backgroundColor: "#FFFFFF",
+                    borderRadius: "12px",
+                    boxShadow: `0 0px 40px ${primaryColor}66`,
+                    boxSizing: "border-box",
                 }}
             >
-                {/* Attached Header Banner Bar */}
+                {/* LAYER PHÍA SAU — render trước */}
                 <div
                     style={{
                         display: "flex",
-                        flexDirection: "row",
-                        alignItems: "center",
-                        justifyContent: "space-between",
+                        position: "absolute",
+                        top: "-6px",
+                        left: "0",
+                        right: "0",
+                        bottom: "0",
                         backgroundColor: primaryColor,
-                        padding: "16px 28px",
-                        color: "#FFFFFF",
-                        fontSize: "14px",
-                        fontWeight: 700,
-                        fontFamily: "'JetBrains Mono', monospace",
-                        letterSpacing: "2.5px",
-                        textTransform: "uppercase",
+                        borderRadius: "12px",
                     }}
-                >
-                    <div style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        alignItems: "center",
-                        gap: "10px"
-                    }
-                    }>
-                        <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 100 100"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M50 5 L61 36 L94 36 L67 55 L78 88 L50 68 L22 88 L33 55 L6 36 L39 36 Z"
-                                fill={accentColor}
-                            />
-                        </svg>
-                        <span>{badgeTag}</span>
-                    </div>
-                    <span>{statusLabel}</span>
-                </div>
-
-                {/* Attached Translucent Glass Card Body */}
+                />
                 <div
                     style={{
                         display: "flex",
+                        top: "0",
+                        left: "0",
+                        right: "0",
+                        bottom: "0",
                         flexDirection: "column",
+                        padding: "48px 52px",
+                        backgroundColor: "#FFFFFF",
                         gap: "20px",
-                        padding: "40px 48px 36px 48px",
-                        backgroundColor: "rgba(15, 23, 42, 0.9)",
-                        border: "1.5px solid rgba(255, 255, 255, 0.3)",
-                        borderTop: "none",
-                        borderRadius: "0 0 16px 16px",
-                        boxSizing: "border-box",
+                        borderRadius: "12px",
+                        border: `1.5px solid ${primaryColor}`,
+
+
                     }}
                 >
+                    {/* Status Label Pill */}
+                    <div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "10px" }}>
+                        <div
+                            style={{
+                                display: "flex",
+                                fontSize: "12px",
+                                fontFamily: "'JetBrains Mono', monospace",
+                                fontWeight: 700,
+                                color: primaryColor,
+                                backgroundColor: `${primaryColor}15`,
+                                border: `1.5px solid ${primaryColor}`,
+                                padding: "6px 16px",
+                                borderRadius: "4px",
+                                letterSpacing: "2px",
+                                textTransform: "uppercase",
+                            }}
+                        >
+                            {statusLabel}
+                        </div>
+                    </div>
+
                     {/* Headline */}
                     <div
                         style={{
                             display: "flex",
-                            fontSize: "42px",
-                            lineHeight: 1.18,
+                            fontSize: "44px",
+                            lineHeight: 1.15,
                             fontWeight: 800,
-                            color: "#FFFFFF",
+                            color: "#0F172A",
                             letterSpacing: "-0.5px",
                             fontStyle: titleItalic ? "italic" : "normal",
-                            textShadow: "0 2px 16px rgba(0,0,0,0.95)",
                         }}
                     >
                         {title}
                     </div>
 
-                    {/* Snippet Lead */}
+                    {/* Excerpt Snippet */}
                     {snippet && (
                         <div
                             style={{
                                 display: "flex",
-                                fontSize: "20px",
+                                fontSize: "21px",
                                 lineHeight: 1.5,
-                                color: "#F1F5F9",
-                                fontWeight: 500,
-                                textShadow: "0 2px 12px rgba(0,0,0,0.9)",
+                                color: "#475569",
+                                maxWidth: "860px",
                             }}
                         >
                             {snippet}
                         </div>
                     )}
 
-                    {/* Card Internal Footer Divider */}
+                    {/* Clean Card Footer */}
                     <div
                         style={{
                             display: "flex",
                             flexDirection: "row",
                             alignItems: "center",
                             justifyContent: "space-between",
-                            paddingTop: "16px",
-                            borderTop: "1px solid rgba(255, 255, 255, 0.2)",
+                            paddingTop: "18px",
+                            borderTop: "1.5px solid #E2E8F0",
                             fontSize: "13px",
                             fontFamily: "'JetBrains Mono', monospace",
-                            color: "#CBD5E1",
+                            color: "#64748B",
                         }}
                     >
-                        <span style={{ color: "#FFFFFF", fontWeight: 700 }}>{timeAgo}</span>
-                        <span style={{ color: primaryColor, fontWeight: 800, letterSpacing: "1px" }}>
-                            TRANSMISSION SECURE
-                        </span>
+                        <span style={{ fontWeight: 700, color: "#0F172A" }}>{timeAgo}</span>
+                        <span style={{ color: primaryColor, fontWeight: 700, letterSpacing: "1px" }}>{sourceDomain}</span>
                     </div>
                 </div>
-            </div>
-
-            {/* 4. Bottom Outer Footer Bar */}
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    position: "absolute",
-                    bottom: "40px",
-                    left: "56px",
-                    width: "968px",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    fontSize: "13px",
-                    fontFamily: "'JetBrains Mono', monospace",
-                    color: "#94A3B8",
-                    textShadow: "0 2px 10px rgba(0,0,0,0.9)",
-                }}
-            >
-                <span style={{ color: "#E2E8F0", fontWeight: 700 }}>LIVE BROADCAST WIRE</span>
-                <span style={{ color: primaryColor, fontWeight: 800, letterSpacing: "1px" }}>{sourceDomain}</span>
             </div>
         </div>
     );
 }
-

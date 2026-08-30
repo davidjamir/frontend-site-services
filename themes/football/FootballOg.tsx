@@ -1,6 +1,7 @@
 import { Post } from "@/core/domain/post";
 import { Site } from "@/core/domain/site";
 import { getSegmentNumber } from "@/helpers/getSegmentNumber";
+import { DefaultOgTemplate } from "@/components/og/DefaultOgTemplate";
 import { FootballOgTemplate1 } from "@/components/og/football/FootballOgTemplate1";
 import { FootballOgTemplate2 } from "@/components/og/football/FootballOgTemplate2";
 import { FootballOgTemplate3 } from "@/components/og/football/FootballOgTemplate3";
@@ -33,8 +34,8 @@ const FOOTBALL_OG_TEMPLATE = [
 
 export default function FootballOg({ site, post, logo }: Props) {
     const segmentNumber = getSegmentNumber(post.segment);
-    const TemplateComponent =
-        FOOTBALL_OG_TEMPLATE[segmentNumber % FOOTBALL_OG_TEMPLATE.length];
+    const TemplateComponent = site.config.customOpengraphImage ?
+        FOOTBALL_OG_TEMPLATE[segmentNumber % FOOTBALL_OG_TEMPLATE.length] : DefaultOgTemplate;
 
     return (
         <TemplateComponent

@@ -1,6 +1,7 @@
 import { Post } from "@/core/domain/post";
 import { Site } from "@/core/domain/site";
 import { getSegmentNumber } from "@/helpers/getSegmentNumber";
+import { DefaultOgTemplate } from "@/components/og/DefaultOgTemplate";
 import { NHLOgTemplate1 } from "@/components/og/nhl/NHLOgTemplate1";
 import { NHLOgTemplate2 } from "@/components/og/nhl/NHLOgTemplate2";
 import { NHLOgTemplate3 } from "@/components/og/nhl/NHLOgTemplate3";
@@ -33,8 +34,8 @@ const NHL_OG_TEMPLATE = [
 
 export default function NHLOg({ site, post, logo }: Props) {
     const segmentNumber = getSegmentNumber(post.segment);
-    const TemplateComponent =
-        NHL_OG_TEMPLATE[segmentNumber % NHL_OG_TEMPLATE.length];
+    const TemplateComponent = site.config.customOpengraphImage ?
+        NHL_OG_TEMPLATE[segmentNumber % NHL_OG_TEMPLATE.length] : DefaultOgTemplate;
 
     return (
         <TemplateComponent

@@ -1,6 +1,6 @@
 import { OgTemplate } from "@/types/og-template";
 
-export function NewsOgTemplate2({
+export function NewsOgTemplate6({
     title,
     snippet,
     imageUrl,
@@ -10,8 +10,8 @@ export function NewsOgTemplate2({
     accentColor = "#FFFFFF",
     badgeTag = "BREAKING NEWS",
     sourceDomain = "THE TIME NEWS",
-    statusLabel = "SPECIAL DISPATCH",
-    timeAgo = "WASHINGTON • VOL. CLXXIV NO. 60,192",
+    statusLabel = "TECH EXPLAINER",
+    timeAgo = "SAN FRANCISCO // SILICON VALLEY",
 }: OgTemplate) {
     return (
         <div
@@ -20,14 +20,14 @@ export function NewsOgTemplate2({
                 flexDirection: "column",
                 width: "1080px",
                 height: "1350px",
-                backgroundColor: "#F7F5F0",
+                backgroundColor: "#0F172A",
                 position: "relative",
                 overflow: "hidden",
-                fontFamily: "'Playfair Display', Georgia, serif",
+                fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif",
                 boxSizing: "border-box",
             }}
         >
-            {/* 1. Full-Width Top Photo (Absolute Positioning 680px Height) */}
+            {/* 1. Top Photo Section (Absolute Positioning 720px Height) */}
             <div
                 style={{
                     display: "flex",
@@ -36,10 +36,9 @@ export function NewsOgTemplate2({
                     top: 0,
                     left: 0,
                     width: "1080px",
-                    height: "680px",
-                    backgroundColor: "#18181B",
+                    height: "720px",
                     overflow: "hidden",
-                    borderBottom: "1px solid #D4D4D8",
+                    backgroundColor: "#020617",
                 }}
             >
                 {imageUrl && (
@@ -51,13 +50,13 @@ export function NewsOgTemplate2({
                             top: 0,
                             left: 0,
                             width: "1080px",
-                            height: "680px",
+                            height: "720px",
                             objectFit: "cover",
                         }}
                     />
                 )}
 
-                {/* Top Vignette for Masthead */}
+                {/* Top Vignette Gradient */}
                 <div
                     style={{
                         display: "flex",
@@ -66,11 +65,11 @@ export function NewsOgTemplate2({
                         left: 0,
                         width: "1080px",
                         height: "180px",
-                        background: "linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%)",
+                        background: "linear-gradient(180deg, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0) 100%)",
                     }}
                 />
 
-                {/* Seamless Header on Photo (Absolute Positioning) */}
+                {/* Top Header Overlay: Logo Left + Category Pill Right (Absolute) */}
                 <div
                     style={{
                         display: "flex",
@@ -111,77 +110,52 @@ export function NewsOgTemplate2({
                         )}
                     </div>
 
-                    {/* Status Label Tag in Top Right of Photo Header */}
                     <div
                         style={{
                             display: "flex",
                             flexDirection: "row",
                             alignItems: "center",
-                            gap: "8px",
                             padding: "8px 22px",
                             backgroundColor: "rgba(0, 0, 0, 0.75)",
                             border: `1.5px solid ${accentColor}80`,
-                            borderRadius: "4px",
                             color: accentColor,
                             fontSize: "13px",
-                            fontFamily: "'JetBrains Mono', monospace",
                             fontWeight: 700,
+                            fontFamily: "'JetBrains Mono', monospace",
                             letterSpacing: "2.5px",
                             textTransform: "uppercase",
+                            borderRadius: "4px",
                             boxShadow: "0 4px 16px rgba(0,0,0,0.6)",
                         }}
                     >
-                        <span>{statusLabel}</span>
+                        {statusLabel}
                     </div>
                 </div>
             </div>
 
-            {/* 2. Clean Editorial Broadsheet Story Container (Absolute Positioning below photo) */}
+            {/* 2. Bottom Light Editorial News Deck (Absolute Positioning) */}
             <div
                 style={{
                     display: "flex",
                     flexDirection: "column",
                     position: "absolute",
-                    top: "680px",
+                    top: "720px",
                     left: 0,
                     width: "1080px",
-                    height: "670px",
-                    padding: "52px 64px 44px 64px",
-                    backgroundColor: "#F7F5F0",
+                    height: "630px",
+                    backgroundColor: "#F8FAFC",
+                    padding: "78px 56px 44px 56px",
                     boxSizing: "border-box",
                 }}
             >
-                <div style={{ display: "flex", flexDirection: "column", gap: "22px" }}>
-                    {/* Breaking News Tag at Top of Text Card */}
-                    <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
-                        <div
-                            style={{
-                                display: "flex",
-                                flexDirection: "row",
-                                alignItems: "center",
-                                gap: "8px",
-                                padding: "8px 22px",
-                                backgroundColor: primaryColor,
-                                color: "#FFFFFF",
-                                fontSize: "14px",
-                                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                                fontWeight: 800,
-                                letterSpacing: "2.5px",
-                                textTransform: "uppercase",
-                                boxShadow: `0 4px 14px ${primaryColor}66`,
-                            }}
-                        >
-                            <span>{badgeTag}</span>
-                        </div>
-                    </div>
-
+                <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
                     <div
                         style={{
                             display: "flex",
-                            fontSize: "46px",
+                            fontSize: "52px",
                             lineHeight: 1.15,
                             fontWeight: 800,
-                            color: "#111827",
+                            color: "#0F172A",
                             letterSpacing: "-0.5px",
                             fontStyle: titleItalic ? "italic" : "normal",
                         }}
@@ -193,10 +167,9 @@ export function NewsOgTemplate2({
                         <div
                             style={{
                                 display: "flex",
-                                fontSize: "22px",
+                                fontSize: "20px",
                                 lineHeight: 1.5,
-                                color: "#3F3F46",
-                                fontFamily: "'Newsreader', Georgia, serif",
+                                color: "#475569",
                                 maxWidth: "960px",
                             }}
                         >
@@ -205,26 +178,76 @@ export function NewsOgTemplate2({
                     )}
                 </div>
 
-                {/* Clean Editorial Footer (Absolute at bottom of canvas) */}
+                {/* Clean Light Footer (Absolute at bottom of canvas) */}
                 <div
                     style={{
                         display: "flex",
                         flexDirection: "row",
                         position: "absolute",
                         bottom: "44px",
-                        left: "64px",
-                        width: "952px",
+                        left: "56px",
+                        width: "968px",
                         alignItems: "center",
                         justifyContent: "space-between",
-                        paddingTop: "20px",
-                        borderTop: "1px solid #D4D4D8",
-                        fontSize: "14px",
-                        color: "#71717A",
-                        fontFamily: "'Newsreader', Georgia, serif",
+                        paddingTop: "16px",
+                        borderTop: "1.5px solid #E2E8F0",
+                        fontSize: "13px",
+                        fontFamily: "'JetBrains Mono', monospace",
+                        color: "#64748B",
                     }}
                 >
-                    <span style={{ fontWeight: 700, color: "#18181B" }}>{timeAgo}</span>
+                    <span style={{ fontWeight: 700, color: "#0F172A" }}>{timeAgo}</span>
                     <span style={{ color: primaryColor, fontWeight: 800, letterSpacing: "1px" }}>{sourceDomain}</span>
+                </div>
+            </div>
+
+            {/* 3. Diagonal Ticker Marquee Ribbon Banner (Overlaying on top, tilted diagonally over photo bottom & text top) */}
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    position: "absolute",
+                    top: "685px",
+                    left: "-50px",
+                    width: "1180px",
+                    height: "68px",
+                    backgroundColor: "#FFFFFF",
+                    color: primaryColor,
+                    alignItems: "center",
+                    overflow: "hidden",
+                    whiteSpace: "nowrap",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: "16px",
+                    fontWeight: 700,
+                    letterSpacing: "3px",
+                    textTransform: "uppercase",
+                    boxShadow: `0 0 30px ${primaryColor}66`,
+                    transform: "rotate(-3.5deg)",
+                    transformOrigin: "center center",
+                    borderTop: `2px solid ${primaryColor}`,
+                    borderBottom: `2px solid ${primaryColor}`,
+                }}
+            >
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        gap: "20px",
+                        paddingLeft: "30px",
+                    }}
+                >
+                    <span> {badgeTag}</span>
+                    <span style={{ color: primaryColor }}>•</span>
+                    <span>LIVE BROADCAST WIRE</span>
+                    <span style={{ color: primaryColor }}>•</span>
+                    <span>SPECIAL DISPATCH</span>
+                    <span style={{ color: primaryColor }}>•</span>
+                    <span> {badgeTag}</span>
+                    <span style={{ color: primaryColor }}>•</span>
+                    <span>GLOBAL BULLETIN</span>
+                    <span style={{ color: primaryColor }}>•</span>
+                    <span>{sourceDomain}</span>
                 </div>
             </div>
         </div>

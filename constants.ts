@@ -104,11 +104,11 @@ export const THEMES_NETWORK = {
 };
 
 export const THEMES_OG = {
-  news: TeamOG,
+  news: NewsOG,
   team: TeamOG,
   sport: TeamOG,
-  music: TeamOG,
-  movie: TeamOG,
+  music: NewsOG,
+  movie: NewsOG,
   nba: NBAOG,
   nfl: NFLOG,
   nhl: NHLOG,

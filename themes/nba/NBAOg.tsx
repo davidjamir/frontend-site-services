@@ -1,6 +1,7 @@
 import { Post } from "@/core/domain/post";
 import { Site } from "@/core/domain/site";
 import { getSegmentNumber } from "@/helpers/getSegmentNumber";
+import { DefaultOgTemplate } from "@/components/og/DefaultOgTemplate";
 import { NBAOgTemplate1 } from "@/components/og/nba/NBAOgTemplate1";
 import { NBAOgTemplate2 } from "@/components/og/nba/NBAOgTemplate2";
 import { NBAOgTemplate3 } from "@/components/og/nba/NBAOgTemplate3";
@@ -33,8 +34,8 @@ const NBA_OG_TEMPLATE = [
 
 export default function NBAOg({ site, post, logo }: Props) {
     const segmentNumber = getSegmentNumber(post.segment);
-    const TemplateComponent =
-        NBA_OG_TEMPLATE[segmentNumber % NBA_OG_TEMPLATE.length];
+    const TemplateComponent = site.config.customOpengraphImage ?
+        NBA_OG_TEMPLATE[segmentNumber % NBA_OG_TEMPLATE.length] : DefaultOgTemplate;
 
     return (
         <TemplateComponent

@@ -1,6 +1,6 @@
 import { OgTemplate } from "@/types/og-template";
 
-export function NewsOgTemplate4({
+export function NewsOgTemplate7({
     title,
     snippet,
     imageUrl,
@@ -9,11 +9,9 @@ export function NewsOgTemplate4({
     primaryColor = "#DC2626",
     accentColor = "#FFFFFF",
     badgeTag = "BREAKING NEWS",
-    author = "EDWARD S. RYAN",
-    authorRole = "CHIEF FOREIGN CORRESPONDENT",
     sourceDomain = "THE TIME NEWS",
-    statusLabel = "SPECIAL DISPATCH",
-    timeAgo = "12 MINS AGO",
+    statusLabel = "SPECIAL FEATURE",
+    timeAgo = "TOKYO // URBAN AFFAIRS DESK",
 }: OgTemplate) {
     return (
         <div
@@ -24,12 +22,12 @@ export function NewsOgTemplate4({
                 height: "1350px",
                 position: "relative",
                 overflow: "hidden",
-                backgroundColor: "#030712",
+                backgroundColor: "#0B0F19",
                 fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif",
                 boxSizing: "border-box",
             }}
         >
-            {/* 1. Full-Bleed Atmospheric Photo */}
+            {/* 1. Full-Bleed Background Photo */}
             {imageUrl && (
                 <img
                     src={imageUrl}
@@ -55,24 +53,37 @@ export function NewsOgTemplate4({
                     width: "1080px",
                     height: "1350px",
                     background:
-                        "linear-gradient(180deg, rgba(3,7,18,0.7) 0%, rgba(3,7,18,0.15) 30%, rgba(3,7,18,0.65) 65%, rgba(3,7,18,0.98) 100%)",
+                        "linear-gradient(180deg, rgba(11,15,25,0.7) 0%, rgba(11,15,25,0.2) 35%, rgba(11,15,25,0.7) 65%, rgba(11,15,25,0.96) 100%)",
                 }}
             />
 
-            {/* 2. Top Header (Absolute Positioning) */}
+            {/* 2. Signature Left Vertical Pillar in Dynamic Primary Color */}
+            <div
+                style={{
+                    display: "flex",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "14px",
+                    height: "1350px",
+                    backgroundColor: primaryColor,
+                }}
+            />
+
+            {/* 3. Top Header Bar: Logo Left + Status Tag Right (Absolute) */}
             <div
                 style={{
                     display: "flex",
                     flexDirection: "row",
                     position: "absolute",
                     top: "54px",
-                    left: "56px",
-                    width: "968px",
+                    left: "80px",
+                    width: "940px",
                     alignItems: "center",
                     justifyContent: "space-between",
                 }}
             >
-                {/* Left: Brand Logo */}
+                {/* Logo with explicit pixel dimensions for Satori */}
                 <div style={{ display: "flex", flexDirection: "row", alignItems: "center", height: "50px" }}>
                     {logoUrl ? (
                         <img
@@ -89,7 +100,7 @@ export function NewsOgTemplate4({
                             style={{
                                 display: "flex",
                                 fontSize: "26px",
-                                fontWeight: 800,
+                                fontWeight: 900,
                                 color: accentColor,
                                 letterSpacing: "3px",
                                 textShadow: "0 2px 10px rgba(0,0,0,0.9)",
@@ -100,72 +111,46 @@ export function NewsOgTemplate4({
                     )}
                 </div>
 
-                {/* Right: Author / Role Badge */}
                 <div
                     style={{
                         display: "flex",
-                        flexDirection: "column",
-                        alignItems: "flex-end",
-                        textShadow: "0 2px 10px rgba(0,0,0,0.9)",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        padding: "8px 22px",
+                        backgroundColor: primaryColor,
+                        color: "#FFFFFF",
+                        borderRadius: "4px",
+                        fontSize: "13px",
+                        fontWeight: 700,
+                        fontFamily: "'JetBrains Mono', monospace",
+                        letterSpacing: "2.5px",
+                        textTransform: "uppercase",
                     }}
                 >
-                    <span style={{ fontSize: "15px", fontWeight: 800, color: accentColor, letterSpacing: "1px" }}>
-                        {author || "EDWARD S. RYAN"}
-                    </span>
-                    <span
-                        style={{
-                            fontSize: "12px",
-                            fontFamily: "'JetBrains Mono', monospace",
-                            color: primaryColor,
-                            fontWeight: 700,
-                            letterSpacing: "1.5px",
-                        }}
-                    >
-                        {authorRole}
-                    </span>
+                    {badgeTag}
                 </div>
             </div>
 
-            {/* 3. Main Floating News Monolith Deck Card (Absolute Positioning) */}
+            {/* 4. Center-Lower Geometric Card (Absolute Positioning) */}
             <div
                 style={{
                     display: "flex",
                     flexDirection: "column",
                     position: "absolute",
                     bottom: "105px",
-                    left: "56px",
-                    width: "968px",
-                    backgroundColor: "#090D16",
+                    left: "80px",
+                    width: "940px",
+                    gap: "22px",
+                    padding: "50px 54px",
+                    backgroundColor: "rgba(11, 15, 25, 0.88)",
                     borderRadius: "16px",
-                    border: `2px solid ${primaryColor}`,
-                    padding: "46px 50px 40px 50px",
-                    boxShadow: `0 30px 60px rgba(0,0,0,0.9), 0 0 24px ${primaryColor}50`,
-                    gap: "20px",
+                    border: `1.5px solid ${primaryColor}`,
+                    boxShadow: `0 30px 60px rgba(0, 0, 0, 0.85), 0 0 24px ${primaryColor}50`,
                     boxSizing: "border-box",
                 }}
             >
-                {/* Top Card Row: BADGE TAG (Left) + STATUS LABEL (Right) */}
-                <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
-                    <div
-                        style={{
-                            display: "flex",
-                            flexDirection: "row",
-                            alignItems: "center",
-                            gap: "8px",
-                            padding: "8px 22px",
-                            backgroundColor: primaryColor,
-                            borderRadius: "4px",
-                            color: "#FFFFFF",
-                            fontSize: "13px",
-                            fontWeight: 700,
-                            letterSpacing: "2.5px",
-                            textTransform: "uppercase",
-                            boxShadow: `0 0 18px ${primaryColor}80`,
-                        }}
-                    >
-                        <span>{badgeTag || "BREAKING NEWS"}</span>
-                    </div>
-
+                {/* Category Pill Tag */}
+                <div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "12px" }}>
                     <div
                         style={{
                             display: "flex",
@@ -174,7 +159,7 @@ export function NewsOgTemplate4({
                             fontWeight: 700,
                             color: accentColor,
                             backgroundColor: "rgba(255, 255, 255, 0.08)",
-                            border: `1px solid ${accentColor}40`,
+                            border: `1px solid ${primaryColor}`,
                             padding: "6px 18px",
                             borderRadius: "4px",
                             letterSpacing: "2.5px",
@@ -185,7 +170,7 @@ export function NewsOgTemplate4({
                     </div>
                 </div>
 
-                {/* Title Headline */}
+                {/* Massive Headline */}
                 <div
                     style={{
                         display: "flex",
@@ -195,47 +180,47 @@ export function NewsOgTemplate4({
                         color: "#FFFFFF",
                         letterSpacing: "-0.5px",
                         fontStyle: titleItalic ? "italic" : "normal",
+                        textShadow: "0 2px 12px rgba(0,0,0,0.9)",
                     }}
                 >
                     {title}
                 </div>
 
-                {/* Snippet Lead */}
+                {/* Excerpt */}
                 {snippet && (
                     <div
                         style={{
                             display: "flex",
-                            fontSize: "20px",
+                            fontSize: "21px",
                             lineHeight: 1.5,
-                            color: "#CBD5E1",
-                            fontWeight: 500,
+                            color: "#F1F5F9",
+                            maxWidth: "830px",
+                            textShadow: "0 2px 10px rgba(0,0,0,0.9)",
                         }}
                     >
                         {snippet}
                     </div>
                 )}
+
+                {/* Footer Bar */}
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        paddingTop: "20px",
+                        borderTop: "1px solid rgba(255, 255, 255, 0.14)",
+                        fontSize: "13px",
+                        fontFamily: "'JetBrains Mono', monospace",
+                        color: "#94A3B8",
+                    }}
+                >
+                    <span style={{ color: "#E2E8F0", fontWeight: 700 }}>{timeAgo}</span>
+                    <span style={{ color: primaryColor, fontWeight: 800, letterSpacing: "1px" }}>{sourceDomain}</span>
+                </div>
             </div>
 
-            {/* 4. Bottom Footer (Absolute Positioning) */}
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    position: "absolute",
-                    bottom: "44px",
-                    left: "56px",
-                    width: "968px",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    fontSize: "13px",
-                    fontFamily: "'JetBrains Mono', monospace",
-                    color: "#94A3B8",
-                    textShadow: "0 2px 10px rgba(0,0,0,0.9)",
-                }}
-            >
-                <span style={{ color: "#E2E8F0", fontWeight: 700 }}>{timeAgo}</span>
-                <span style={{ color: primaryColor, fontWeight: 800, letterSpacing: "1px" }}>{sourceDomain}</span>
-            </div>
         </div>
     );
 }
