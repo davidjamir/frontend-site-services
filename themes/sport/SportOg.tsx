@@ -15,11 +15,13 @@ type Props = {
 };
 
 const SPORT_OG_TEMPLATE = [
-    SportOgTemplate1,
-    SportOgTemplate2,
-    SportOgTemplate3,
-    SportOgTemplate4,
-    SportOgTemplate5,
+    DefaultOgTemplate,
+
+    // SportOgTemplate1,
+    // SportOgTemplate2,
+    // SportOgTemplate3,
+    // SportOgTemplate4,
+    // SportOgTemplate5,
 ];
 
 export default function SportOg({ site, post, logo }: Props) {

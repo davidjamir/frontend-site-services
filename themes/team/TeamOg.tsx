@@ -8,7 +8,7 @@ type Props = {
     logo: string;
 };
 
-export default function SportOg({ site, post, logo }: Props) {
+export default function TeamOg({ site, post, logo }: Props) {
     const TemplateComponent = DefaultOgTemplate;
 
     return (

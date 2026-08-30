@@ -10,14 +10,14 @@ import NewsTheme from "@/themes/news/NewsTheme";
 // import SportTheme from "@/themes/sport/SportTheme";
 // import FootballTheme from "@/themes/football/FootballTheme";
 
-import NewsOG from "@/themes/news/NewsOg";
-import TeamOG from "@/themes/team/TeamOg";
-import MLBOG from "@/themes/mlb/MLBOg";
-import NBAOG from "@/themes/nba/NBAOg";
-import NFLOG from "@/themes/nfl/NFLOg";
-import NHLOG from "@/themes/nhl/NHLOg";
-import SportOG from "@/themes/sport/SportOg";
-import FootballOG from "@/themes/football/FootballOg";
+import NewsOg from "@/themes/news/NewsOg";
+import TeamOg from "@/themes/team/TeamOg";
+import MLBOg from "@/themes/mlb/MLBOg";
+import NBAOg from "@/themes/nba/NBAOg";
+import NFLOg from "@/themes/nfl/NFLOg";
+import NHLOg from "@/themes/nhl/NHLOg";
+import SportOg from "@/themes/sport/SportOg";
+import FootballOg from "@/themes/football/FootballOg";
 
 import {
   NewsContent,
@@ -104,14 +104,14 @@ export const THEMES_NETWORK = {
 };
 
 export const THEMES_OG = {
-  news: NewsOG,
-  team: TeamOG,
-  sport: TeamOG,
-  music: NewsOG,
-  movie: NewsOG,
-  nba: NBAOG,
-  nfl: NFLOG,
-  nhl: NHLOG,
-  mlb: MLBOG,
-  football: FootballOG,
+  news: NewsOg,
+  team: TeamOg,
+  sport: SportOg,
+  music: NewsOg,
+  movie: NewsOg,
+  nba: NBAOg,
+  nfl: NFLOg,
+  nhl: NHLOg,
+  mlb: MLBOg,
+  football: FootballOg,
 };
