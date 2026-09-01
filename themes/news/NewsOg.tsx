@@ -39,8 +39,8 @@ export default function NewsOg({ site, post, logo }: Props) {
 
     return (
         <TemplateComponent
-            teamName={site.entity || "NBA"}
-            siteName={site.name || "NBA"}
+            teamName={site.entity || "NEWS"}
+            siteName={site.name || "NEWS"}
             title={post.title}
             snippet={post.snippet}
             imageUrl={post.featuredImage}

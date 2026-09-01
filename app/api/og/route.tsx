@@ -8,21 +8,19 @@ import { SportOgTemplate4 } from "@/components/og/sport/SportOgTemplate4";
 import { SportOgTemplate5 } from "@/components/og/sport/SportOgTemplate5";
 
 const data = {
-    teamName: "AERO GLASS WIRE // WASHINGTON",
     siteName: "The Times",
-    title: "PRESIDENTIAL SPECIAL ADDRESS ON CRITICAL NATIONAL SECURITY DIRECTIVES",
-    snippet: "The Commander-in-Chief announces immediate executive measures regarding strategic naval corridors and federal defense readiness in a live broadcast.",
-    imageUrl: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80",
+    statusLabel: "OFFICIAL CONFIRMATION",
     logoUrl: "https://www.thetimenews.us/images/default.png",
+    teamName: "SCUDERIA FERRARI",
+    title: "HAMILTON OFFICIALLY SIGNS MULTI-YEAR CONTRACT WITH FERRARI",
+    snippet: "In the biggest transfer move in Formula 1 history, seven-time world champion Lewis Hamilton leaves Mercedes to join Ferrari.",
+    imageUrl: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80",
     titleItalic: true,
-    primaryColor: "#DC2626",
-    accentColor: "#FFFFFF",
+    primaryColor: "#E10600",
+    accentColor: "#f6f4f2",
     badgeTag: "BREAKING NEWS",
-    author: "Marcus Vance",
-    authorRole: "Chief White House Correspondent",
-    sourceDomain: "THE TIME NEWS",
-    statusLabel: "SPECIAL BROADCAST",
-    timeAgo: "WASHINGTON D.C. // LIVE SATELLITE",
+    sourceDomain: "FORMULA1.COM",
+    timeAgo: "JUST IN",
 };
 
 export async function GET() {

@@ -13,8 +13,8 @@ export default function TeamOg({ site, post, logo }: Props) {
 
     return (
         <TemplateComponent
-            teamName={site.entity || "NHL"}
-            siteName={site.name || "NHL"}
+            teamName={site.entity || "TEAM"}
+            siteName={site.name || "TEAM"}
             title={post.title}
             snippet={post.snippet}
             imageUrl={post.featuredImage}

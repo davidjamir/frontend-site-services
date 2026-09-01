@@ -18,6 +18,7 @@ import NFLOg from "@/themes/nfl/NFLOg";
 import NHLOg from "@/themes/nhl/NHLOg";
 import SportOg from "@/themes/sport/SportOg";
 import FootballOg from "@/themes/football/FootballOg";
+import RacingOg from "@/themes/racing/RacingOg";
 
 import {
   NewsContent,
@@ -49,6 +50,7 @@ export const THEMES_LAYOUT = {
   nhl: NewsTheme,
   mlb: NewsTheme,
   football: NewsTheme,
+  racing: NewsTheme,
 };
 
 export const THEMES_CONTENT = {
@@ -62,6 +64,7 @@ export const THEMES_CONTENT = {
   nhl: NewsContent,
   mlb: NewsContent,
   football: NewsContent,
+  racing: NewsContent,
 };
 
 export const THEMES_HOMEPAGE = {
@@ -75,6 +78,7 @@ export const THEMES_HOMEPAGE = {
   nhl: NewsHomePage,
   mlb: NewsHomePage,
   football: NewsHomePage,
+  racing: NewsHomePage,
 };
 
 export const THEMES_POSTPAGE = {
@@ -88,6 +92,7 @@ export const THEMES_POSTPAGE = {
   nhl: NewsPostPage,
   mlb: NewsPostPage,
   football: NewsPostPage,
+  racing: NewsPostPage,
 };
 
 export const THEMES_NETWORK = {
@@ -101,12 +106,13 @@ export const THEMES_NETWORK = {
   nhl: NewsNetworkItem,
   mlb: NewsNetworkItem,
   football: NewsNetworkItem,
+  racing: NewsNetworkItem,
 };
 
 export const THEMES_OG = {
   news: NewsOg,
   team: TeamOg,
-  sport: SportOg,
+  sport: NewsOg,
   music: NewsOg,
   movie: NewsOg,
   nba: NBAOg,
@@ -114,4 +120,5 @@ export const THEMES_OG = {
   nhl: NHLOg,
   mlb: MLBOg,
   football: FootballOg,
+  racing: RacingOg,
 };

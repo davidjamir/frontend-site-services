@@ -2,11 +2,11 @@ import { Post } from "@/core/domain/post";
 import { Site } from "@/core/domain/site";
 import { getSegmentNumber } from "@/helpers/getSegmentNumber";
 import { DefaultOgTemplate } from "@/components/og/DefaultOgTemplate";
-import { SportOgTemplate1 } from "@/components/og/sport/SportOgTemplate1";
-import { SportOgTemplate2 } from "@/components/og/sport/SportOgTemplate2";
-import { SportOgTemplate3 } from "@/components/og/sport/SportOgTemplate3";
-import { SportOgTemplate4 } from "@/components/og/sport/SportOgTemplate4";
-import { SportOgTemplate5 } from "@/components/og/sport/SportOgTemplate5";
+import { RacingOgTemplate1 } from "@/components/og/racing/RacingOgTemplate1";
+import { RacingOgTemplate2 } from "@/components/og/racing/RacingOgTemplate2";
+import { RacingOgTemplate3 } from "@/components/og/racing/RacingOgTemplate3";
+import { RacingOgTemplate4 } from "@/components/og/racing/RacingOgTemplate4";
+import { RacingOgTemplate5 } from "@/components/og/racing/RacingOgTemplate5";
 
 type Props = {
     site: Site;
@@ -14,25 +14,23 @@ type Props = {
     logo: string;
 };
 
-const SPORT_OG_TEMPLATE = [
-    DefaultOgTemplate,
-
-    // SportOgTemplate1,
-    // SportOgTemplate2,
-    // SportOgTemplate3,
-    // SportOgTemplate4,
-    // SportOgTemplate5,
+const RACING_OG_TEMPLATE = [
+    RacingOgTemplate1,
+    RacingOgTemplate2,
+    RacingOgTemplate3,
+    RacingOgTemplate4,
+    RacingOgTemplate5,
 ];
 
-export default function SportOg({ site, post, logo }: Props) {
+export default function RacingOg({ site, post, logo }: Props) {
     const segmentNumber = getSegmentNumber(post.segment);
     const TemplateComponent = site.config.customOpengraphImage ?
-        SPORT_OG_TEMPLATE[segmentNumber % SPORT_OG_TEMPLATE.length] : DefaultOgTemplate;
+        RACING_OG_TEMPLATE[segmentNumber % RACING_OG_TEMPLATE.length] : DefaultOgTemplate;
 
     return (
         <TemplateComponent
-            teamName={site.entity || "SPORT"}
-            siteName={site.name || "SPORT"}
+            teamName={site.entity || "RACING"}
+            siteName={site.name || "RACING"}
             title={post.title}
             snippet={post.snippet}
             imageUrl={post.featuredImage}
