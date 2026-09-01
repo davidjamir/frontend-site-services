@@ -13,7 +13,6 @@ export function NHLOgTemplate3({
     authorRole = "NHL.com Senior Writer",
     sourceDomain = "NHL.COM",
     statusLabel = "CLINCHED",
-    timeAgo = "POSTGAME",
 }: OgTemplate) {
     return (
         <div

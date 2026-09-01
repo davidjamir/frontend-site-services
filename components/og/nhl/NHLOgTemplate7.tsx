@@ -210,7 +210,7 @@ export function NHLOgTemplate7({
                         borderLeft: `8px solid ${primaryColor}`,
                     }}
                 >
-                    {badgeTag} // {statusLabel}
+                    {badgeTag} {"//"} {statusLabel}
                 </div>
 
                 <h1

@@ -1,11 +1,6 @@
 import { ImageResponse } from "next/og";
 import { getOgFonts } from "@/lib/og-fonts";
-
-import { SportOgTemplate1 } from "@/components/og/sport/SportOgTemplate1";
-import { SportOgTemplate2 } from "@/components/og/sport/SportOgTemplate2";
-import { SportOgTemplate3 } from "@/components/og/sport/SportOgTemplate3";
-import { SportOgTemplate4 } from "@/components/og/sport/SportOgTemplate4";
-import { SportOgTemplate5 } from "@/components/og/sport/SportOgTemplate5";
+import { NHLOgTemplate10 } from "@/components/og/nhl/NHLOgTemplate10";
 
 const data = {
     siteName: "The Times",
@@ -26,7 +21,7 @@ const data = {
 export async function GET() {
     const fonts = await getOgFonts();
 
-    return new ImageResponse(<SportOgTemplate1 {...data} />, {
+    return new ImageResponse(<NHLOgTemplate10 {...data} />, {
         width: 1080,
         height: 1350,
         fonts,

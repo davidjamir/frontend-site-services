@@ -108,7 +108,7 @@ export function NHLOgTemplate4({
                                 {teamName}
                             </span>
                             <span style={{ fontSize: "16px", fontWeight: 600, color: "#64748B", letterSpacing: "3px", textTransform: "uppercase", marginTop: "4px" }}>
-                                {badgeTag} // {timeAgo}
+                                {badgeTag} {"//"} {timeAgo}
                             </span>
                         </div>
                     </div>

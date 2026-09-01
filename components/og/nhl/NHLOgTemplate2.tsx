@@ -184,7 +184,7 @@ export function NHLOgTemplate2({
                                 marginBottom: "18px",
                             }}
                         >
-                            {badgeTag} // {timeAgo}
+                            {badgeTag} {"//"} {timeAgo}
                         </span>
                         <h1
                             style={{

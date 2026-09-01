@@ -112,7 +112,7 @@ export const THEMES_NETWORK = {
 export const THEMES_OG = {
   news: NewsOg,
   team: TeamOg,
-  sport: NewsOg,
+  sport: SportOg,
   music: NewsOg,
   movie: NewsOg,
   nba: NBAOg,

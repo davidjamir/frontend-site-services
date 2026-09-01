@@ -34,6 +34,7 @@ export function NFLOgTemplate1({
             {/* BACKGROUND IMAGE */}
             <img
                 src={imageUrl}
+                alt="Image background"
                 width="1080"
                 height="1350"
                 style={{
@@ -65,6 +66,7 @@ export function NFLOgTemplate1({
                 >
                     <img
                         src={logoUrl}
+                        alt="Team logo"
                         width="600"
                         height="600"
                         style={{ width: "600px", height: "600px", objectFit: "contain" }}

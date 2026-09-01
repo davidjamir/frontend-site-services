@@ -191,7 +191,7 @@ export function NHLOgTemplate9({
                                 textTransform: "uppercase",
                             }}
                         >
-                            {badgeTag} // {statusLabel}
+                            {badgeTag} {"//"} {statusLabel}
                         </span>
                     </div>
 

@@ -7,7 +7,6 @@ export function NBAOgTemplate8({
     imageUrl = "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
     logoUrl = "https://cdn.nba.com/logos/nba/1610612747/primary/L/logo.svg",
     titleItalic = true,
-    primaryColor = "#552583",
     accentColor = "#FDB927",
     badgeTag = "BREAKING NEWS",
     author = "Shams Charania",
