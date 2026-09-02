@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { getOgFonts } from "@/lib/og-fonts";
-import { NHLOgTemplate10 } from "@/components/og/nhl/NHLOgTemplate10";
+import { DefaultOgTemplate } from "@/components/og/DefaultOgTemplate";
 
 const data = {
     siteName: "The Times",
@@ -21,7 +21,7 @@ const data = {
 export async function GET() {
     const fonts = await getOgFonts();
 
-    return new ImageResponse(<NHLOgTemplate10 {...data} />, {
+    return new ImageResponse(<DefaultOgTemplate {...data} />, {
         width: 1080,
         height: 1350,
         fonts,
