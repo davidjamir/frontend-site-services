@@ -37,14 +37,10 @@ export type SiteAds = {
 };
 
 export type SiteVerification = {
-  google: string;
-  yandex: string;
-  yahoo: string;
-  other: {
-    me: string[];
-    monetag: string;
-    adsconex: string;
-  };
+  google?: string;
+  yandex?: string;
+  yahoo?: string;
+  other?: Record<string, string | string[]>;
 };
 export type ScriptAttributeItem = {
   key: string;

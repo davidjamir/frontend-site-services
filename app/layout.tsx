@@ -50,11 +50,7 @@ export async function generateMetadata(): Promise<Metadata> {
       google: site.verification?.google,
       yandex: site.verification?.yandex,
       yahoo: site.verification?.yahoo,
-      other: {
-        me: site.verification?.other.me,
-        monetag: site.verification?.other.monetag,
-        verification: site.verification?.other.adsconex,
-      },
+      other: site.verification?.other,
     },
     pinterest: {
       richPin: true,
