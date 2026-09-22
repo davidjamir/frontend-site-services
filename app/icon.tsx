@@ -22,7 +22,7 @@ export default async function Icon() {
             }}
         >
             <img
-                src={`${site.baseUrl}${site.icon}`}
+                src={site.icon}
                 alt={site.name}
                 width={size.width}
                 height={size.height}

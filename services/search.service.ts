@@ -1,3 +1,4 @@
+import { INTERNAL_SECRET } from "@/lib/env";
 import type { PostIndex } from "@/core/domain/post";
 
 export const searchService = {
@@ -6,7 +7,7 @@ export const searchService = {
 
     const response = await fetch(
       `${baseUrl}/api/search?${searchParams.toString()}`,
-      { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
+      { headers: { Authorization: `Bearer ${INTERNAL_SECRET}` } },
     );
 
     if (!response.ok) {

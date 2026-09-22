@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
-
-const ADAPTER_API_ENDPOINT = process.env.ADAPTER_API_ENDPOINT!;
-const ADAPTER_SECRET_TOKEN = process.env.ADAPTER_SECRET_TOKEN;
+import {
+  ADAPTER_API_ENDPOINT,
+  ADAPTER_SECRET_TOKEN,
+  INTERNAL_SECRET,
+} from "@/lib/env";
 
 const MAX_AGE = 0;
 const S_MAX_AGE = 60 * 60 * 24 * 7; // 7 days
@@ -10,7 +12,7 @@ const STALE_IF_ERROR = 60 * 60 * 24 * 30; // 30 days
 
 export async function GET(request: Request) {
   const auth = request.headers.get("authorization");
-  if (auth !== `Bearer ${process.env.INTERNAL_SECRET}`) {
+  if (auth !== `Bearer ${INTERNAL_SECRET}`) {
     return NextResponse.json({ ok: false }, { status: 403 });
   }
 

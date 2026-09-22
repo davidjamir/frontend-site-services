@@ -1,7 +1,7 @@
 import type { Site } from "@/core/domain/site";
 import { cacheLife } from "next/cache";
 import { headers } from "next/headers";
-import { isDevelopment } from "@/lib/env";
+import { isDevelopment, INTERNAL_SECRET } from "@/lib/env";
 import { ORIGIN_CONFIG_DEVELOPMENT_DEFAULT } from "@/constants";
 
 /** Bỏ label đầu của host (vd. `www.a.com` → `a.com`). Giữ nguyên nếu không còn dấu chấm (vd. `example.com`). */
@@ -18,7 +18,7 @@ async function fetchSite(baseUrl: string) {
   cacheLife("days");
 
   const response = await fetch(`${baseUrl}/api/site`, {
-    headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` },
+    headers: { Authorization: `Bearer ${INTERNAL_SECRET}` },
   });
 
   if (!response.ok) {

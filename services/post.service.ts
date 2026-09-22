@@ -1,6 +1,7 @@
-import type { Post, PostIndex } from "@/core/domain/post";
 import { cacheLife } from "next/cache";
+import { INTERNAL_SECRET } from "@/lib/env";
 import { NUMBER_POSTS_LATEST } from "@/constants";
+import type { Post, PostIndex } from "@/core/domain/post";
 
 export const postService = {
   async getPostData(baseUrl: string, segment: string, slug: string) {
@@ -11,7 +12,7 @@ export const postService = {
 
     const response = await fetch(
       `${baseUrl}/api/post?${searchParams.toString()}`,
-      { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
+      { headers: { Authorization: `Bearer ${INTERNAL_SECRET}` } },
     );
 
     if (!response.ok) {
@@ -32,7 +33,7 @@ export const postService = {
 
     const response = await fetch(
       `${baseUrl}/api/category?${searchParams.toString()}`,
-      { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
+      { headers: { Authorization: `Bearer ${INTERNAL_SECRET}` } },
     );
     if (!response.ok) {
       throw new Error("Failed to get post by category");
@@ -49,7 +50,7 @@ export const postService = {
 
     const response = await fetch(
       `${baseUrl}/api/tag?${searchParams.toString()}`,
-      { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
+      { headers: { Authorization: `Bearer ${INTERNAL_SECRET}` } },
     );
     if (!response.ok) {
       throw new Error("Failed to get post by tag");
@@ -63,7 +64,7 @@ export const postService = {
     cacheLife("hours");
 
     const response = await fetch(`${baseUrl}/api/latest`, {
-      headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` },
+      headers: { Authorization: `Bearer ${INTERNAL_SECRET}` },
     });
     if (!response.ok) {
       throw new Error("Failed to get post latest");
@@ -96,7 +97,7 @@ export const postService = {
 
     const response = await fetch(
       `${baseUrl}/api/related?${searchParams.toString()}`,
-      { headers: { Authorization: `Bearer ${process.env.INTERNAL_SECRET}` } },
+      { headers: { Authorization: `Bearer ${INTERNAL_SECRET}` } },
     );
     if (!response.ok) {
       throw new Error("Failed to get post related");
