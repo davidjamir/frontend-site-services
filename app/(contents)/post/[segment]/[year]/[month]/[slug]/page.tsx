@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             description: post.snippet,
             images: [
                 {
-                    url: `/post/${segment}/${year}/${month}/${slug}/opengraph-image`,
+                    url: post.featuredImage,
                     width: 1080,
                     height: 1350,
                     alt: post.title,
