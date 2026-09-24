@@ -38,7 +38,7 @@ export default function NewsHeader({ site }: Props) {
 
       {/* RIGHT */}
       <div className=" hidden lg:flex flex-1 justify-end min-w-0">
-        <SearchForm />
+        <SearchForm textColor={site.config.colorTextHeader} />
       </div>
 
       {/* MENU MOBILE */}

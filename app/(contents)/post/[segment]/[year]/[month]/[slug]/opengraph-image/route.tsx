@@ -28,10 +28,9 @@ export async function GET(_: Request, { params }: Props) {
     `${year}/${month}/${slug}`,
   );
   const ThemeOg = THEMES_OG[site.theme as keyof typeof THEMES_OG];
-  const cleanPath = site.config.symbolOg.startsWith("/") ? site.config.symbolOg.slice(1) : site.config.symbolOg;
 
   return new ImageResponse(
-    <ThemeOg post={post} site={site} logo={`${site.baseUrl}/${cleanPath}`} />,
+    <ThemeOg post={post} site={site} logo={site.config.symbolOg} />,
     {
       ...size,
       fonts,

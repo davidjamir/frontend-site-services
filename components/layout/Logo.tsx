@@ -30,6 +30,8 @@ export default function Logo({ logo, wordmark, size }: Props) {
                     alt="Logo"
                     width={200}
                     height={200}
+                    loading="eager"
+                    fetchPriority="high"
                     className="max-w-full max-h-full shrink-0 object-contain"
                 />
             </div>
@@ -41,6 +43,8 @@ export default function Logo({ logo, wordmark, size }: Props) {
                     alt="Wordmark"
                     width={1000}
                     height={300}
+                    loading="eager"
+                    fetchPriority="high"
                     className={`${wordmarkSizes[size]} w-auto object-contain `}
                 />
             )}

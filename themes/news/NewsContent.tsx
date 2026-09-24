@@ -334,6 +334,8 @@ export function NewsNetworkSiteCard({ site }: { site: SiteNetworkItem }) {
                 <Image
                     src={site.logo}
                     alt={site.name}
+                    loading="eager"
+                    fetchPriority="high"
                     fill
                     className="object-contain"
                 />

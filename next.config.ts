@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   images: {
     minimumCacheTTL: 60 * 60 * 24 * 365, // 1 năm
-    unoptimized: true,
+    unoptimized: false,
     remotePatterns: [
       {
         protocol: "https",
