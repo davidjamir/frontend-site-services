@@ -11,7 +11,6 @@ import { useSite } from "@/hooks/use-site";
 import AdBlock from "@/components/layout/AdBlock";
 import BreadcrumbHeader from "@/components/layout/BreadcrumbHeader";
 import TagBlock from "@/components/layout/TagBlock";
-import { isProduction } from "@/lib/env";
 import { NetworkItem, SiteNetworkItem } from "@/core/domain/site";
 
 export function NewsPostList({ posts }: { posts: PostIndex[] }) {
@@ -221,9 +220,11 @@ export function NewsContent({
 export function NewsPostPage({
     post,
     related,
+    isProduction
 }: {
     post: Post;
     related: PostIndex[];
+    isProduction: boolean;
 }) {
     const { site } = useSite();
 

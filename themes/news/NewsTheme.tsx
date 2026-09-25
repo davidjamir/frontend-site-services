@@ -4,9 +4,8 @@ import NewHeader from "./NewsHeader";
 import NewsFooter from "./NewsFooter";
 import { Separator } from "@/components/ui/separator";
 import AdBlock from "@/components/layout/AdBlock";
-import { isProduction } from "@/lib/env";
 
-export default function NewsTheme({ children }: { children: React.ReactNode }) {
+export default function NewsTheme({ children, isProduction }: { children: React.ReactNode, isProduction: boolean }) {
     const { site } = useSite();
 
     return (

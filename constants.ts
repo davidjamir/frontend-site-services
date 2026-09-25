@@ -29,15 +29,15 @@ import { NewsHomePage } from "@/themes/news/NewsHomepage";
 
 export const NUMBER_POSTS_LATEST = 15;
 
-const DOMAIN = "warriors.nbahub.store";
-
-export const ORIGIN_CONFIG_DEVELOPMENT_DEFAULT = {
-  host: DOMAIN,
+export const ORIGIN_CONFIG_DEVELOPMENT_DEFAULT = (
+  domain = "warriors.nbahub.store",
+) => ({
+  host: domain,
   protocol: "https",
-  url: `https://${DOMAIN}`,
-  origin: getOrigin(DOMAIN),
-  originUrl: `https://${getOrigin(DOMAIN)}`,
-};
+  url: `https://${domain}`,
+  origin: getOrigin(domain),
+  originUrl: `https://${getOrigin(domain)}`,
+});
 
 export const THEMES_LAYOUT = {
   news: NewsTheme,

@@ -1,57 +1,44 @@
-import type { Site } from "@/core/domain/site";
-import { cacheLife } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { headers } from "next/headers";
-import { isDevelopment, INTERNAL_SECRET } from "@/lib/env";
+import { isProduction, INTERNAL_SECRET } from "@/lib/env";
+import type { Site } from "@/core/domain/site";
 import { ORIGIN_CONFIG_DEVELOPMENT_DEFAULT } from "@/constants";
-
-/** Bỏ label đầu của host (vd. `www.a.com` → `a.com`). Giữ nguyên nếu không còn dấu chấm (vd. `example.com`). */
-function hostWithoutFirstLabel(host: string): string {
-  const i = host.indexOf(".");
-  if (i === -1) return host;
-  const rest = host.slice(i + 1);
-  if (!rest.includes(".")) return host;
-  return rest;
-}
 
 async function fetchSite(baseUrl: string) {
   "use cache";
   cacheLife("days");
+  cacheTag(`site-config:${baseUrl}`);
+  try {
+    const response = await fetch(`${baseUrl}/api/site`, {
+      headers: { Authorization: `Bearer ${INTERNAL_SECRET}` },
+    });
 
-  const response = await fetch(`${baseUrl}/api/site`, {
-    headers: { Authorization: `Bearer ${INTERNAL_SECRET}` },
-  });
+    if (!response.ok) {
+      throw new Error("Failed to get current site");
+    }
 
-  if (!response.ok) {
-    throw new Error("Failed to get current site");
+    return response.json() as Promise<Site>;
+  } catch (error) {
+    console.error("[fetchSite] ERROR:", error);
+    throw error;
   }
-
-  return response.json() as Promise<Site>;
 }
 
 export const siteService = {
   async getRequestOrigin() {
     const headersList = await headers();
     const host = headersList.get("x-forwarded-host") ?? headersList.get("host");
-    const protocol = headersList.get("x-forwarded-proto") ?? "http";
 
     if (!host) {
       throw new Error("Missing host");
     }
 
-    const origin = hostWithoutFirstLabel(host);
-
     // Checking environment app
-    if (isDevelopment) {
-      return ORIGIN_CONFIG_DEVELOPMENT_DEFAULT;
+    if (!isProduction || host.startsWith("localhost")) {
+      return ORIGIN_CONFIG_DEVELOPMENT_DEFAULT();
     }
 
-    return {
-      host,
-      protocol,
-      url: `${protocol}://${host}`,
-      origin,
-      originUrl: `${protocol}://${origin}`,
-    };
+    return ORIGIN_CONFIG_DEVELOPMENT_DEFAULT(host);
   },
 
   async getHost() {

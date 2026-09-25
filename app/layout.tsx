@@ -40,6 +40,10 @@ export async function generateMetadata(): Promise<Metadata> {
         "application/rss+xml": "/feed",
       },
     },
+    icons: {
+      icon: { url: site.icon, type: "image/png", sizes: "32x32" },
+      apple: { url: site.icon, type: "image/png", sizes: "180x180" },
+    },
     robots: {
       index: true,
       follow: true,
@@ -96,7 +100,7 @@ async function SiteBoundary({
             );
           })}
       <ThemeProvider site={site}>
-        <ThemeLayout>{children}</ThemeLayout>
+        <ThemeLayout isProduction={isProduction}>{children}</ThemeLayout>
       </ThemeProvider>
     </>
   );

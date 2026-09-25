@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { isProduction } from "@/lib/env";
 import { postService } from "@/services/post.service";
 import { siteService } from "@/services/site.service";
 import { notFound } from "next/navigation";
@@ -100,6 +101,6 @@ export default async function Page({ params }: Props) {
     const ThemePostPage =
         THEMES_POSTPAGE[site.theme as keyof typeof THEMES_POSTPAGE];
     return (
-        <ThemePostPage post={post} related={related} />
+        <ThemePostPage post={post} related={related} isProduction={isProduction} />
     )
 }
