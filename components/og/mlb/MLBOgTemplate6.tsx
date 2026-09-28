@@ -118,7 +118,6 @@ export function MLBOgTemplate6({
             <div
                 style={{
                     position: "relative",
-                    zIndex: 10,
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
@@ -180,7 +179,6 @@ export function MLBOgTemplate6({
             <div
                 style={{
                     position: "relative",
-                    zIndex: 10,
                     margin: "0 44px 44px 44px",
                     backgroundColor: "rgba(255, 255, 255, 0.76)",
                     backdropFilter: "blur(28px) saturate(180%)",
